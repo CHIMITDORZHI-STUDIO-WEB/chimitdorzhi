@@ -213,6 +213,11 @@ const MAP = {
   'vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026': ['doc', 'services'],
   'lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026': ['ai', 'it'],
   'promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026': ['game', 'culture'],
+  'prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026': ['platform', 'services'],
+  'nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026': ['doc', 'it'],
+  'konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026': ['platform', 'services'],
+  'zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026': ['platform', 'it'],
+  'ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026': ['ai', 'it'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };

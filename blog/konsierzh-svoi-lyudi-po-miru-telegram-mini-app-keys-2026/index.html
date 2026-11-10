@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кейс: консьерж для жизни за границей в Telegram</title>
+    <meta name="description" content="Бот, закрытый канал, мини-приложение и админка: каталог сообществ по странам, заявки на визы и переезд, баллы за друзей. Рабочее демо, запуска на людей не было.">
+    <meta name="keywords" content="кейс, Telegram, мини-приложение, закрытый канал, админка, сообщества">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/">
+    <meta property="og:title" content="Кейс: консьерж для жизни за границей в Telegram">
+    <meta property="og:description" content="Бот, закрытый канал, мини-приложение и админка: каталог сообществ по странам, заявки на визы и переезд, баллы за друзей. Рабочее демо, запуска на людей не было.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Кейс: консьерж для жизни за границей в Telegram">
+    <meta name="twitter:description" content="Бот, закрытый канал, мини-приложение и админка: каталог сообществ по странам, заявки на визы и переезд, баллы за друзей. Рабочее демо, запуска на людей не было.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение",
+  "description": "Бот, закрытый канал, мини-приложение и админка: каталог сообществ по странам, заявки на визы и переезд, баллы за друзей. Рабочее демо, запуска на людей не было.",
+  "image": "https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/"
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "keywords": "кейс, Telegram, мини-приложение, закрытый канал, админка, сообщества",
+  "articleSection": "Кейсы",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение",
+      "item": "https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Это работающий продукт с аудиторией?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Пока нет. Это рабочее демо: всё запускается и проверено тестами и замерами, но людей в канале нет, а каталог ждёт первых сообществ."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Почему доступ к контенту по номеру и подписке?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Подписка отсекает случайных посетителей, номер нужен, чтобы партнёр могла связаться по заявке и чтобы баллы за друга начислялись только за настоящих людей. Контакт человек отдаёт сам, нажатием кнопки в Telegram."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сможет ли партнёр менять всё сама?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, в админке есть направления, страны, сообщества, события, рассылки, баннеры, настройки разделов и журнал действий. Изменения не требуют выкладки кода."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/mwrlife/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">MWR Life</span>
+                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/mwrlife/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">MWR Life</span>
+                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/cases/"><i class="ph ph-bookmark" aria-hidden="true"></i> Кейсы</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин чтения</span>
+                        <time datetime="2026-11-10"><i class="ph ph-calendar" aria-hidden="true"></i> 10 ноября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение</h1>
+
+                    <p class="blog-lead">Совместный продукт с партнёром: консьерж для тех, кто живёт или переезжает за границу. Бот выдаёт доступ в закрытый канал, мини-приложение показывает направления и каталог сообществ по странам, админка управляет всем без программиста. Работает как демо, на живых людей продукт ещё не запускали.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>кейс</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>мини-приложение</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>закрытый канал</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>админка</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сообщества</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Это совместный продукт с партнёром: консьерж для тех, кто живёт за границей или собирается переехать. Бот, закрытый канал, мини-приложение и админка, в которой партнёр управляет всем сама.</li>
+<li>Главная идея: каталог сообществ по странам. Человек выбирает страну и видит чаты, каналы и боты земляков с фильтром по языку и типу. Сообщества добавляет партнёр или предлагают сами люди, но видны они только после одобрения.</li>
+<li>Проверки 08.11.2026: 54 проверки логики, ноль нарушений axe-core на всех экранах в светлой и тёмной теме, живой путь через боевой API 11 из 11.</li>
+<li>Статус честный: рабочее демо. Канал пуст, каталог на боевом сервере без сообществ, на людей продукт не запускали, мини-приложение на живом телефоне внутри Telegram я не открывал.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Нужно мини-приложение для вашего бизнеса?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%BE%D0%BD%D1%81%D1%8C%D0%B5%D1%80%D0%B6%20%C2%AB%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B8%20%D0%BF%D0%BE%20%D0%BC%D0%B8%D1%80%D1%83%C2%BB%3A%20%D0%B1%D0%BE%D1%82%2C%20%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%B9%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/development/telegram-bots/">Обсудить бота <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Люди, которые уехали или едут жить в другую страну, находят друг друга случайно: чей-то чат, чья-то ссылка, совет из третьих рук. Идея продукта простая: собрать «своих людей» по странам в одном месте и вокруг них поставить сервисы, с которыми обычно приходят в такие сообщества: визы, переезд, туры, знакомства. Я взял на себя техническую часть.</p>
+
+<h2 id="zadacha">Задача</h2>
+<p>Партнёр знает аудиторию и умеет договариваться с администраторами сообществ. Программировать она не будет, поэтому всё содержимое должно меняться без разработчика: направления, страны, сообщества, события, рассылки, тексты. При этом контент закрыт: в приложение пускают тех, кто подписан на канал и оставил номер телефона.</p>
+<p>Условия, которые я поставил себе:</p>
+<ul>
+<li>вход без паролей: через Telegram, на сайте через подтверждение в боте;</li>
+<li>админка тоже без пароля, чтобы нечего было терять и подбирать;</li>
+<li>на старте приложение не выглядит пустым: лучше показать четыре честных раздела, чем двадцать заглушек;</li>
+<li>ни одного выдуманного человека, чата или цены. Если данных нет, в интерфейсе так и написано.</li>
+</ul>
+
+<h2 id="reshenie">Что я сделал</h2>
+<p>Серверная часть написана на Python: FastAPI, SQLite и отдельный процесс бота, который опрашивает Telegram и разбирает очередь рассылок. Мини-приложение собрано на TypeScript и Vite. Работает всё за обратным прокси, копия базы снимается по расписанию. Секреты лежат только в конфигурации на сервере, в репозитории токенов нет.</p>
+
+<p><b>Вход.</b> Внутри Telegram мини-приложение проверяет подпись данных, которые передаёт сам Telegram. На сайте человек нажимает кнопку, бот получает короткий код и просит подтвердить вход. Админ вводит в боте команду, и бот присылает одноразовую ссылку на 10 минут. Паролей нет нигде. Похожий выбор между ботом и мини-приложением я разбирал в статье <a href="/blog/interfeys-v-chate-vmesto-mini-app-keys-2026/">про интерфейс прямо в чате</a>.</p>
+
+<p><b>Закрытый канал.</b> Бот состоит в канале администратором и сам выпускает пригласительную ссылку. Контент открывается, когда выполнены два условия: человек состоит в канале и поделился номером. Подписку бот проверяет запросом к Telegram, а не доверяет кнопке «я подписался». Как связать канал с заявками, я писал в материале <a href="/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/">про кнопку под постом</a>.</p>
+
+<p><b>Каталог сообществ.</b> Это та часть, ради которой продукт задуман. Вкладка «Свои»: список стран со счётчиком сообществ, внутри страны чаты, каналы и боты с фильтром по языку и по типу, внутри ещё группировка по городам. Партнёр добавляет сообщество в админке, и оно сразу видно. Любой человек может предложить своё: такая запись получает статус «ждёт», админам уходит уведомление, а в каталоге она появляется только после одобрения. Переходы в сообщества считаются, потому что при переговорах с администратором важно сказать, сколько людей пришло.</p>
+<p>В карточке есть две кнопки для партнёра. Первая подтягивает число участников открытого сообщества. Вторая публикует в канале анонс с кнопкой, которая ведёт в бота по ссылке вида «старт с кодом страны», а бот отвечает кнопкой «Открыть сообщества страны». Здесь пришлось обойти одну особенность: Telegram кладёт данные запуска в часть адреса после решётки, поэтому параметр страны передаю обычным параметром адреса, иначе он теряется.</p>
+
+<p><b>Заявки и рассылки.</b> Направления услуг (визы, переезд и резидентство, авторские туры, знакомства) принимают заявки, у каждой заявки журнал статусов. Рассылки идут через очередь, которую разбирает процесс бота, а пробную рассылку я прогнал на тестовых получателях.</p>
+
+<p><b>Баллы.</b> Человек получает баллы за приглашённого друга, но только когда друг уже в канале и оставил номер. Это защищает от накрутки пустыми аккаунтами. Подарки за баллы заведены как заглушки с условными ценами, а вывода баллов деньгами в продукте нет. Идею приглашения друзей я описывал отдельно: <a href="/blog/referalnaya-igra-privedi-druga-2026/">реферальная игра «приведи друга»</a>.</p>
+
+<aside class="blog-inline-tg" aria-label="Обсудить задачу">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Нужно мини-приложение для вашего бизнеса?</p>
+    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%BE%D0%BD%D1%81%D1%8C%D0%B5%D1%80%D0%B6%20%C2%AB%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B8%20%D0%BF%D0%BE%20%D0%BC%D0%B8%D1%80%D1%83%C2%BB%3A%20%D0%B1%D0%BE%D1%82%2C%20%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%B9%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+  </div>
+</aside>
+<h2 id="slozhnosti">Что было сложно</h2>
+<p><b>Лимит ботов на аккаунт.</b> Продукт сначала назывался иначе. Когда мы сменили название, оказалось, что бот привязан к старому имени, а у аккаунта исчерпан лимит в 40 ботов, свободных мест нет. Пришлось удалить старого бота и завести нового. Урок на будущее: перед тем как заводить бота, решить название, а лишние боты чистить заранее.</p>
+<p><b>Пустой интерфейс.</b> В приложении заведено 17 направлений из переписки и 19 стран без гайдов, один тур. Если выставить всё сразу, выглядит как витрина с пустыми полками. Я добавил галочку «Показывать» на каждое направление и на каждый раздел. На старте включены четыре направления и три вкладки (главная, заявки, профиль), остальные тринадцать спрятаны и включаются в админке за секунду. Направление, ссылающееся на выключенный раздел, скрывается само, а открытая вручную ссылка на выключенный раздел ведёт на главную.</p>
+<p><b>Стекло и читаемость.</b> Оформление построено на эффекте жидкого стекла: карточки, поиск, плавающая панель вкладок. Красиво, но на стекле легко потерять контраст. Блик стекла сначала рисовался поверх текста, и я исправил слои. Контраст текста я не оценивал на глаз: скрипт прячет надпись, снимает экран и берёт худший по яркости фон в середине надписи. Рамка целиком даёт ложные результаты из-за скруглённых углов, поэтому замер идёт именно по середине. Метки в тёмной теме получили отдельные цвета.</p>
+<p><b>Мелочи платформы.</b> Кнопка «Назад» вне Telegram показывала лишнее, бот отвечал только на известные команды (теперь отвечает на любую), а скрипты проверки с сервера нужно запускать от пользователя службы, иначе файлы базы становятся принадлежащими администратору и служба перестаёт их писать.</p>
+
+<h2 id="rezultat">Что получилось</h2>
+<div class="blog-table"><table>
+<tr><th>Что</th><th>Состояние</th></tr>
+<tr><td>Бот, канал, мини-приложение, сайт</td><td>развёрнуты на сервере, адрес временный, домен не куплен</td></tr>
+<tr><td>Логика</td><td>54 проверки пройдены 08.11.2026</td></tr>
+<tr><td>Доступность</td><td>axe-core: 0 нарушений на всех экранах, светлая и тёмная тема</td></tr>
+<tr><td>Живой путь через боевой API</td><td>11 из 11</td></tr>
+<tr><td>Рассылка</td><td>пробная прошла</td></tr>
+<tr><td>Контент</td><td>17 направлений, 19 стран без гайдов, один тур, сообществ на боевом сервере пока 0</td></tr>
+<tr><td>Канал</td><td>пуст, первый пост и текст приветствия партнёром не согласованы</td></tr>
+<tr><td>Запуск на людей</td><td>не было</td></tr>
+</table></div>
+<p>Не проверено: открытие мини-приложения на живом телефоне внутри Telegram и запрос контакта кнопкой на настоящем устройстве. Для этого нужно принять условия Telegram от имени владельца, и я оставил это ему. Тестовые сообщества в каталоге были только на моём компьютере, на боевом сервере их нет.</p>
+
+<h2 id="chto-dalshe">Что дальше</h2>
+<p>Сначала наполнить каталог: партнёр договаривается с администраторами и добавляет первые сообщества, без этого вкладка «Свои» пуста. Потом согласовать приветствие и первый пост в канале. Название продукта и домен тоже ещё не согласованы окончательно, поэтому публиковать адрес рано.</p>
+<p>Перед запуском на людей остаются два вопроса, которые решает не код. Первый: денежные операции и любой вывод баллов в деньги требуют юридической проработки, поэтому в продукте их нет. Второй: телефоны граждан России нельзя просто складывать на сервер за границей, надо выбрать площадку и оформить согласия, об этом я писал в статье <a href="/blog/152-fz-dlya-chat-botov-i-messendzherov-2026/">про 152-ФЗ для чат-ботов</a>. MAX в продукте отложен, но поле для идентификатора в базе уже есть.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Это работающий продукт с аудиторией?</h3>
+<p>Пока нет. Это рабочее демо: всё запускается и проверено тестами и замерами, но людей в канале нет, а каталог ждёт первых сообществ.</p>
+<h3>Почему доступ к контенту по номеру и подписке?</h3>
+<p>Подписка отсекает случайных посетителей, номер нужен, чтобы партнёр могла связаться по заявке и чтобы баллы за друга начислялись только за настоящих людей. Контакт человек отдаёт сам, нажатием кнопки в Telegram.</p>
+<h3>Сможет ли партнёр менять всё сама?</h3>
+<p>Да, в админке есть направления, страны, сообщества, события, рассылки, баннеры, настройки разделов и журнал действий. Изменения не требуют выкладки кода.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Для такого продукта важнее не количество экранов, а то, что приложение не выглядит пустым и что партнёр может менять его без программиста. Галочки видимости, модерация предложений и вход без паролей закрывают это малым кодом. Проверенное и непроверенное я разделил честно: логика, доступность и боевой API прошли, живой телефон и первые люди ещё впереди.</p>
+<p>Если вам нужен бот с закрытым каналом, мини-приложение и админка, которой управляет не программист, <a href="/development/telegram-bots/">я соберу такой бот</a> под вашу аудиторию. Напишите в Telegram, MAX или VK.</p>
+
+                    </div>
+                    
+                    <aside class="nsok-case" aria-label="Подтверждённые компетенции">
+                        <p class="nsok-case-title"><i class="ph-fill ph-seal-check" aria-hidden="true"></i>Технологии проекта: компетенции подтверждены в Национальной системе оценки ИТ-компетенций</p>
+                        <ul class="nsok-chips"><li><a class="nsok-chip" href="/about/#kvalifikaciya"><span class="nsok-bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="nsok-chip-name">API</span></a></li><li><a class="nsok-chip" href="/about/#kvalifikaciya"><span class="nsok-bars" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="nsok-chip-name">JavaScript</span></a></li></ul>
+                    </aside>
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Что я делаю для бизнеса</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-robot"></i> <span>Боты в Telegram, MAX, VK</span></li><li><i class="ph-fill ph-gear"></i> <span>Автоматизация процессов и CRM</span></li><li><i class="ph-fill ph-chart-bar"></i> <span>Аналитика и дашборды</span></li><li><i class="ph-fill ph-globe"></i> <span>Сайты и лендинги под ключ</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%BE%D0%BD%D1%81%D1%8C%D0%B5%D1%80%D0%B6%20%C2%AB%D1%81%D0%B2%D0%BE%D0%B8%20%D0%BB%D1%8E%D0%B4%D0%B8%20%D0%BF%D0%BE%20%D0%BC%D0%B8%D1%80%D1%83%C2%BB%3A%20%D0%B1%D0%BE%D1%82%2C%20%D0%B7%D0%B0%D0%BA%D1%80%D1%8B%D1%82%D1%8B%D0%B9%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Обсудить бота</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/interfeys-v-chate-vmesto-mini-app-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chat-centered-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Интерфейс прямо в чате: когда мини-приложение больше не нужно</h3>
+  <p>Собрал двух ботов на одном примере: старый формат и новый. Показываю, какой слой работ уходит из сметы, если вёрстка сообщения больше не требует сайта с доменом и сертификатом.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/telegram-kanal-zayavki-knopka-pod-postom-bot-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-cursor-click"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Как получать заявки из Telegram-канала: кнопка под постом и бот</h3>
+  <p>Подписчики есть, а заявок мало. Разбираю механику: кнопка под постом с меткой, бот с двумя-тремя вопросами, кодовые слова, закреп и учёт переходов и заявок по каждому посту. Плюс согласие по 152-ФЗ и то же самое в MAX.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 10 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/referalnaya-igra-privedi-druga-2026/" data-category="igry-dlya-biznesa" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-users"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Игры для бизнеса</span>
+  <h3>Реферальная игра «приведи друга»: чем она отличается от обычной реферальной программы</h3>
+  <p>Большинство программ «приведи друга» почти не работают. Показываю, почему, и как игровая механика с выгодой для обоих это меняет.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 15 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/magazin-v-telegram-mini-app-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-telegram-logo"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Магазин в Telegram (Mini App): запуск продаж без сайта</h3>
+  <p>Telegram Mini App — это магазин-витрина прямо в мессенджере: каталог, корзина, оплата, уведомления. Разбираю, кому подходит запуск без сайта, его плюсы и ограничения.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 10 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#zadacha"><span class="blog-toc-num">01</span> Задача</a></li>
+<li><a href="#reshenie"><span class="blog-toc-num">02</span> Что я сделал</a></li>
+<li><a href="#slozhnosti"><span class="blog-toc-num">03</span> Что было сложно</a></li>
+<li><a href="#rezultat"><span class="blog-toc-num">04</span> Что получилось</a></li>
+<li><a href="#chto-dalshe"><span class="blog-toc-num">05</span> Что дальше</a></li>
+<li><a href="#faq"><span class="blog-toc-num">06</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">07</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

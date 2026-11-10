@@ -80,6 +80,11 @@ module.exports = [
   require('./_case-vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026.js').flagship,
   require('./_case-lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026.js').flagship,
   require('./_case-promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026.js').flagship,
+  require('./_case-prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026.js').flagship,
+  require('./_case-nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026.js').flagship,
+  require('./_case-konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026.js').flagship,
+  require('./_case-zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026.js').flagship,
+  require('./_case-ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026.js').flagship,
   {
     name: 'Сайт логистической компании с калькулятором растаможки',
     slug: 'sayt-logistiki-kalkulyator-rastamozhki-keys-2026',
