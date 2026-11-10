@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2774**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2779**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2055,6 +2055,11 @@
 
 ## Разработка
 
+- [HTML-виджеты в сообщении бота Telegram: что влезает в 4 КБ](./telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026/)
+- [Bytebase: кто меняет базу, кто что видит и что платное](./bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026/)
+- [PageIndex: ИИ-поиск по договорам без векторной базы, проверка](./pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026/)
+- [vps-audit: что проверяет скрипт для VPS и чего не видит](./vps-audit-skript-proverki-bezopasnosti-vps-chto-proveryaet-i-chego-ne-vidit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vps-audit-skript-proverki-bezopasnosti-vps-chto-proveryaet-i-chego-ne-vidit-2026/)
+- [taskt: бесплатный RPA для 1С и офиса, что в нём ломается](./taskt-besplatnyj-rpa-dlya-rutiny-v-1s-i-ofisnyh-programmah-chto-ne-lomaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taskt-besplatnyj-rpa-dlya-rutiny-v-1s-i-ofisnyh-programmah-chto-ne-lomaetsya-2026/)
 - [one-api: свой шлюз к ИИ-моделям, ключи, лимиты и журнал расходов](./one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026/)
 - [Mercury: ИИ-агент в Telegram с правилами и лимитом расходов](./mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026/)
 - [Тестовая база без живых клиентов: Mimesis вместо выгрузки](./mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026/)
