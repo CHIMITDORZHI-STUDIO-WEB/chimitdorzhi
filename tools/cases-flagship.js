@@ -4,7 +4,6 @@
 // en / es — переводы полей task/solution/result (RU — база/фолбэк).
 module.exports = [
   // Конец октября 2026: запуски, рабочие демо и сданные работы.
-  require('./_case-pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.js').flagship,
   require('./_case-uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.js').flagship,
   require('./_case-minio-dlya-servera-vzaimodeystviya-1c-keys-2026.js').flagship,
   require('./_case-nyutag-simulyator-zhizni-sela-keys-2026.js').flagship,
