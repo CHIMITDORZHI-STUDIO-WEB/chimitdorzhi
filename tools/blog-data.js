@@ -11160,4 +11160,7 @@ const ALL_ARTICLES = [
   }
 })();
 
+// --- Снятие кластера MWR Life (16.11.2026), см. mwr-cleanup-2026-11.js ----
+require('./mwr-cleanup-2026-11.js').apply(ALL_ARTICLES);
+
 module.exports = ALL_ARTICLES;
