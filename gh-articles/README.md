@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2783**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2758**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -157,6 +157,12 @@
 
 ## cases
 
+- [Свой GPS-сервер для автопарка из 50 машин: предложение](./svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026/)
+- [Система для банного комплекса: бронь, единое окно, задачи](./banny-kompleks-edinoe-okno-bronirovanie-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banny-kompleks-edinoe-okno-bronirovanie-predlozhenie-keys-2026/)
+- [Клуб путешествий по подписке в Telegram: предложение](./klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026/)
+- [Бот и мини-приложение CRM для маркетингового агентства](./bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/)
+- [Конвейер учебных материалов для преподавателя института образования](./konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026/)
+- [Внешний сторож серверов: оповещение в Telegram за 10 минут](./vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026/)
 - [Простая онлайн-запись для спа, врача и столика: собственный сервис](./prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026/)
 - [Набор из девяти виджетов для сайтов малого бизнеса: предложение](./nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026/)
 - [Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение](./konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/)
@@ -355,46 +361,6 @@
 - [Как попасть в ответы Яндекс Нейро и Алисы — пока это умеют единицы](./yandex-neyro-alisa-istochniki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/yandex-neyro-alisa-istochniki-2026/)
 - [Контент, который ИИ цитируют дословно: TL;DR, FAQ, таблицы, определения](./kontent-kotoryy-citiruyut-ii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kontent-kotoryy-citiruyut-ii-2026/)
 - [GEO для нишевого бизнеса в РФ: попасть в рекомендации ИИ без бюджета](./geo-dlya-nishevogo-biznesa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/geo-dlya-nishevogo-biznesa-2026/)
-
-## MWR Life
-
-- [Travel Advantage (Тревел Эдвентедж): отзывы, что за компания и не пирамида ли](./travel-advantage-otzyvy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-otzyvy-2026/)
-- [Travel Advantage: как устроена платформа клуба путешественников](./travel-advantage-platforma-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-platforma-2026/)
-- [Life Experience: групповые путешествия MWR — что это и чем отличается от тура](./life-experience-gruppovye-tury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/life-experience-gruppovye-tury-2026/)
-- [Тематические туры MWR: йога, дайвинг, бизнес, гастрономия, спорт](./tematicheskie-tury-mwr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/tematicheskie-tury-mwr-2026/)
-- [Маркетинг-план MWR простыми словами: бинар + классика](./marketing-plan-mwr-binar-klassika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketing-plan-mwr-binar-klassika-2026/)
-- [9 видов вознаграждений в MWR Life — обзор](./9-vidov-voznagrazhdeniy-mwr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/9-vidov-voznagrazhdeniy-mwr-2026/)
-- [Подписка MWR: как Netflix, но взнос возвращается баллами на путешествия](./podpiska-mwr-vozvrat-ballami-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podpiska-mwr-vozvrat-ballami-2026/)
-- [Как поехать в путешествие почти бесплатно: баллы лояльности и Life Experience](./kak-poehat-besplatno-mwr-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-poehat-besplatno-mwr-2026/)
-- [Travel Advantage vs обычное турагентство и Booking: в чём разница](./travel-advantage-vs-turagentstvo-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-vs-turagentstvo-2026/)
-- [Travel Advantage vs Inteletravel и Incruises: сравнение travel-клубов](./travel-advantage-vs-inteletravel-incruises-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-advantage-vs-inteletravel-incruises-2026/)
-- [Чем клуб-подписка отличается от «горящих» и пакетных туров](./travel-klub-vs-goryashchie-tury-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-klub-vs-goryashchie-tury-2026/)
-- [MWR Life (МВР Лайф) и Travel Advantage: отзывы реальные — экономит ли на путешествиях](./mwr-life-otzyvy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mwr-life-otzyvy-2026/)
-- [Как зарабатывать на путешествиях: разбор модели travel-клубов](./kak-zarabatyvat-na-puteshestviyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-zarabatyvat-na-puteshestviyah-2026/)
-- [MWR Life vs WorldVentures / DreamTrips: что осталось в travel-MLM в 2026](./mwr-vs-worldventures-dreamtrips-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mwr-vs-worldventures-dreamtrips-2026/)
-- [Личный сайт партнёра MWR Life: презентовать клуб без спама](./sayt-partnera-mwr-life-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-partnera-mwr-life-2026/)
-- [Чат-бот и автоворонка для приглашения в travel-клуб](./avtovoronka-bot-travel-klub-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovoronka-bot-travel-klub-2026/)
-- [Контент с ИИ для travel-сетевика: рилсы и посты из поездок](./ii-kontent-travel-setevik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kontent-travel-setevik-2026/)
-- [CRM для партнёра travel-клуба: вести гостей и команду](./crm-partnera-travel-kluba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-partnera-travel-kluba-2026/)
-- [Сколько реально стоит MWR Life: вся математика подписки и взносов](./skolko-stoit-mwr-life-matematika-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skolko-stoit-mwr-life-matematika-2026/)
-- [MWR Life в России: легально ли, налоги и как приходят выплаты](./mwr-life-v-rossii-legalno-nalogi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mwr-life-v-rossii-legalno-nalogi-2026/)
-- [«Нет времени, денег и связей»: честный разбор возражений к travel-клубу](./vozrazheniya-net-vremeni-deneg-svyazey-travel-klub-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vozrazheniya-net-vremeni-deneg-svyazey-travel-klub-2026/)
-- [Travel-клуб для мам в декрете: гибкий доход и путешествия с семьёй](./travel-klub-dlya-mam-v-dekrete-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-klub-dlya-mam-v-dekrete-2026/)
-- [Путешествия и доход для фрилансеров и удалёнщиков через travel-клуб](./puteshestviya-i-dohod-dlya-frilanserov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/puteshestviya-i-dohod-dlya-frilanserov-2026/)
-- [Travel-клуб или копить самому: считаем выгоду на 3 года](./travel-klub-ili-kopit-samomu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-klub-ili-kopit-samomu-2026/)
-- [Почему путешествия по подписке — тренд 2026](./puteshestviya-po-podpiske-trend-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/puteshestviya-po-podpiske-trend-2026/)
-- [Как приглашать в travel-клуб без спама: этика и рабочие подходы](./kak-priglashat-v-travel-klub-bez-spama-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-priglashat-v-travel-klub-bez-spama-2026/)
-- [Как путешествовать дешевле в 2026: travel-клубы, кэшбэк, баллы лояльности](./kak-puteshestvovat-deshevle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-puteshestvovat-deshevle-2026/)
-- [Удалённый доход на путешествиях 2026: реальные модели заработка](./udalennyy-dohod-na-puteshestviyah-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/udalennyy-dohod-na-puteshestviyah-2026/)
-- [Travel-хакинг 2026: 15 способов сэкономить на отелях и перелётах](./travel-haking-15-sposobov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-haking-15-sposobov-2026/)
-- [Что такое travel-клуб по подписке и кому он реально выгоден: разбор 2026](./travel-klub-po-podpiske-komu-vygodno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-klub-po-podpiske-komu-vygodno-2026/)
-- [MWR Life / Travel Advantage: честный обзор от участника 2026](./mwr-life-chestnyy-obzor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mwr-life-chestnyy-obzor-2026/)
-- [Партнёрка travel-клуба 2026: как устроен доход — механика без обещаний](./partnerka-travel-kluba-dohod-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/partnerka-travel-kluba-dohod-2026/)
-- [Сетевой бизнес в туризме 2026: почему ниша на подъёме](./setevoy-biznes-v-turizme-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/setevoy-biznes-v-turizme-2026/)
-- [Кому подходит партнёрка travel-клуба, а кому нет: честная фильтрация 2026](./komu-podhodit-partnerka-travel-kluba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/komu-podhodit-partnerka-travel-kluba-2026/)
-- [Как стать амбассадором MWR Life: первые шаги 2026](./kak-stat-ambassadorom-mwr-life-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-stat-ambassadorom-mwr-life-2026/)
-- [«Это пирамида?» и другие возражения в travel-клубе: честные ответы 2026](./eto-piramida-vozrazheniya-travel-klub-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/eto-piramida-vozrazheniya-travel-klub-2026/)
-- [Travel-клуб для семьи 2026: как путешествовать всей семьёй дешевле](./travel-klub-dlya-semyi-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-klub-dlya-semyi-2026/)
 
 ## Open-source и свой сервер
 
@@ -1100,6 +1066,8 @@
 - [Дистрибуция важнее продукта: cold start, пропасть и почему канал решает](./distribuciya-vazhnee-produkta-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/distribuciya-vazhnee-produkta-2026/)
 - [Психология цены и выбора: 6 эффектов, которые двигают решения покупателя](./psihologiya-ceny-i-vybora-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/psihologiya-ceny-i-vybora-2026/)
 - [Выживет ли бизнес: метрики устойчивости (default alive, Rule of 40, burn multiple)](./vyzhivet-li-biznes-metriki-ustoychivosti-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vyzhivet-li-biznes-metriki-ustoychivosti-2026/)
+- [Как путешествовать дешевле в 2026: кэшбэк, баллы лояльности, бронирование](./kak-puteshestvovat-deshevle-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-puteshestvovat-deshevle-2026/)
+- [Travel-хакинг 2026: 15 способов сэкономить на отелях и перелётах](./travel-haking-15-sposobov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/travel-haking-15-sposobov-2026/)
 
 ## Игры для бизнеса
 
@@ -2565,6 +2533,10 @@
 - [Маркетинг-планы простыми словами: бинар, матрица, юнилевел — что выбрать](./marketing-plany-mlm-kak-vybrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/marketing-plany-mlm-kak-vybrat-2026/)
 - [Личный кабинет дистрибьютора: что в нём должно быть, чтобы команда росла](./lichnyy-kabinet-distributora-mlm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-kabinet-distributora-mlm-2026/)
 - [Автоматизация начислений и выплат партнёрам: как убрать ручные ошибки](./avtomatizaciya-vyplat-partnyoram-mlm-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtomatizaciya-vyplat-partnyoram-mlm-2026/)
+- [Личный сайт партнёра travel-клуба или сетевой компании без спама](./sayt-partnera-mwr-life-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-partnera-mwr-life-2026/)
+- [Чат-бот и автоворонка для приглашения в travel-клуб](./avtovoronka-bot-travel-klub-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtovoronka-bot-travel-klub-2026/)
+- [Контент с ИИ для travel-сетевика: рилсы и посты из поездок](./ii-kontent-travel-setevik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-kontent-travel-setevik-2026/)
+- [CRM для партнёра travel-клуба: вести гостей и команду](./crm-partnera-travel-kluba-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/crm-partnera-travel-kluba-2026/)
 - [МЛМ-индустрии 2026: где сетевой ещё работает, а где умер — БАДы, косметика, travel](./mlm-industrii-gde-rabotaet-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mlm-industrii-gde-rabotaet-2026/)
 - [Как сетевику перейти в новую компанию и не потерять команду 2026](./kak-seteviku-pereyti-v-novuyu-kompaniyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-seteviku-pereyti-v-novuyu-kompaniyu-2026/)
 - [Личный бренд vs продвижение компании: что выбрать сетевику 2026](./lichnyy-brend-vs-kompaniya-setevik-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lichnyy-brend-vs-kompaniya-setevik-2026/)
