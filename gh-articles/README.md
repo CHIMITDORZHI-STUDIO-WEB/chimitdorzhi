@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2758**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2763**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -1740,6 +1740,7 @@
 
 ## Право и 152-ФЗ
 
+- [Screenpipe: запись экрана, чтобы найти рутину, и границы 152-ФЗ](./screenpipe-zapis-raboty-na-kompyuterah-kompanii-chtoby-najti-chto-avtomatizirovat-152-fz-i-granicy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/screenpipe-zapis-raboty-na-kompyuterah-kompanii-chtoby-najti-chto-avtomatizirovat-152-fz-i-granicy-2026/)
 - [Сайт автошколы: что обязательно по закону об образовании в 2026](./sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-avtoshkoly-svedeniya-ob-obrazovatelnoy-organizacii-2026/)
 - [Сайт фитнес-клуба по закону: оферта, абонемент, возврат денег](./sayt-fitnes-kluba-abonement-oferta-vozvrat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-fitnes-kluba-abonement-oferta-vozvrat-2026/)
 - [Сайт частной охранной организации: лицензия, услуги и реклама](./sayt-chastnoy-ohrannoy-organizacii-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sayt-chastnoy-ohrannoy-organizacii-licenziya-2026/)
@@ -2027,6 +2028,10 @@
 
 ## Разработка
 
+- [ИИ-поиск по данным компании без утечек: разбор PipesHub](./pipeshub-kontekstnyj-sloj-znanij-kompanii-dlya-ii-agentov-s-pravami-dostupa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pipeshub-kontekstnyj-sloj-znanij-kompanii-dlya-ii-agentov-s-pravami-dostupa-2026/)
+- [unredact.tools: что файл выдаёт клиенту до отправки КП](./unredact-tools-skrytye-dannye-v-fajlah-avtor-geometka-udalyonnyj-tekst-pered-otpravkoj-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/unredact-tools-skrytye-dannye-v-fajlah-avtor-geometka-udalyonnyj-tekst-pered-otpravkoj-klientam-2026/)
+- [Pomerado: сайт без API в интеграцию для ИИ, логины и 2FA](./pomerado-sajt-bez-api-v-integraciyu-dlya-ii-agenta-loginy-dvuhfaktorka-i-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pomerado-sajt-bez-api-v-integraciyu-dlya-ii-agenta-loginy-dvuhfaktorka-i-riski-2026/)
+- [steer на OpenWrt: что идёт в туннель филиала, что напрямую](./steer-marshrutizaciya-po-pravilam-na-openwrt-kakoj-trafik-v-tunnel-a-kakoj-napryamuyu-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/steer-marshrutizaciya-po-pravilam-na-openwrt-kakoj-trafik-v-tunnel-a-kakoj-napryamuyu-2026/)
 - [HTML-виджеты в сообщении бота Telegram: что влезает в 4 КБ](./telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026/)
 - [Bytebase: кто меняет базу, кто что видит и что платное](./bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026/)
 - [PageIndex: ИИ-поиск по договорам без векторной базы, проверка](./pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026/)
