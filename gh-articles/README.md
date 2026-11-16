@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2774**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2783**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -157,6 +157,11 @@
 
 ## cases
 
+- [Простая онлайн-запись для спа, врача и столика: собственный сервис](./prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026/)
+- [Набор из девяти виджетов для сайтов малого бизнеса: предложение](./nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nabor-vidzhetov-dlya-sayta-malogo-biznesa-predlozhenie-keys-2026/)
+- [Консьерж «свои люди по миру»: бот, закрытый канал и мини-приложение](./konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konsierzh-svoi-lyudi-po-miru-telegram-mini-app-keys-2026/)
+- [Вкладка «Заработок» в приложении команды: учёт партнёрских заявок](./zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zarabotok-v-prilozhenii-partnerskaya-vkladka-uchet-keys-2026/)
+- [ИИ-агент в работе: сколько стоит, лимиты тарифа и доступ сотрудников](./ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-rashod-limity-tarifa-dostup-sotrudnikov-keys-2026/)
 - [ИИ-агент студии: свой кабинет, база знаний, подключения и заявки](./ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/ii-agent-studii-kabinet-baza-znaniy-podklyucheniya-keys-2026/)
 - [Аудит маркетинга и сайта для чартера джетов и яхт: два оффера](./audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/audit-i-dva-offera-charter-samoletov-yaht-predlozhenie-keys-2026/)
 - [Датасет бурятского языка: партнёрское предложение на 12 страниц](./dataset-buryatskogo-yazyka-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/dataset-buryatskogo-yazyka-predlozhenie-keys-2026/)
@@ -178,7 +183,6 @@
 - [Как забрать сайт и домен у ушедшего разработчика: план для компании](./vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vernut-sayt-na-tilde-i-domen-posle-uhoda-razrabotchika-predlozhenie-keys-2026/)
 - [Открытая ИИ-модель на своём железе: три варианта и отказ в пользу облака](./lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lokalnaya-otkrytaya-ii-model-dlya-promptov-i-kartinok-predlozhenie-keys-2026/)
 - [Промо-ролик игры на Remotion: съёмка кадров прямо из игры](./promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/promo-rolik-igry-remotion-iz-kadrov-igry-keys-2026/)
-- [Сайт и шесть пультов собственника с закрытым пробным кабинетом](./pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026/)
 - [Учёт для бухфирмы в Дубае: бот, мини-приложение, НДС и баланс](./uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/uchet-dlya-buhfirmy-v-dubae-bot-pwa-keys-2026/)
 - [MinIO, SSL и сайт для внешних участников у сервера взаимодействия 1С](./minio-dlya-servera-vzaimodeystviya-1c-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/minio-dlya-servera-vzaimodeystviya-1c-keys-2026/)
 - [НЮТАГ: онлайн-симулятор жизни села на 3D-карте с входом через MAX](./nyutag-simulyator-zhizni-sela-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/nyutag-simulyator-zhizni-sela-keys-2026/)
@@ -2055,6 +2059,11 @@
 
 ## Разработка
 
+- [HTML-виджеты в сообщении бота Telegram: что влезает в 4 КБ](./telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/telegram-html-vidzhety-v-soobshcheniyah-bota-chto-mozhno-v-4-kb-widget-sandbox-2026/)
+- [Bytebase: кто меняет базу, кто что видит и что платное](./bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bytebase-kto-menyaet-bazu-dannyh-soglasovanie-izmeneniy-maskirovanie-i-zhurnal-dostupa-2026/)
+- [PageIndex: ИИ-поиск по договорам без векторной базы, проверка](./pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pageindex-ii-poisk-po-dogovoram-i-otchetam-derevom-razdelov-vmesto-vektornoj-bazy-proverka-zayavlenij-2026/)
+- [vps-audit: что проверяет скрипт для VPS и чего не видит](./vps-audit-skript-proverki-bezopasnosti-vps-chto-proveryaet-i-chego-ne-vidit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vps-audit-skript-proverki-bezopasnosti-vps-chto-proveryaet-i-chego-ne-vidit-2026/)
+- [taskt: бесплатный RPA для 1С и офиса, что в нём ломается](./taskt-besplatnyj-rpa-dlya-rutiny-v-1s-i-ofisnyh-programmah-chto-ne-lomaetsya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/taskt-besplatnyj-rpa-dlya-rutiny-v-1s-i-ofisnyh-programmah-chto-ne-lomaetsya-2026/)
 - [one-api: свой шлюз к ИИ-моделям, ключи, лимиты и журнал расходов](./one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/one-api-svoy-shlyuz-k-ii-modelyam-klyuchi-limity-i-zhurnal-rashodov-2026/)
 - [Mercury: ИИ-агент в Telegram с правилами и лимитом расходов](./mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mercury-lichnyj-ii-agent-s-razresheniyami-i-dnevnym-byudzhetom-tokenov-v-telegram-2026/)
 - [Тестовая база без живых клиентов: Mimesis вместо выгрузки](./mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/mimesis-vydumannye-dannye-dlya-testovogo-stenda-vmesto-zhivoj-bazy-klientov-2026/)

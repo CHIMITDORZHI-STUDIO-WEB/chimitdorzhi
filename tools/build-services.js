@@ -611,7 +611,6 @@ function sitemap() {
     { loc: `${SITE}/ai-economy/`,         priority: '0.8', freq: 'monthly' },
     { loc: `${SITE}/about/`,              priority: '0.8', freq: 'monthly' },
     { loc: `${SITE}/slovar/`,             priority: '0.6', freq: 'monthly' },
-    { loc: `${SITE}/mwrlife/`,            priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/universe_buryat/`,    priority: '0.7', freq: 'monthly' },
     { loc: `${SITE}/arey/`,               priority: '0.6', freq: 'monthly' },
     { loc: `${SITE}/game1/`,              priority: '0.6', freq: 'monthly' },
