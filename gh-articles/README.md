@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2763**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2768**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2028,6 +2028,11 @@
 
 ## Разработка
 
+- [Backend Skills: бэкенд от ИИ без сюрпризов в проде, что требовать](./backendskills-navyki-dlya-ii-agenta-protiv-oshibok-bekenda-chto-trebovat-ot-studii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/backendskills-navyki-dlya-ii-agenta-protiv-oshibok-bekenda-chto-trebovat-ot-studii-2026/)
+- [Agent Autoloop: ИИ-агент зовёт человека только по делу](./agent-autoloop-avtonomnyj-ii-agent-zovyot-cheloveka-tolko-po-delu-kuda-uhodyat-kartochki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/agent-autoloop-avtonomnyj-ii-agent-zovyot-cheloveka-tolko-po-delu-kuda-uhodyat-kartochki-2026/)
+- [DeepSeek Super Agent: можно ли пускать его в репозиторий](./deepseek-super-agent-prototip-zadachi-iz-github-v-pr-mozhno-li-puskat-v-repozitorij-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/deepseek-super-agent-prototip-zadachi-iz-github-v-pr-mozhno-li-puskat-v-repozitorij-2026/)
+- [Craft Anything: ИИ копирует сайты, но где граница закона](./craft-anything-vossozdanie-saytov-i-prilozhenij-s-ii-gde-granica-zakona-i-zdravogo-smysla-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/craft-anything-vossozdanie-saytov-i-prilozhenij-s-ii-gde-granica-zakona-i-zdravogo-smysla-2026/)
+- [Stack Diagram: ИИ рисует схему системы, но её надо сверять](./stack-diagram-ii-risuet-arhitekturnuyu-shemu-sistemy-dlya-tz-i-sdachi-proekta-chto-sverit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/stack-diagram-ii-risuet-arhitekturnuyu-shemu-sistemy-dlya-tz-i-sdachi-proekta-chto-sverit-2026/)
 - [ИИ-поиск по данным компании без утечек: разбор PipesHub](./pipeshub-kontekstnyj-sloj-znanij-kompanii-dlya-ii-agentov-s-pravami-dostupa-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pipeshub-kontekstnyj-sloj-znanij-kompanii-dlya-ii-agentov-s-pravami-dostupa-2026/)
 - [unredact.tools: что файл выдаёт клиенту до отправки КП](./unredact-tools-skrytye-dannye-v-fajlah-avtor-geometka-udalyonnyj-tekst-pered-otpravkoj-klientam-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/unredact-tools-skrytye-dannye-v-fajlah-avtor-geometka-udalyonnyj-tekst-pered-otpravkoj-klientam-2026/)
 - [Pomerado: сайт без API в интеграцию для ИИ, логины и 2FA](./pomerado-sajt-bez-api-v-integraciyu-dlya-ii-agenta-loginy-dvuhfaktorka-i-riski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pomerado-sajt-bez-api-v-integraciyu-dlya-ii-agenta-loginy-dvuhfaktorka-i-riski-2026/)
