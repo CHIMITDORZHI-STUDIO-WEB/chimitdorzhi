@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2768**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2775**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -157,9 +157,16 @@
 
 ## cases
 
-- [Свой GPS-сервер для автопарка из 50 машин: предложение](./svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026/)
+- [Сервис соседской взаимопомощи: карта, боты Telegram и MAX](./servis-sosedskoy-vzaimopomoschi-telegram-max-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/servis-sosedskoy-vzaimopomoschi-telegram-max-keys-2026/)
+- [Биржа срочных мастеров: бот, Mini App и цена по спросу](./birzha-srochnyh-masterov-bot-mini-app-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/birzha-srochnyh-masterov-bot-mini-app-keys-2026/)
+- [Автопостинг туров в закрытый канал MAX с ценой по курсу ЦБ](./avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026/)
+- [Сканер ошибок для портала на Битрикс24 и сторож в Telegram](./skaner-oshibok-dlya-portala-bitriks24-storozh-telegram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skaner-oshibok-dlya-portala-bitriks24-storozh-telegram-keys-2026/)
+- [Бот в MAX и запись для студии косметологии и массажа: предложение](./studiya-kosmetologii-bot-max-rozygryshi-zapis-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/studiya-kosmetologii-bot-max-rozygryshi-zapis-predlozhenie-keys-2026/)
+- [Сайт с конструктором фуршета и CRM для кейтеринга: предложение](./keytering-sayt-konstruktor-furshet-crm-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/keytering-sayt-konstruktor-furshet-crm-predlozhenie-keys-2026/)
+- [Карта бурятских родословных с границами эпох: стенд для тестов](./karta-buryatskih-rodoslovnyh-istoricheskie-sloi-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/karta-buryatskih-rodoslovnyh-istoricheskie-sloi-keys-2026/)
+- [Свой GPS-сервер для автопарка из 50 машин: стенд и путевые листы](./svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026/)
 - [Система для банного комплекса: бронь, единое окно, задачи](./banny-kompleks-edinoe-okno-bronirovanie-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/banny-kompleks-edinoe-okno-bronirovanie-predlozhenie-keys-2026/)
-- [Клуб путешествий по подписке в Telegram: предложение](./klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026/)
+- [Платный клуб по подписке в Telegram: предложение с Mini App](./klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/klub-puteshestviy-po-podpiske-telegram-predlozhenie-keys-2026/)
 - [Бот и мини-приложение CRM для маркетингового агентства](./bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/)
 - [Конвейер учебных материалов для преподавателя института образования](./konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026/)
 - [Внешний сторож серверов: оповещение в Telegram за 10 минут](./vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026/)
