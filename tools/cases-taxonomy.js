@@ -224,6 +224,13 @@ const MAP = {
   'bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026': ['crm', 'services'],
   'konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026': ['doc', 'services'],
   'vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026': ['ai', 'it'],
+  'servis-sosedskoy-vzaimopomoschi-telegram-max-keys-2026': ['platform', 'services'],
+  'birzha-srochnyh-masterov-bot-mini-app-keys-2026': ['platform', 'services'],
+  'avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026': ['bot', 'travel'],
+  'skaner-oshibok-dlya-portala-bitriks24-storozh-telegram-keys-2026': ['crm', 'it'],
+  'studiya-kosmetologii-bot-max-rozygryshi-zapis-predlozhenie-keys-2026': ['doc', 'beauty'],
+  'keytering-sayt-konstruktor-furshet-crm-predlozhenie-keys-2026': ['doc', 'food'],
+  'karta-buryatskih-rodoslovnyh-istoricheskie-sloi-keys-2026': ['platform', 'culture'],
   // Флагманский кейс без статьи в блоге: ключ по названию карточки.
   'SpyGambl': ['platform', 'it'],
 };

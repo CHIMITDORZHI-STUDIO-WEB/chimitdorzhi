@@ -90,6 +90,13 @@ module.exports = [
   require('./_case-bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026.js').flagship,
   require('./_case-konveyer-uchebnyh-materialov-dlya-prepodavatelya-instituta-keys-2026.js').flagship,
   require('./_case-vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026.js').flagship,
+  require('./_case-servis-sosedskoy-vzaimopomoschi-telegram-max-keys-2026.js').flagship,
+  require('./_case-birzha-srochnyh-masterov-bot-mini-app-keys-2026.js').flagship,
+  require('./_case-avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026.js').flagship,
+  require('./_case-skaner-oshibok-dlya-portala-bitriks24-storozh-telegram-keys-2026.js').flagship,
+  require('./_case-studiya-kosmetologii-bot-max-rozygryshi-zapis-predlozhenie-keys-2026.js').flagship,
+  require('./_case-keytering-sayt-konstruktor-furshet-crm-predlozhenie-keys-2026.js').flagship,
+  require('./_case-karta-buryatskih-rodoslovnyh-istoricheskie-sloi-keys-2026.js').flagship,
   {
     name: 'Сайт логистической компании с калькулятором растаможки',
     slug: 'sayt-logistiki-kalkulyator-rastamozhki-keys-2026',
