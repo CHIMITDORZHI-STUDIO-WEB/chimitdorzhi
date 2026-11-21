@@ -2003,7 +2003,6 @@ ${METRIKA}</head>
                       { key: 'security',    label: 'Безопасность',   icon: 'ph-shield-check' },
                       { key: 'finance',     label: 'Финансы',        icon: 'ph-coins' },
                       { key: 'mlm',         label: 'Сетевой бизнес', icon: 'ph-share-network' },
-                      { key: 'mwrlife',     label: 'MWR Life',       icon: 'ph-airplane-tilt' },
                       { key: 'opensource',  label: 'Open-source',    icon: 'ph-hard-drives' },
                       { key: 'biznes-krugozor', label: 'Бизнес-кругозор', icon: 'ph-compass' },
                       { key: 'igry-dlya-biznesa', label: 'Игры для бизнеса', icon: 'ph-game-controller' },
