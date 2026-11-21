@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2775**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2789**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2629,6 +2629,20 @@
 
 ## Экспертное
 
+- [Мониторинг транспорта за 3-5 лет: абонентская плата против своего сервера Traccar](./monitoring-transporta-abonplata-ili-svoy-server-traccar-za-3-5-let-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-transporta-abonplata-ili-svoy-server-traccar-za-3-5-let-2026/)
+- [Как уйти от платного GPS-мониторинга и оставить свои трекеры](./kak-uyti-ot-platnogo-gps-monitoringa-i-ostavit-svoi-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-uyti-ot-platnogo-gps-monitoringa-i-ostavit-svoi-trekery-2026/)
+- [Путевой лист: формы 4-С, 4-П и №3, какая нужна вашему парку](./putevoy-list-formy-4-s-4-p-3-kakaya-nuzhna-vashemu-parku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/putevoy-list-formy-4-s-4-p-3-kakaya-nuzhna-vashemu-parku-2026/)
+- [Автозаполнение путевых листов из трекера: что можно автоматизировать, а что нет](./avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/)
+- [Ложные точки GPS: почему пробег врёт и как отсеять мусор](./lozhnye-tochki-gps-probeg-vret-kak-otseyat-musor-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/lozhnye-tochki-gps-probeg-vret-kak-otseyat-musor-2026/)
+- [Пилот мониторинга на двух машинах перед покупкой: как тестировать параллельно с действующей системой](./pilot-monitoringa-na-dvuh-mashinah-parallelno-s-deystvuyushchey-sistemoy-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/pilot-monitoringa-na-dvuh-mashinah-parallelno-s-deystvuyushchey-sistemoy-2026/)
+- [Персональные данные водителей в мониторинге и путевых листах: что требует 152-ФЗ](./personalnye-dannye-voditeley-monitoring-putevye-listy-152-fz-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/personalnye-dannye-voditeley-monitoring-putevye-listy-152-fz-2026/)
+- [Битрикс24 после ухода интегратора: что проверить в первые десять дней](./bitriks24-posle-uhoda-integratora-chto-proverit-za-10-dney-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/bitriks24-posle-uhoda-integratora-chto-proverit-za-10-dney-2026/)
+- [Как забрать портал Битрикс24 у прежнего подрядчика: доступы, копия, лицензия, домен](./kak-zabrat-portal-bitriks24-u-podryadchika-dostupy-kopiya-licenziya-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-zabrat-portal-bitriks24-u-podryadchika-dostupy-kopiya-licenziya-2026/)
+- [Входящие письма в Битрикс24 теряются: почему и как починить](./vhodyashchie-pisma-bitriks24-teryayutsya-pochemu-i-kak-pochinit-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/vhodyashchie-pisma-bitriks24-teryayutsya-pochemu-i-kak-pochinit-2026/)
+- [Задачи стоят, потому что исполнитель уволен: контроль «мёртвых» ответственных в Битрикс24](./zadachi-stoyat-ispolnitel-uvolen-kontrol-mertvyh-otvetstvennyh-bitriks24-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/zadachi-stoyat-ispolnitel-uvolen-kontrol-mertvyh-otvetstvennyh-bitriks24-2026/)
+- [Сканер ошибок для портала на Битрикс24: что проверять каждые десять минут](./skaner-oshibok-dlya-portala-bitriks24-chto-proveryat-kazhdye-10-minut-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/skaner-oshibok-dlya-portala-bitriks24-chto-proveryat-kazhdye-10-minut-2026/)
+- [Приложение водителя для транспортной компании: смена, чекпоинты, фото ТТН, офлайн](./prilozhenie-voditelya-dlya-transportnoy-kompanii-smena-chekpointy-foto-ttn-oflayn-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/prilozhenie-voditelya-dlya-transportnoy-kompanii-smena-chekpointy-foto-ttn-oflayn-2026/)
+- [Ремонт Битрикс24 или своя система: что выбрать транспортной компании](./remont-bitriks24-ili-svoya-sistema-chto-vybrat-transportnoy-kompanii-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/remont-bitriks24-ili-svoya-sistema-chto-vybrat-transportnoy-kompanii-2026/)
 - [Система без документации: что делать, если разработчик ушёл](./razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razobrat-sistemu-bez-dokumentacii-esli-razrabotchik-ushyol-2026/)
 - [Разведка чужой системы перед проектом: объём и риск за 1-3 дня](./razvedka-chuzhoy-sistemy-pered-proektom-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/razvedka-chuzhoy-sistemy-pered-proektom-2026/)
 - [Как подключиться к старой программе без API: пять способов](./podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/podklyuchit-staruyu-programmu-bez-api-pyat-sposobov-2026/)
