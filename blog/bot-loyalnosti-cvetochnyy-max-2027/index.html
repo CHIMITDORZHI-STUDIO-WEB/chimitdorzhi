@@ -204,6 +204,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -431,14 +433,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Локальный цветочный магазин терял повторные покупки, потому что удержание держалось на памяти и доброй воле флориста. Я собрал бота лояльности на MAX с четырьмя механиками: накопительные баллы со сгоранием, пуши по важным датам, двухуровневый реферал и админ-панель. Ключевое решение — сознательно сократить реферал с трёх уровней до двух, чтобы не заезжать в зону MLM-регулирования. Платформа — MAX, ради соответствия 152-ФЗ.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BD%D0%B0%20MAX%20%D0%B4%D0%BB%D1%8F%20%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0%3A%20%D0%B1%D0%B0%D0%BB%D0%BB%D1%8B%2C%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B5%D1%84%D0%B5%D1%80%D0%B0%D0%BB%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю программу лояльности с картой в телефоне: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/" data-goal="article_offer_case">Цифровая карта лояльности для кафе: PWA вместо бумажных штампов</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BD%D0%B0%20MAX%20%D0%B4%D0%BB%D1%8F%20%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0%3A%20%D0%B1%D0%B0%D0%BB%D0%BB%D1%8B%2C%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B5%D1%84%D0%B5%D1%80%D0%B0%D0%BB%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/programma-loyalnosti/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <p>Цветочный бизнес устроен парадоксально: у него огромный поток разовых покупок и почти нет системного удержания. Человек купил букет на день рождения, остался доволен — и растворился до следующего повода, который может и не вспомнить именно об этом магазине. В этой статье я разберу, как для локального цветочного магазина собрал бота программы лояльности на MAX, который снимает удержание с плеч флориста и превращает разовых покупателей в возвращающихся. И честно расскажу про одно юридическое решение, которое сэкономило клиенту будущие проблемы.</p>
 
@@ -474,6 +480,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Бота я собрал на MAX, и здесь были варианты — можно было уйти в Telegram или собрать отдельное PWA. Я выбрал MAX осознанно. Главный аргумент — 152-ФЗ и хранение персональных данных внутри России.</p>
 <p>Программа лояльности по своей природе собирает чувствительные данные: имена клиентов, их контакты, историю покупок и, что особенно деликатно, даты рождения их близких. Это как раз тот массив персональных данных, к хранению которого есть требования по российскому законодательству. MAX как российская платформа позволяет держать эту связку в правовом поле по месту хранения данных, тогда как размещение той же базы на зарубежной инфраструктуре создаёт зону риска. Для локального бизнеса, который дорожит доверием своих постоянных клиентов, это не мелочь, а фундамент. Я предпочитаю закладывать соответствие сразу, а не переезжать потом под давлением. Плюс MAX как растущая площадка даёт магазину присутствие там, где аудитория только формируется, — с прицелом на будущее.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю программу лояльности с картой в телефоне: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/" data-goal="article_offer_case">Цифровая карта лояльности для кафе: PWA вместо бумажных штампов</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BD%D0%B0%20MAX%20%D0%B4%D0%BB%D1%8F%20%D1%86%D0%B2%D0%B5%D1%82%D0%BE%D1%87%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B0%D0%B3%D0%B0%D0%B7%D0%B8%D0%BD%D0%B0%3A%20%D0%B1%D0%B0%D0%BB%D0%BB%D1%8B%2C%20%D0%B4%D0%B0%D1%82%D1%8B%20%D0%B8%20%D0%B1%D0%B5%D0%B7%D0%BE%D0%BF%D0%B0%D1%81%D0%BD%D1%8B%D0%B9%20%D1%80%D0%B5%D1%84%D0%B5%D1%80%D0%B0%D0%BB%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/programma-loyalnosti/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Зачем баллам сгорать, разве это не отпугивает клиентов?</strong> Наоборот, сгорание работает на возврат. Бессрочные баллы лежат мёртвым грузом и никого не двигают, а баллы с дедлайном через 3–6 месяцев создают естественный повод напомнить клиенту о себе и мягко вернуть его в магазин, пока выгода не сгорела.</p>
 <p><strong>Почему реферал двухуровневый, а не трёхуровневый?</strong> Это осознанное юридическое решение. Три и более уровней выплат вглубь сети попадают в зону MLM-регулирования, что для локального магазина лишний риск. Двухуровневая схема даёт почти весь эффект вирусного привлечения, но однозначно остаётся обычной реферальной программой.</p>
@@ -571,7 +588,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

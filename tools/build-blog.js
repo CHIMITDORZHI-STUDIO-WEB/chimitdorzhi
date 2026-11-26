@@ -83,6 +83,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -1145,6 +1147,40 @@ function injectInlineTg(html, a) {
   return html.slice(0, at) + (a.inlineTg ? customInlineTgBlock(a) : inlineTgBlock(a, topic)) + '\n' + html.slice(at);
 }
 
+// Блок «Похожая задача?»: предложение по теме статьи из article-offer-map.js.
+// Встаёт после «Коротко» и перед FAQ вместо общих блоков topCta и inlineTg.
+const { matchOffer } = require('./article-offer-map.js');
+let CASE_TITLES = null;
+function similarTaskBlock(a, m, published) {
+  if (!CASE_TITLES) CASE_TITLES = new Map(published.map((p) => [p.slug, p.title]));
+  const caseTitle = m.caseSlug && m.caseSlug !== a.slug ? CASE_TITLES.get(m.caseSlug) : null;
+  const title = a.title.length > 90 ? a.title.slice(0, 87).replace(/\s+\S*$/, '') + '…' : a.title;
+  const tgUrl = `${TG_URL}?text=${encodeURIComponent(`Здравствуйте! Пишу после статьи «${title}». Интересует ${m.ask}.`)}`;
+  const more = m.url === '/ceny/' ? 'Все цены' : 'Подробнее';
+  return `<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю ${esc(m.label)}: ${esc(m.priceFrom)}, точную стоимость называю после разговора.${caseTitle ? ` Кейс: <a href="/blog/${m.caseSlug}/" data-goal="article_offer_case">${esc(caseTitle)}</a>.` : ''}</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="${esc(tgUrl)}" target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="${MAX_URL}" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="${m.url}" class="btn btn-ghost" data-goal="article_offer_page">${more} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>`;
+}
+function injectSimilarTask(html, a, m, published) {
+  const block = similarTaskBlock(a, m, published) + '\n';
+  let out = html;
+  const faq = out.search(/<h2[^>]*id="faq"/);
+  out = faq > 0 ? out.slice(0, faq) + block + out.slice(faq) : out + '\n' + block;
+  if (out.includes('blog-cta-internal')) return out;
+  const t = out.indexOf('<div class="blog-tldr"');
+  const end = t < 0 ? -1 : out.indexOf('</div>', t);
+  const first = end >= 0 ? end + 6 : out.search(/<h2[\s>]/);
+  return first >= 0 ? out.slice(0, first) + '\n' + block + out.slice(first) : out;
+}
+
 function servicesOfferCard(article) {
   if (!article.servicesOffer) return '';
   const s = article.servicesOffer;
@@ -1771,7 +1807,12 @@ function autolinkModels(html, selfSlug) {
 function articlePage(a, published) {
   const url = `${SITE}/blog/${a.slug}/`;
   const cat = CATEGORY_LABELS[a.category] || 'Блог';
-  const bodyHtml = prefillTgLinks(injectReadNext(injectTopCta(injectInlineTg(autolinkModels(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a.slug), a), a), a, published), a);
+  const linked = autolinkModels(autolinkServices(a.contentHtml, a.ctaInternal && a.ctaInternal.url), a.slug);
+  const similar = matchOffer(a);
+  const withCta = similar
+    ? injectSimilarTask(a.inlineTg ? injectInlineTg(linked, a) : linked, a, similar, published)
+    : injectTopCta(injectInlineTg(linked, a), a);
+  const bodyHtml = prefillTgLinks(injectReadNext(withCta, a, published), a);
   const clientTopic = clientTopicText(a);
   return `${head({ title: a.metaTitle || a.title, description: a.metaDescription, keywords: a.metaKeywords || a.tags.join(', '), canonical: url, ogImage: coverUrl(a) })}    <script type="application/ld+json">
 ${blogPostingLd(a, url)}

@@ -205,6 +205,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -432,14 +434,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Кэш — это когда сервер держит уже готовый результат под рукой, чтобы не считать его заново каждый раз. CDN — сеть складов-копий вашего сайта, расставленных по разным городам и странам, чтобы отдавать контент клиенту с ближайшего склада, а не с единственного сервера за тысячи километров. Вместе они убирают лишнюю работу и лишний путь, из-за чего сайт открывается быстрее.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%82%20%D0%BA%D1%8D%D1%88%20%D0%B8%20CDN%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить задачу <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%82%20%D0%BA%D1%8D%D1%88%20%D0%B8%20CDN%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p>Когда заказчики слышат «кэш» и «CDN», у многих в голове одна каша: что-то техническое, вроде бы полезное, но непонятно зачем платить отдельно. На деле обе идеи очень бытовые, и я обычно объясняю их без технических терминов. Разложу по порядку — сначала кэш, потом CDN, потом как они работают вместе.</p>
 <p><strong>Коротко:</strong> кэш — это хранить готовый результат под рукой, чтобы не собирать его заново каждый раз; CDN — копии сайта на серверах ближе к пользователю, чтобы данные не летели через полмира. Вместе они ускоряют загрузку сайта, снижают нагрузку на сервер и экономят деньги на хостинге. Нужно это почти любому сайту с посетителями — от лендинга до <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">интернет-магазина</a>.</p>
 
@@ -471,6 +477,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Со стороны CDN тоже есть особенности: нужно правильно настроить, какие файлы кэшировать, а какие всегда брать «живыми» с основного сервера, и как быстро сбрасывать копию при обновлении сайта. Настроено криво — эффект может быть обратным, и посетители увидят устаревший контент. Поэтому подключение CDN стоит доверить тому, кто понимает, что и зачем кэшируется.</p>
 <p>И ещё момент: кэш и CDN ускоряют доставку готового контента, но <a href="/blog/optimizaciya-skorosti-sayta/">не заменяют оптимизацию самого сайта</a>. Если сайт написан тяжело, а код перегружен — они сгладят часть проблемы, но не решат её полностью. Это дополняющие меры, а не замена нормальной разработки сайта.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D1%8E%D1%82%20%D0%BA%D1%8D%D1%88%20%D0%B8%20CDN%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Чем кэш отличается от CDN?</strong> Кэш — это про то, чтобы не пересчитывать одно и то же заново: готовый результат хранится под рукой — в браузере, на сервере или ещё где-то. CDN — это про расстояние: копии сайта размещаются на серверах ближе к пользователям по всему миру. Часто CDN использует кэш внутри себя, поэтому термины и путают.</p>
 <p><strong>Зачем сайту CDN?</strong> Чтобы посетители из разных городов и стран получали контент с ближайшего сервера, а не с единственного сервера-источника, до которого может быть далеко. Это ускоряет загрузку, снижает нагрузку на основной сервер и повышает устойчивость сайта к перебоям.</p>
@@ -565,7 +582,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

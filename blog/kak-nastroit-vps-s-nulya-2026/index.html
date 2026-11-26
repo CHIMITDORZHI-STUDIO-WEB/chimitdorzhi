@@ -205,6 +205,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -432,14 +434,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Настройка VPS с нуля — это фиксированная последовательность шагов: подключение по SSH, обновление системы, создание отдельного пользователя, настройка файрвола, установка Docker, привязка домена и выпуск HTTPS-сертификата. После этого сервер готов принимать сайты, ботов и любые сервисы. Занимает пару часов при первом разе, дальше — рутина на 20–30 минут под новый проект.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20VPS%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%3A%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B5%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%86%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Обсудить задачу <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автоматизацию под ваш процесс: от 60 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20VPS%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%3A%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B5%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%86%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BF%D0%BE%D0%B4%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/services/business-automation/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p>За последние годы я настраивал серверы под самые разные задачи: сайты на Next.js, <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Telegram-боты</a>, админки, VPN-ноды, базы данных. И почти каждый раз слышу один и тот же вопрос от заказчика: «А это сложно? Мне придётся разбираться в командной строке?». Отвечаю честно: разбираться придётся, но сама настройка VPS с нуля — это не творческая задача, а понятная процедура из десятка шагов, которую один раз проходишь — и дальше просто повторяешь по шаблону для каждого нового проекта.</p>
 <p><strong>Коротко:</strong> порядок настройки VPS всегда один: подключение по SSH, обновление системы, создание отдельного пользователя без root-прав для повседневной работы, настройка файрвола (открыть только нужные порты), установка Docker для запуска сервисов, привязка домена через DNS-запись и выпуск бесплатного HTTPS-сертификата. Отдельно — базовая безопасность: смена портов, вход по SSH-ключу вместо пароля, регулярные обновления. Дальше сервер разворачивает сайт, бота или админку в контейнерах, и всё это можно поддерживать самостоятельно или доверить подрядчику, если не хочется держать это в голове.</p>
 
@@ -479,6 +485,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Игнорирование обновлений. Сервер, который работает стабильно, часто оставляют без обновлений месяцами — «не трогай, что работает». Но именно необновлённые системы — самая частая причина взломов через известные, уже закрытые в новых версиях уязвимости.</p>
 <p>Ручная настройка без документации процесса. Если сервер настраивался вручную, командой за командой, без записи — повторить тот же результат на новом сервере (например, при миграции) превращается в отдельную задачу с непредсказуемым временем.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автоматизацию под ваш процесс: от 60 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20VPS%20%D1%81%20%D0%BD%D1%83%D0%BB%D1%8F%3A%20%D0%BF%D0%BE%D1%88%D0%B0%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9%20%D0%B3%D0%B0%D0%B9%D0%B4%20%D0%B4%D0%BB%D1%8F%20%D0%BD%D0%B5%D1%82%D0%B5%D1%85%D0%BD%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%20%D0%B2%D0%BB%D0%B0%D0%B4%D0%B5%D0%BB%D1%8C%D1%86%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BF%D0%BE%D0%B4%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/services/business-automation/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>С чего начать настройку VPS?</strong> С подключения по SSH и обновления системы. Дальше — создание отдельного пользователя, настройка файрвола и установка Docker. Это база, с которой начинается любой проект на сервере.</p>
 <p><strong>Нужны ли навыки Linux?</strong> Базовое понимание командной строки желательно, но настройка VPS с нуля укладывается в фиксированную последовательность шагов, которую можно один раз пройти по инструкции. Для проектов, где важна скорость и надёжность, эту часть чаще доверяют подрядчику, а сами сосредотачиваются на самом продукте.</p>
@@ -585,7 +602,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

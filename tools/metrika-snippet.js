@@ -20,6 +20,8 @@ const GOALS = `<!-- Цели Метрики: клики по контактам 
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own, { page: location.pathname }); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal, { page: location.pathname }); } catch (err) {}
