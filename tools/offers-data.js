@@ -53,6 +53,10 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-46.js'),
+  ...require('./offers-batch-45.js'),
+  ...require('./offers-batch-44.js'),
+  ...require('./offers-batch-43.js'),
   ...require('./offers-batch-42.js'),
   ...require('./offers-batch-41.js'),
   ...require('./offers-batch-40.js'),
@@ -974,6 +978,10 @@ for (const o of _ALL_OFFERS) {
   const r = _RICH[o.slug];
   if (r) { Object.assign(o, r); delete o.bodyHtml; }
 }
+
+// Старые предложения, доведённые до посадочных (26.11.2026).
+const _IMPROVE = require('./offers-landing-improve.js');
+for (const o of _ALL_OFFERS) { if (_IMPROVE[o.slug]) Object.assign(o, _IMPROVE[o.slug]); }
 
 // --- Перегруппировка по понятным заказчику рубрикам ---------------------
 // Разбиваем разросшиеся «Автоматизация» (39) и «Флагманы» (19) на отраслевые
