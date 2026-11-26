@@ -2,7 +2,7 @@
 
 > Markdown-зеркало экспертного блога [chimitdorzhi.tech](https://chimitdorzhi.tech/) — IT, AI/ML, кибербезопасность и 152-ФЗ для бизнеса в России. Автор: **Чимитдоржи Дарижапов** (Chimitdorzhi Darizhapov).
 
-Всего статей: **2789**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
+Всего статей: **2796**. Оригиналы и удобное чтение — на сайте: https://chimitdorzhi.tech/blog/
 
 ## AI для жизни и работы
 
@@ -2629,6 +2629,13 @@
 
 ## Экспертное
 
+- [Как перенести бота на другой сервер и не потерять пользователей](./perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/)
+- [Оплата в боте Telegram и MAX с автоматическим доступом в канал](./oplata-v-bote-telegram-i-max-avtomaticheskiy-dostup-v-kanal-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/oplata-v-bote-telegram-i-max-avtomaticheskiy-dostup-v-kanal-2026/)
+- [Розыгрыш в канале MAX: как провести честно и снизить риск блокировки](./rozygrysh-v-kanale-max-chestno-i-bez-blokirovki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/rozygrysh-v-kanale-max-chestno-i-bez-blokirovki-2026/)
+- [Посты в канал MAX по расписанию: как настроить автоматическую публикацию](./posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/)
+- [1С и Telegram: как отправлять заявки и задачи сотрудникам в мессенджер](./1c-i-telegram-zayavki-i-zadachi-sotrudnikam-v-messendzhere-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/1c-i-telegram-zayavki-i-zadachi-sotrudnikam-v-messendzhere-2026/)
+- [Склад в 1С и ТСД: как подключить терминалы без дорогой доработки](./sklad-v-1c-i-tsd-bez-dorogoy-dorabotki-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/sklad-v-1c-i-tsd-bez-dorogoy-dorabotki-2026/)
+- [Как сделать мини-приложение в MAX: что нужно и в каком порядке](./kak-sdelat-mini-prilozhenie-v-max-chto-nuzhno-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-sdelat-mini-prilozhenie-v-max-chto-nuzhno-2026/)
 - [Мониторинг транспорта за 3-5 лет: абонентская плата против своего сервера Traccar](./monitoring-transporta-abonplata-ili-svoy-server-traccar-za-3-5-let-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/monitoring-transporta-abonplata-ili-svoy-server-traccar-za-3-5-let-2026/)
 - [Как уйти от платного GPS-мониторинга и оставить свои трекеры](./kak-uyti-ot-platnogo-gps-monitoringa-i-ostavit-svoi-trekery-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/kak-uyti-ot-platnogo-gps-monitoringa-i-ostavit-svoi-trekery-2026/)
 - [Путевой лист: формы 4-С, 4-П и №3, какая нужна вашему парку](./putevoy-list-formy-4-s-4-p-3-kakaya-nuzhna-vashemu-parku-2026.md) · [читать на сайте](https://chimitdorzhi.tech/blog/putevoy-list-formy-4-s-4-p-3-kakaya-nuzhna-vashemu-parku-2026/)
