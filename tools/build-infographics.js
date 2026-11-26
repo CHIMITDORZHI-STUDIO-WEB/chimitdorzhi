@@ -436,7 +436,7 @@ function hubPage() {
     description: 'Инфографика по IT, AI и бизнесу: безопасность и 152-ФЗ, российский AI-стек, маркетинг и вирусный рост, отрасли, финтех и платежи. Наглядные карточки со ссылками на статьи и предложения. Сохраняйте и делитесь.',
     canonical: `${SITE}/infografika/`,
     ogImage: `${SITE}/infografika/${ITEMS[0].slug}.png`,
-  }) + `</head>
+  }) + require('./metrika-snippet.js').METRIKA + `</head>
 <body>
 ${navbar()}
 <main class="ig-main">
@@ -513,7 +513,7 @@ function detailPage(it) {
     description: it.description,
     canonical: `${SITE}/infografika/${it.slug}/`,
     ogImage: `${SITE}/infografika/${it.slug}.png`,
-  }) + `</head>
+  }) + require('./metrika-snippet.js').METRIKA + `</head>
 <body>
 ${navbar()}
 <main class="ig-main">

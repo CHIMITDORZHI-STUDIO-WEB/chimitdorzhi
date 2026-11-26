@@ -210,7 +210,9 @@ function main() {
         const outDir = path.join(ROOT, cfg.dir);
         const outPath = path.join(outDir, 'index.html');
         fs.mkdirSync(outDir, { recursive: true });
-        fs.writeFileSync(outPath, html, 'utf8');
+        // Относительные ссылки корневой главной из /en/, /cn/, /mn/ вели бы в никуда
+        const fixed = html.replace(/(href|src)="(universe_buryat[/]|market[/]|privacy_policy[.]html|oferta[.]html|terms[.]html|legal[.]html)/g, '$1="/$2');
+        fs.writeFileSync(outPath, fixed, 'utf8');
 
         console.log(
             '[build-lang-pages] ' + cfg.code +

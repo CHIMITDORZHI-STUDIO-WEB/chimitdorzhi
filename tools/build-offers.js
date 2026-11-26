@@ -351,6 +351,8 @@ ${faqLd(o)}${METRIKA}</head>
 
                 ${related ? `<div class="offer-block"><h2>Связанные услуги и статьи</h2><div class="offer-related">${related}</div></div>` : ''}
 
+                ${require('./offer-links.js').offerLinksBlock(o)}
+
                 ${ctaBlock(o)}
             </div>
         </section>

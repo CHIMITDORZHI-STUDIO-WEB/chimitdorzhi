@@ -85,6 +85,7 @@ const hasField = (list, k) => list.filter((m) => m[k] !== undefined).length >= l
 const plural = (n, one, few, many) => (n % 10 === 1 && n % 100 !== 11 ? one : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? few : many));
 
 // --- Оболочка сайта ---
+const { METRIKA: YM_SNIPPET } = require('./metrika-snippet.js');
 const shellSrc = fs.readFileSync(path.join(ROOT, 'predlozheniya', 'index.html'), 'utf8');
 const headTpl = shellSrc.slice(0, shellSrc.indexOf('<script type="application/ld+json">'));
 const bodyStart = shellSrc.slice(shellSrc.indexOf('</head>'), shellSrc.indexOf('<main id="main">'));
@@ -107,6 +108,7 @@ function head({ lang, title, description, url, ld, image, alt }) {
   if (alt) h += `<link rel="alternate" hreflang="ru" href="${alt.ru}">\n<link rel="alternate" hreflang="en" href="${alt.en}">\n<link rel="alternate" hreflang="x-default" href="${alt.ru}">\n`;
   h += `<link rel="stylesheet" href="/assets/models.css?v=${CSS_V}">\n`;
   for (const obj of ld || []) h += `<script type="application/ld+json">${JSON.stringify(obj)}</script>\n`;
+  h += require('./metrika-snippet.js').METRIKA;
   return h;
 }
 // Пометка про Meta, как в блоге: упоминание без неё грозит штрафом по ст. 13.15 КоАП.

@@ -286,6 +286,7 @@ let head = headTpl
   .replace(/(<meta property="og:url" content=")[^"]*/, `$1${URL_}`)
   .replace(/(<meta property="og:title" content=")[^"]*/, `$1${esc(TITLE)}`)
   .replace(/(<meta property="og:description" content=")[^"]*/, `$1${esc(DESC)}`);
+head += require('./metrika-snippet.js').METRIKA;
 head += `<link rel="stylesheet" href="/assets/models.css?v=${MODELS_CSS_V}">\n<link rel="stylesheet" href="/assets/prices.css?v=${CSS_V}">\n` + leadFormHead();
 
 const ld = [
