@@ -13,6 +13,7 @@ const { i18nServices, i18nUi } = require('./services-i18n-source');
 const OFFERS = require('./offers-data.js');
 const { METRIKA, GOALS, maxBtn } = require('./metrika-snippet.js');
 const { casesSection } = require('./related-cases-html.js');
+const { unique, uniqueSection } = require('./services-unique-load.js');
 // Маркировка запрещённых/заблокированных в РФ площадок: метки «*»/«**» в видимом тексте <main> и сноска внизу
 const RP = require('./restricted-platforms.js');
 // Разделы «Как проходит работа», «Что входит в цену», «Сроки» (данные: services-extra.js)
@@ -254,11 +255,13 @@ const TIMELINE = {
 };
 
 function faqForService(svc) {
-  const nameLower = svc.n.charAt(0).toLowerCase() + svc.n.slice(1);
+  const nameLower = /^[A-ZА-ЯЁ]{2}|^[A-Z]/.test(svc.n) ? svc.n : svc.n.charAt(0).toLowerCase() + svc.n.slice(1);
   const time = TIMELINE[svc.c] || 'обсуждается индивидуально под задачу';
   const priceA = (svc.pf && svc.pf.length)
-    ? `Стоимость — ${svc.pt}. Финальная цена зависит от: ${svc.pf.join(', ')}. Точную смету дам после короткого разговора о задаче.`
-    : `Стоимость — ${svc.pt}. Точную смету дам после короткого разговора о задаче.`;
+    ? `Стоимость: ${svc.pt}. Финальная цена зависит от: ${svc.pf.join(', ')}. Точную смету дам после короткого разговора о задаче.`
+    : `Стоимость: ${svc.pt}. Точную смету дам после короткого разговора о задаче.`;
+  const u = unique(svc.s);
+  if (u && (u.faq || []).length) return [{ q: `Сколько стоит ${nameLower}?`, a: priceA }, ...u.faq];
   return [
     { q: `Сколько стоит ${nameLower}?`, a: priceA },
     { q: `Сколько времени занимает работа?`, a: `Сроки — ${time}. После обсуждения задачи я называю конкретные сроки и фиксирую их в договоре.` },
@@ -353,7 +356,8 @@ function servicePage(svc) {
   const url = `${SITE}/services/${svc.s}/`;
   const cat = categories[svc.c];
   const k = `svc.${svc.s}`;
-  return `${head({ title: commercialTitle(svc), description: svc.md, keywords: svc.mk, canonical: url })}    <script type="application/ld+json">
+  const own = unique(svc.s) || {};
+  return `${head({ title: own.title || commercialTitle(svc), description: own.md || svc.md, keywords: svc.mk, canonical: url })}    <script type="application/ld+json">
 ${serviceJsonLd(svc, url)}
     </script>
     <script type="application/ld+json">
@@ -398,6 +402,8 @@ ${faqJsonLd(svc)}
                 </div>
             </div>
         </section>
+
+        ${uniqueSection(svc.s)}
 
         ${serviceExtraSection(svc)}
 
