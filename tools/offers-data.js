@@ -53,6 +53,7 @@ const ctoBody = require('./offer-content-cto.js');
 
 // Порядок на хабе: свежие партии выше, старые ниже.
 const _ALL_OFFERS = [
+  ...require('./offers-batch-47.js'),
   ...require('./offers-batch-46.js'),
   ...require('./offers-batch-45.js'),
   ...require('./offers-batch-44.js'),

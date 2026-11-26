@@ -183,7 +183,16 @@ function offerLd(o, url) {
     areaServed: { '@type': 'Country', name: 'Россия' },
     url,
   };
-  if (o.priceMin) {
+  // Городские страницы: ProfessionalService с зоной работы, без выдуманного адреса.
+  if (o.city) {
+    obj['@type'] = 'ProfessionalService';
+    obj.areaServed = { '@type': 'City', name: o.city };
+    delete obj.serviceType;
+    delete obj.provider;
+    obj.founder = { '@id': `${SITE}/#organization` };
+    if (o.priceMin) obj.priceRange = o.priceFrom;
+  }
+  if (o.priceMin && !o.city) {
     obj.offers = {
       '@type': 'Offer',
       priceCurrency: 'RUB',
@@ -353,6 +362,7 @@ ${faqLd(o)}${METRIKA}</head>
 
 // Группировка рубрик для удобной навигации заказчика
 const SEGMENT_GROUPS = [
+  { label: 'Города', segs: ['Города'] },
   { label: 'Отрасли', segs: ['Розница и торговля', 'Бытовые услуги', 'Красота и здоровье', 'HoReCa и общепит', 'Авто и транспорт', 'Туризм и гостеприимство', 'Недвижимость', 'Развлечения и досуг', 'Спорт и фитнес', 'Медицина и MedTech', 'Образование и EdTech', 'АПК и фермерство', 'Производство и стройка', 'Логистика и склад', 'Маркетплейсы и e-commerce', 'Госсектор', 'Этнокультура и наследие'] },
   { label: 'AI и технологии', segs: ['AI-ассистенты для работы', 'Запуск продукта и стартап', 'Корпоративный AI', 'Боты и AI', 'Зрение и роботизация'] },
   { label: 'Под задачу', segs: ['Мессенджер MAX', 'Маркетинг и трафик', 'Вовлечение и вирусный рост', 'Геймификация бизнеса', 'Геймификация под нишу', 'Медиа, контент и креаторы', 'Финтех и платежи', 'HR и команда', 'Безопасность и аудит', 'Право и документы', 'Комплексные платформы', 'Геймификация', 'Сетевой бизнес (MLM)'] },
@@ -373,6 +383,7 @@ const SEGMENT_ICONS = {
   'Медиа, контент и креаторы': 'ph-microphone', 'Финтех и платежи': 'ph-credit-card', 'HR и команда': 'ph-users-three',
   'Безопасность и аудит': 'ph-shield-check', 'Право и документы': 'ph-scales', 'Комплексные платформы': 'ph-stack',
   'Сетевой бизнес (MLM)': 'ph-share-network',
+  'Города': 'ph-map-pin',
 };
 const segIcon = (s) => SEGMENT_ICONS[s] || 'ph-tag';
 
