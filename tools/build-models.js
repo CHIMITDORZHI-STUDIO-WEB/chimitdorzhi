@@ -187,7 +187,8 @@ const cardClickJs = `<script>(function(){[].forEach.call(document.querySelectorA
 function collectionList(lang) {
   if (!COLL) return [];
   const list = [];
-  const models = MODELS[lang];
+  // Сборки с вырезанными отказами (unfiltered) есть в каталоге, но не попадают в рекомендательные подборки.
+  const models = MODELS[lang].filter((m) => !m.unfiltered);
   for (const [k, c] of Object.entries(COLL.modality || {})) {
     if (!MOD[k] || !c.slug) continue;
     const items = models.filter((m) => m.modality.includes(k));
@@ -762,7 +763,7 @@ function quizPage(lang) {
     tg: 'Hello! I used the model finder: task — {t}; Russian — {r}; hardware — {h}; use — {c}. Suggested: {m}. I would like to discuss deployment.', tgBtn: 'Discuss deployment', open: 'Open card',
     ruW: { yes: 'required', any: 'not required' },
   };
-  const data = MODELS[lang].map((m0) => { const m = loc(m0, lang); return { i: m.id, n: m.name, s: m.summary, mo: m.modality, r: m.ru || '', h: m.hardware, c: m.commercial, o: m.ollama ? 1 : 0, y: m.latest, cl: COM[m.commercial][lang], cc: COM[m.commercial].cls, d: m.developer }; });
+  const data = MODELS[lang].filter((m) => !m.unfiltered).map((m0) => { const m = loc(m0, lang); return { i: m.id, n: m.name, s: m.summary, mo: m.modality, r: m.ru || '', h: m.hardware, c: m.commercial, o: m.ollama ? 1 : 0, y: m.latest, cl: COM[m.commercial][lang], cc: COM[m.commercial].cls, d: m.developer }; });
   const radio = (name, opts) => opts.map(([v, x], i) => `<label class="md-opt"><input type="radio" name="${name}" value="${v}"${i === 0 ? ' checked' : ''}><span>${esc(x)}</span></label>`).join('');
   const main = `<section class="section md-page"><div class="container">
   ${crumbs(lang, [[BASE[lang], t.section], [null, t.quizH]])}
@@ -918,7 +919,7 @@ function glossaryPage(lang) {
 function hardwarePage(x, lang) {
   const t = T[lang];
   const f2 = (k) => (lang === 'en' ? x[k + '_en'] : x[k]) || x[k];
-  const items = MODELS[lang].filter((m) => m.hardware[0] === x.key);
+  const items = MODELS[lang].filter((m) => m.hardware[0] === x.key && !m.unfiltered);
   if (!items.length) return false;
   // Группируем по направлению: так видно, что именно на этом железе делается.
   const byMod = {};
