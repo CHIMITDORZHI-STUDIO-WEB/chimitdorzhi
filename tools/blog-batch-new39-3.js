@@ -40,7 +40,7 @@ module.exports = [
       ['faq', 'Частые вопросы'],
       ['vyvody', 'Коротко о главном'],
     ),
-    relatedSlugs: ['pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026', 'remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026', 'bot-kviz-raschet-smety-2027', 'versii-smety-i-soglasovanie-klientom-v-bote-2026'],
+    relatedSlugs: ['remkontrol-bot-zayavka-zamer-smeta-predlozhenie-keys-2026', 'bot-kviz-raschet-smety-2027', 'versii-smety-i-soglasovanie-klientom-v-bote-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/services/business-automation/', label: 'Автоматизация бизнеса' },
     servicesOffer: SVC,
     contentHtml: C('dengi-v-programme-hranit-v-kopeykah-2026'),

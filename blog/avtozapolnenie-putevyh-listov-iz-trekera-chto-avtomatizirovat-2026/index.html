@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Автозаполнение путевых листов из трекера: границы</title>
+    <meta name="description" content="Какие поля путевого листа заполняются из GPS-трекера автоматически, а какие нельзя: пробег, время, топливо по норме, одометр, медосмотр, контроль перед печатью.">
+    <meta name="keywords" content="автозаполнение путевых листов, путевой лист из трекера, путевые листы GPS, автоматизация путевых листов, расход топлива по норме, показания одометра в путевом листе, приказ Минтранса 390 путевой лист, путевые листы для автопарка">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/">
+    <meta property="og:title" content="Автозаполнение путевых листов из трекера: границы">
+    <meta property="og:description" content="Какие поля путевого листа заполняются из GPS-трекера автоматически, а какие нельзя: пробег, время, топливо по норме, одометр, медосмотр, контроль перед печатью.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Автозаполнение путевых листов из трекера: границы">
+    <meta name="twitter:description" content="Какие поля путевого листа заполняются из GPS-трекера автоматически, а какие нельзя: пробег, время, топливо по норме, одометр, медосмотр, контроль перед печатью.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Автозаполнение путевых листов из трекера: что можно автоматизировать, а что нет",
+  "description": "Какие поля путевого листа заполняются из GPS-трекера автоматически, а какие нельзя: пробег, время, топливо по норме, одометр, медосмотр, контроль перед печатью.",
+  "image": "https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/"
+  },
+  "datePublished": "2026-11-21",
+  "dateModified": "2026-11-25",
+  "keywords": "путевые листы, GPS-трекер, автозаполнение, расход топлива, автопарк, приказ Минтранса 390",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Автозаполнение путевых листов из трекера: что можно автоматизировать, а что нет",
+      "item": "https://chimitdorzhi.tech/blog/avtozapolnenie-putevyh-listov-iz-trekera-chto-avtomatizirovat-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли заполнять путевые листы полностью автоматически?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Часть полей можно, но не весь лист. Время, пробег, остановки и расчётный расход берутся из трекера, а одометр, медосмотр и выпуск на линию заверяют люди."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Совпадает ли пробег по GPS с одометром?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Не полностью. Расхождение возникает из-за колёс, ложных точек и пропусков связи, поэтому в листе эти значения стоят отдельно, а допуск на расхождение компания задаёт сама."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужно ли хранить отметки медика в системе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Приказ требует отметку, но она ставится медицинским работником. Я оставляю поле под подпись и не храню результаты осмотров, потому что это сведения о здоровье. Как поступить в вашей компании, уточните у юриста."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как считается расход топлива в таком листе?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "По норме: пробег умножается на норму на 100 км. Это расчёт, фактический расход покажут заправки или датчик уровня топлива."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что делать, если трекер был выключен часть дня?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Лист получает пометку, и человек вносит данные вручную с объяснением. Правка сохраняется в журнале."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Автозаполнение путевых листов из трекера: что можно автоматизировать, а что нет</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-11-21"><i class="ph ph-calendar" aria-hidden="true"></i> 21 ноября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Автозаполнение путевых листов из трекера: что можно автоматизировать, а что нет</h1>
+
+                    <p class="blog-lead">Что в путевом листе можно взять из GPS-трекера автоматически: время, пробег, остановки, топливо по норме. И что остаётся людям по приказу Минтранса: одометр, медосмотр, выпуск на линию. Как организовать проверку листа перед печатью.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>путевые листы</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>GPS-трекер</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автозаполнение</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>расход топлива</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автопарк</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>приказ Минтранса 390</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Из трекера можно автоматически взять время выезда и возвращения, пробег, время в движении, список остановок и расчётный расход топлива по норме. Показания одометра, отметки медика и решение механика о выпуске на линию автоматизировать нельзя: их ставит человек.</li>
+<li>Одометр и пробег по GPS это две разные цифры. Пробег по GPS считается по точкам трека, одометр читает человек с приборной панели, поэтому в листе они лежат в разных полях.</li>
+<li>Перед печатью каждый лист проходит проверку человеком: система подсвечивает подозрительное (слишком высокая средняя скорость, нет точек, пробег ноль), а правки сохраняются с именем и временем.</li>
+<li>Для парка около 50 машин такой подход убирает основную рутину, а подписи и допуски остаются там, где их требует приказ Минтранса.</li>
+</ul></div>
+<div class="blog-cta-internal">
+  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
+  <div>
+    <strong>Хотите внедрить это у себя?</strong>
+    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%83%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%20%D0%B8%D0%B7%20%D1%82%D1%80%D0%B5%D0%BA%D0%B5%D1%80%D0%B0%3A%20%D1%87%D1%82%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%2C%20%D0%B0%20%D1%87%D1%82%D0%BE%20%D0%BD%D0%B5%D1%82%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
+    <a href="https://chimitdorzhi.tech/services/business-automation/">Автоматизация бизнеса <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</div>
+
+<p>Автозаполнение путевого листа из трекера это автоматический перенос в бланк тех данных, которые трекер измеряет сам: время выезда и возвращения, пробег по трассе, время в движении, остановки и расчёт топлива по норме. Всё, что требует подписи или физического осмотра, остаётся за людьми. Граница проходит по приказу Минтранса: сведения, которые подтверждают человек и его подпись, трекер заменить не может.</p>
+
+<h2 id="granica">Где проходит граница между автоматикой и человеком</h2>
+<p>Граница определяется тем, кто может подтвердить факт. Трекер подтверждает, где ехала машина и когда. Человек подтверждает, что водитель здоров, машина исправна и показания на приборной панели такие. Эти два набора фактов в листе стоят рядом, но автоматизируются по-разному.</p>
+<p>Обязательные реквизиты путевого листа задаёт приказ Минтранса от 28.09.2022 № 390. По тексту приказа дату и время осмотра водителя проставляет медицинский работник и заверяет подписью или квалифицированной электронной подписью. Результат контроля технического состояния и решение «выпуск на линию разрешен» или «не разрешен» проставляет ответственное должностное лицо. Показания одометра при выезде и заезде проставляет уполномоченное лицо, тоже с подписью. Нормы меняются, поэтому актуальную редакцию приказа и форму бланка проверяйте у бухгалтера или юриста.</p>
+<div class="blog-table"><table><thead><tr><th>Поле листа</th><th>Откуда берётся</th><th>Автоматизируется</th></tr></thead><tbody>
+<tr><td>Дата, время выезда и возвращения</td><td>Первая и последняя поездка за сутки по точкам трека</td><td>Да, с проверкой</td></tr>
+<tr><td>Пробег за день</td><td>Сумма расстояний между точками после отсева ложных</td><td>Да, с проверкой</td></tr>
+<tr><td>Время в движении, остановки, адреса</td><td>Трек и справочник объектов компании</td><td>Да</td></tr>
+<tr><td>Расход топлива по норме</td><td>Пробег и норма, заданная для машины</td><td>Да, расчётный</td></tr>
+<tr><td>Машина, водитель, отдел</td><td>Справочник, привязка водителя к машине</td><td>Да, если справочник ведётся</td></tr>
+<tr><td>Показания одометра</td><td>Приборная панель</td><td>Нет, вводит человек</td></tr>
+<tr><td>Отметка медицинского осмотра</td><td>Медработник</td><td>Нет</td></tr>
+<tr><td>Контроль техсостояния, выпуск на линию</td><td>Механик или ответственное лицо</td><td>Нет</td></tr>
+<tr><td>Подпись водителя</td><td>Водитель</td><td>Нет</td></tr>
+</tbody></table></div>
+
+<h2 id="chto-mozhno">Что из трекера можно взять автоматически</h2>
+<p>Автоматически можно взять всё, что трекер измеряет сам и что не требует чьей-то подписи. Я собираю лист по сырым точкам, которые трекер отправил на сервер за календарные сутки, и режу их на поездки и стоянки сам. Стоянкой считаю остановку на три минуты и дольше в радиусе 150 метров. Эти значения стартовые, под конкретный парк их подбирают на реальных данных.</p>
+<p>Из этого получается заполненная строка маршрута: откуда выехали, куда приехали, во сколько, сколько километров. Адрес сверяется со справочником объектов компании. Если точка стоянки попадает в радиус объекта, в листе стоит название объекта. Если не попадает, подставляется адрес по координатам. Так лист читается бухгалтером и водителем без расшифровки.</p>
+<p>Отдельно считается время в движении. Из разницы между временем смены и временем в движении получается время стоянок, которое в некоторых формах листа заполняется отдельной графой.</p>
+
+<h2 id="probeg">Пробег по трекеру и показания одометра</h2>
+<p>Пробег по трекеру это сумма расстояний между точками трека, а показание одометра это число на приборной панели, и совпадать они обязаны не полностью. Расхождение вызывают разный диаметр колёс, ложные точки, пропуски связи и сама геометрия: трек из точек срезает повороты. Поэтому я держу эти значения в разных полях.</p>
+<p>В проекте для транспортной компании с парком около 50 машин заказчик сразу сказал, что показания одометра механики хотят вносить сами перед печатью. Это правильное решение: одометр читает человек, и он же отвечает за запись. Система показывает рядом пробег по GPS, и механик видит расхождение. Компания вправе заранее назначить порог, при превышении которого лист уходит на разбор.</p>
+<p>Какой порог считать нормальным, зависит от парка, трекеров и маршрутов. Универсального числа я не назову. Его определяют по первым двум неделям работы, сравнивая пробег по GPS с одометром на тех же машинах. Как отсеивать ложные точки, которые портят пробег, я разобрал в статье про <a href="/blog/lozhnye-tochki-gps-probeg-vret-kak-otseyat-musor-2026/">ложные точки GPS</a>.</p>
+
+<h2 id="toplivo">Топливо по норме: что считается и чего система не знает</h2>
+<p>Расход топлива в листе рассчитывается по норме: пробег умножается на норму на 100 км и делится на 100. Это расчётная цифра, фактический расход она не показывает. Методику норм задаёт распоряжение Минтранса от 14.03.2008 № АМ-23-р с методическими рекомендациями, сверяйте редакцию со справочной системой: по моим данным, последняя редакция документа датируется 30.09.2021.</p>
+<p>В рекомендациях норма корректируется надбавками, например за зимний период или городской цикл. Какие надбавки применяет компания, определяет её приказ, поэтому в справочнике машины хранится одна итоговая норма. Если приказ изменился, норма меняется в одном месте.</p>
+<ul>
+<li>Что система знает: пробег и норму машины, поэтому расчётный расход считается за секунды.</li>
+<li>Чего она не знает: сколько топлива залили и сколько осталось в баке. Для этого нужны данные заправок, топливные карты или датчик уровня топлива.</li>
+<li>Что из этого следует: сверка нормы с фактом это отдельная задача, и решать её имеет смысл после того, как накопятся данные.</li>
+</ul>
+
+<h2 id="chto-nelzya">Что автоматизировать нельзя и почему</h2>
+<p>Нельзя автоматизировать то, что подтверждает человек своей подписью, потому что подпись и есть содержание этой записи. Три позиции я не трогаю в принципе.</p>
+<ol>
+<li>Медицинский осмотр. Отметку ставит медицинский работник. Порядок осмотров определяет приказ Минздрава от 30.05.2023 № 266н. Сведения о состоянии здоровья относятся к особой категории персональных данных, поэтому в моих листах для медика оставлено поле под живую подпись, а сами результаты осмотра я не храню.</li>
+<li>Контроль технического состояния. Решение о выпуске на линию принимает механик или ответственное лицо. Трекер может сообщить о перепробеге или о нарушении графика ТО, но допуском такая подсказка не считается.</li>
+<li>Показания одометра и подпись водителя. Первое читается с панели, второе означает, что водитель ознакомлен с листом.</li>
+</ol>
+<p>Часть компаний переходит на электронный путевой лист с квалифицированной подписью. Порядок описан в моей статье про <a href="/blog/putevye-listy-elektronno-2026/">путевые листы в электронном виде</a>. Электронная подпись меняет способ заверения, и отметки по-прежнему ставят уполномоченные люди.</p>
+
+<h2 id="kontrol">Контроль человека перед печатью</h2>
+<p>Перед печатью каждый лист проверяет человек, потому что трекер ошибается, а бумага с ошибкой попадает в бухгалтерию. Проверка занимает минуту на лист, если система заранее показывает, куда смотреть.</p>
+<ol>
+<li>Пробег и время выезда выглядят правдоподобно для этого водителя и этой машины.</li>
+<li>Нет флага «проверьте»: у меня он ставится, когда средняя скорость на участке выше 110 км/ч, это признак ложной точки или пропуска связи.</li>
+<li>Если пробег ноль, но по табелю водитель работал, надо выяснить, не отключился ли трекер.</li>
+<li>Водитель в листе тот, кто ехал: при подмене водителя справочник нужно поправить до печати.</li>
+<li>Показание одометра внесено механиком и сходится с пробегом по GPS в пределах порога, который назначила компания.</li>
+<li>В подвале напечатанного листа указано, что он сформирован автоматически по данным GPS, и стоит время последней правки с именем автора.</li>
+</ol>
+<p>Правка в листе не стирает исходные точки трека на сервере. Кто изменил поле и когда, записывается в журнал листа, а лист получает статус «черновик» или «проверен». При споре видно, что сформировала система и что исправил человек.</p>
+
+<h2 id="kak-ustroeno">Как это устроено в моей сборке</h2>
+<p>Я делаю модуль путевых листов поверх <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-inline-link">Traccar</a>, открытого сервера для GPS-трекеров. Вход в модуль идёт через учётные записи сервера, поэтому отдельных паролей заводить не нужно. Состав модуля такой: справочник машин и водителей, автозаполнение из трека, топливо по норме, отсев ложных точек, разбивка по отделам, печать в PDF и выгрузка в Excel пачкой за период.</p>
+<p>Запускаю по этапам, чтобы не ломать привычный процесс. Сначала две машины и параллельная работа с действующей системой, затем весь парк. Как проводить такую проверку, написано в статье про <a href="/blog/pilot-monitoringa-na-dvuh-mashinah-parallelno-s-deystvuyushchey-sistemoy-2026/">пилот на двух машинах</a>. Предложение для парка из 50 машин в виде отдельного кейса лежит здесь: <a href="/blog/svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026/">свой GPS-сервер и путевые листы</a>. Какой бывает форма бланка, зависит от типа машины, и я подставляю её автоматически.</p>
+
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/traccar-gps-monitoring-transporta-2026/">Traccar: GPS-мониторинг транспорта и сотрудников на своём сервере</a></li><li><a href="/blog/uchet-avtoparka-putevye-listy-2026/">Учёт автопарка: где машина, кто за рулём, когда ТО</a></li></ul></div></div>
+<h2 id="oshibki">Три типичные ошибки при автозаполнении</h2>
+<p>Чаще всего автозаполнение ломается на данных, которые никто не проверил.</p>
+<ul>
+<li>Один водитель закреплён за машиной навсегда, а ездят двое. Лист печатается на того, кто в справочнике.</li>
+<li>Норма расхода не задана для новой машины, система берёт значение по умолчанию, и расчёт расходится с бухгалтерией.</li>
+<li>Ложные точки не отсеяны, и пробег завышен на десятки километров. Расход по норме растёт вместе с пробегом.</li>
+</ul>
+<p>Если лист нужен для учёта автопарка в целом, посмотрите также материал про <a href="/blog/uchet-nebolshogo-avtoparka-2026/">учёт небольшого автопарка</a>.</p>
+
+<h2 id="ceny">Сколько это стоит у меня</h2>
+<p>Автоматизацию документов и связку сервисов я делаю от 60 000 ₽, срок от 2 недель. Доработки вне таблицы идут по часам от 3 000 ₽/час. Стоимость модуля путевых листов для вашего парка считаю после разбора задачи: она зависит от форм бланков, числа машин и отделов, нужна ли выгрузка в 1С. Общий прайс есть на странице <a href="/ceny/">цен</a>. Посмотреть, как я подхожу к автоматизации, можно в разделе <a href="/services/business-automation/">автоматизация бизнеса</a>.</p>
+
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли заполнять путевые листы полностью автоматически?</h3>
+<p>Часть полей можно, но не весь лист. Время, пробег, остановки и расчётный расход берутся из трекера, а одометр, медосмотр и выпуск на линию заверяют люди.</p>
+<h3>Совпадает ли пробег по GPS с одометром?</h3>
+<p>Не полностью. Расхождение возникает из-за колёс, ложных точек и пропусков связи, поэтому в листе эти значения стоят отдельно, а допуск на расхождение компания задаёт сама.</p>
+<h3>Нужно ли хранить отметки медика в системе?</h3>
+<p>Приказ требует отметку, но она ставится медицинским работником. Я оставляю поле под подпись и не храню результаты осмотров, потому что это сведения о здоровье. Как поступить в вашей компании, уточните у юриста.</p>
+<h3>Как считается расход топлива в таком листе?</h3>
+<p>По норме: пробег умножается на норму на 100 км. Это расчёт, фактический расход покажут заправки или датчик уровня топлива.</p>
+<h3>Что делать, если трекер был выключен часть дня?</h3>
+<p>Лист получает пометку, и человек вносит данные вручную с объяснением. Правка сохраняется в журнале.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Автозаполнение берёт на себя рутину: время, пробег, маршрут, остановки, расчёт топлива. Подписи, одометр и допуск остаются людям, как и записано в приказе Минтранса. Перед печатью лист проверяет человек, а система показывает ему, куда смотреть. Нормативные требования проверяйте у бухгалтера или юриста перед внедрением.</p>
+<p>Если вы ведёте путевые листы вручную и хотите убрать рутину, напишите мне в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%83%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%20%D0%B8%D0%B7%20%D1%82%D1%80%D0%B5%D0%BA%D0%B5%D1%80%D0%B0%3A%20%D1%87%D1%82%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%2C%20%D0%B0%20%D1%87%D1%82%D0%BE%20%D0%BD%D0%B5%D1%82%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." rel="noopener" target="_blank">Telegram</a> кодовое слово «АВТОЛИСТ», и я скажу, какие поля вашего бланка можно заполнять из трекера.</p>
+
+                    </div>
+                    
+                    
+
+                    
+                    
+                    
+                    
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Автозаполнение путевых листов из трекера: модуль к вашему серверу мониторинга</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-file-text"></i> <span>Автозаполнение листа: выезд, возвращение, пробег, остановки и адреса из трека</span></li><li><i class="ph-fill ph-gauge"></i> <span>Топливо по норме для каждой машины, одна итоговая норма в справочнике</span></li><li><i class="ph-fill ph-list-checks"></i> <span>Проверка перед печатью: пометки о подозрительных данных и журнал правок</span></li><li><i class="ph-fill ph-file-pdf"></i> <span>Печать PDF и выгрузка Excel пачкой за период, форма бланка по типу машины</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D0%B2%D1%82%D0%BE%D0%B7%D0%B0%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D1%83%D1%82%D0%B5%D0%B2%D1%8B%D1%85%20%D0%BB%D0%B8%D1%81%D1%82%D0%BE%D0%B2%20%D0%B8%D0%B7%20%D1%82%D1%80%D0%B5%D0%BA%D0%B5%D1%80%D0%B0%3A%20%D1%87%D1%82%D0%BE%20%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%2C%20%D0%B0%20%D1%87%D1%82%D0%BE%20%D0%BD%D0%B5%D1%82%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Автоматизация бизнеса</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/svoy-gps-server-avtopark-putevye-listy-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-map-pin-line"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Свой GPS-сервер для автопарка из 50 машин: стенд и путевые листы</h3>
+  <p>Компания с парком около 50 машин хочет уйти от абонентской платы за мониторинг на собственный сервер. Я проверил её трекеры, предложил три варианта по объёму и поднял рабочий стенд: первый трекер на связи, модуль собирает путевой лист по данным машины, итог теста руководство одобрило. Остальной парк пока не подключён.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/putevye-listy-elektronno-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-file-text"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Путевые листы электронно: как перейти в 2026</h3>
+  <p>Кому обязательны электронные путевые листы, что нужно для перехода, как это работает и как автоматизировать выпуск под свой автопарк.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/uchet-nebolshogo-avtoparka-2026/" data-category="opensource" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-car-simple"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Open-source и свой сервер</span>
+  <h3>Учёт небольшого автопарка без дорогих систем мониторинга</h3>
+  <p>У доставки, такси или стройки 2-10 машин, а «взрослые» системы мониторинга флота берут абонплату за каждую и стоят как самолёт. Разбираю, как вести учёт ТО, топлива и документов по всему парку на своём сервере, без лишних затрат.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 августа 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/lozhnye-tochki-gps-probeg-vret-kak-otseyat-musor-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-path"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Ложные точки GPS: почему пробег врёт и как отсеять мусор</h3>
+  <p>Почему пробег по GPS-трекеру завышается: скачки на десятки километров и дрейф на стоянке. Правила фильтрации со стартовыми порогами, что умеет фильтровать Traccar и как проверить результат простыми тестами.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/pilot-monitoringa-na-dvuh-mashinah-parallelno-s-deystvuyushchey-sistemoy-2026/" data-category="expert" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-list-checks"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Экспертный блог</span>
+  <h3>Пилот мониторинга на двух машинах перед покупкой: как тестировать параллельно с действующей системой</h3>
+  <p>Как провести недельный пилот мониторинга на двух машинах и не остаться без данных: каких выбирать, как работать параллельно с действующей системой, чек-лист по дням, таблица критериев успеха и решение по итогам.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#granica"><span class="blog-toc-num">01</span> Где проходит граница между автоматикой и человеком</a></li>
+<li><a href="#chto-mozhno"><span class="blog-toc-num">02</span> Что из трекера можно взять автоматически</a></li>
+<li><a href="#probeg"><span class="blog-toc-num">03</span> Пробег по трекеру и показания одометра</a></li>
+<li><a href="#toplivo"><span class="blog-toc-num">04</span> Топливо по норме: что считается и чего система не знает</a></li>
+<li><a href="#chto-nelzya"><span class="blog-toc-num">05</span> Что автоматизировать нельзя и почему</a></li>
+<li><a href="#kontrol"><span class="blog-toc-num">06</span> Контроль человека перед печатью</a></li>
+<li><a href="#kak-ustroeno"><span class="blog-toc-num">07</span> Как это устроено в моей сборке</a></li>
+<li><a href="#oshibki"><span class="blog-toc-num">08</span> Три типичные ошибки при автозаполнении</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">09</span> Сколько это стоит у меня</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>
