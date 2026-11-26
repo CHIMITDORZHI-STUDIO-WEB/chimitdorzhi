@@ -197,6 +197,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -259,14 +261,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -338,13 +332,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -439,14 +426,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Я разработал мультитенантную платформу лояльности для нескольких независимых кафе в Куско: у каждого заведения своя цифровая штамп-карта, работающая в браузере телефона без установки приложения, а владелец платформы управляет всеми подключёнными заведениями из одной админ-панели. Новое кафе подключается без переписывания кода — просто как новый арендатор системы.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82%20%D1%81%D1%80%D0%B0%D0%B7%D1%83%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BD%D0%B5%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D1%8B%D1%85%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%B2%20%D0%9A%D1%83%D1%81%D0%BA%D0%BE%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю программу лояльности с картой в телефоне: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/" data-goal="article_offer_case">Цифровая карта лояльности для кафе: PWA вместо бумажных штампов</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82%20%D1%81%D1%80%D0%B0%D0%B7%D1%83%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BD%D0%B5%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D1%8B%D1%85%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%B2%20%D0%9A%D1%83%D1%81%D0%BA%D0%BE%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/programma-loyalnosti/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p>Несколько независимых кафе в Куско хотели запустить программу лояльности для постоянных клиентов — простую механику, где после определённого числа покупок клиент получает бесплатный напиток или скидку. Идея очевидная и давно работающая офлайн: бумажная карточка со штампами, которую кассир пробивает при каждой покупке. Проблема в другом — бумажная карта теряется, её легко подделать, а собрать по ней хоть какую-то статистику невозможно. Готовые цифровые сервисы лояльности на рынке либо требовали от клиента установить отдельное приложение под каждое кафе — а никто не будет ставить пять приложений ради скидки на кофе, — либо были рассчитаны на одну точку и не подходили, если один и тот же владелец платформы хотел обслуживать сразу несколько независимых заведений с полным разделением данных между ними. Мне нужно было построить систему, которая одновременно простая для конечного клиента и управляемая централизованно для владельца платформы.</p>
 <h2 id="problema">Проблема: готовые сервисы не масштабируются на несколько заведений</h2>
 <p>Ключевое противоречие в задаче было такое: с одной стороны, каждое кафе — независимый бизнес со своими правилами начисления штампов, своим брендингом, своими клиентами, и данные одного заведения не должны быть видны другому. С другой стороны, разработка отдельного продукта под каждое новое кафе экономически не имеет смысла — тогда любое расширение сети превращается в отдельный проект программирования. <a href="/blog/sistemy-loyalnosti-2027/">Готовые коробочные решения</a> на рынке либо жёстко привязаны к одному заведению (нельзя добавить второе без дублирования всей инфраструктуры), либо это дорогие корпоративные системы, избыточные для формата небольшой независимой кофейни. Мне нужно было спроектировать архитектуру, где новое заведение подключается как конфигурация, а не как новая разработка.</p>
@@ -464,6 +455,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <h2 id="dlya-kogo">Кому подойдёт такое же решение</h2>
 <p>Мультитенантная модель лояльности актуальна для любого, кто хочет продавать программу лояльности не одному заведению, а сразу нескольким: сетям небольших независимых кофеен и кафе, франшизам, объединениям локального малого бизнеса (парикмахерские, пекарни, магазины у дома), которые хотят получить единую систему для группы точек без разработки отдельного продукта под каждую. Также решение подходит агентствам и предпринимателям, которые хотят построить собственный <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">SaaS</a>-продукт лояльности и продавать доступ к нему разным заведениям как услугу, зарабатывая на подписке, а не на разовой разработке.</p>
 <p>Похожая архитектура переносится и за пределы лояльности как таковой: любой сервис, который планируется продавать сразу нескольким независимым бизнесам с изоляцией данных между ними — бронирование, учёт клиентов, простая CRM для конкретной ниши — выигрывает от такого же подхода с самого начала разработки, а не после того, как второй клиент попросит подключить его к уже готовой под одного систему.</p>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю программу лояльности с картой в телефоне: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/tsifrovaya-karta-loyalnosti-pwa-keys-2026/" data-goal="article_offer_case">Цифровая карта лояльности для кафе: PWA вместо бумажных штампов</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BE%D0%B4%D0%BD%D0%B0%20%D0%BF%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8%20%D0%BE%D0%B1%D1%81%D0%BB%D1%83%D0%B6%D0%B8%D0%B2%D0%B0%D0%B5%D1%82%20%D1%81%D1%80%D0%B0%D0%B7%D1%83%20%D0%BD%D0%B5%D1%81%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D0%BD%D0%B5%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D1%8B%D1%85%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%B2%20%D0%9A%D1%83%D1%81%D0%BA%D0%BE%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D1%83%20%D0%BB%D0%BE%D1%8F%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/programma-loyalnosti/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Нужно ли клиенту кафе устанавливать приложение?</strong> Нет, штамп-карта открывается прямо в браузере телефона по QR-коду или ссылке — установка не требуется, и в этом ключевое преимущество перед классическими решениями лояльности.</p>
 <p><strong>Сколько времени занимает подключение нового кафе к уже работающей платформе?</strong> Технически это настройка нового арендатора в существующей системе — занимает от нескольких часов до пары дней, а не недели разработки, как было бы при отдельном проекте под каждое заведение.</p>
@@ -508,45 +510,45 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <div class="blog-card-icon"><i class="ph-fill ph-tree-structure"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
   <h3>Как я построил семейную соцсеть с родовым древом для бурят-монгольской аудитории</h3>
-  <p>Разработал семейную соцсеть Гэрэл с интерактивным родовым древом, лентой семьи и картой рода для бурят-монгольской аудитории. Рассказываю, как устроена система защиты от ошибок в родословной и почему магия — в приглашениях без пароля.</p>
+  <p>Моя семейная соцсеть с интерактивным родовым древом, лентой семьи и картой рода для бурят-монгольской аудитории. Рассказываю про защиту от ошибок в родословной, вход по ссылке и что изменилось к 21 ноября: загрузка GEDCOM, объединение древ, атлас. Это закрытый стенд для тестирования, не публичный запуск.</p>
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 6 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/deteyling-dubay-klienty-partnerka-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+<a class="blog-card" href="/blog/issledovanie-rynka-kofeyni-biznes-plan-san-paulu-keys-2026/" data-category="cases" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-car-profile"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-coffee"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Клиенты для детейлинг-студии в Дубае: разбор, план и партнёрка с QR</h3>
-  <p>Премиальной детейлинг-студии в Дубае нужны заявки от жителей города. Я разобрал её ролики и увидел, что охват уходит зрителям из других стран. Собрал PDF на 6 страниц: план на 14 дней, рост, ИИ-консультант с расчётом цены по фото машины и партнёрскую программу с процентом от чека на базе нашей платформы ПРОМО. Решение за студией, запуска нет.</p>
+  <h3>Исследование рынка и бизнес-план кофейни в Сан-Паулу</h3>
+  <p>Заказчица считала, что в Сан-Паулу нет вкусного кофе, и просила понять, почему никто не открыл хорошую кофейню. Я проверил рынок по открытым данным, посылка не подтвердилась. Собрал концепцию, расчёт вложений и безубыточности, а вечером расширил документ с 7 до 10 страниц блоком про франшизу международной сети. Документ сдан, решение за заказчицей.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 ноября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/prostye-resheniya-saas-iz-blokov-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-squares-four"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Простые решения: подписка на блоки готовой платформы для малой торговли</h3>
-  <p>Платформа совместных закупок, которую я собрал в сентябре, работает в бою. Вместе с партнёром мы разложили её на девять блоков для продажи по фиксированной подписке. Есть презентация на 21 слайд, сайт с тремя решениями и демо одной лавки. Подписка пока не запущена.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/artel-posutochnikov-servis-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+<a class="blog-card" href="/blog/prilozhenie-delovogo-soobshchestva-makety-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-users-three"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Артель посуточников: общая витрина, обмен гостями и партнёрка</h3>
-  <p>Посуточница из Читы берёт квартиры в управление и попросила стратегию и партнёрку. Сначала я собрал КП для неё одной, потом идея выросла в артель: несколько посуточников под одной витриной обмениваются гостями. Презентация на 12 страниц с 13 макетами готова, идёт обсуждение, ничего не запущено.</p>
+  <h3>Приложение для делового сообщества: два макета по три экрана</h3>
+  <p>У владелицы делового сообщества несколько тысяч участников, а запросы тонут в потоке сообщений в чате. Я нарисовал два макета по три экрана: запрос и подбор с ИИ, события и знакомства, клуб по подписке. Макеты переданы, договора нет, разработки не было.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/psiholog-pwa-obuchayushchee-prilozhenie-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-device-mobile"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Приложение-PWA для психолога: уровни, подписка и кабинет специалиста</h3>
+  <p>Психолог-консультант хочет перенести авторскую программу из чата в приложение: уровни с практикой, подписка, чат участниц, платный разбор. Я показал живой прототип и описал состав работ. Договорённость есть, структура разделов и референсы получены, к 21 ноября выложена первая демо-сборка по ним. Рабочее приложение ещё не запущено.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 ноября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -571,7 +573,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

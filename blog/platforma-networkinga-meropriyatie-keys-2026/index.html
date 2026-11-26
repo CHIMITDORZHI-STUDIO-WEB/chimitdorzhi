@@ -213,6 +213,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -275,14 +277,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -354,13 +348,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -455,14 +442,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Для крупного офлайн-мероприятия с сотнями гостей собрали платформу нетворкинга: <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Telegram-бот</a>, мини-приложение с деловым каталогом участников, систему баллов и бейджей, конкурсы и отдельный экран проекции с реал-тайм лидербордами для зала. Все части работают на одном бэкенде и одной базе, поэтому счётчик баллов всегда один и тот же — в боте, в приложении и на большом экране.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Нужно мини-приложение для вашего бизнеса?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B5%D1%82%D0%B2%D0%BE%D1%80%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D1%80%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%3A%20%D0%BA%D0%B5%D0%B9%D1%81%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю мини-приложение в мессенджере: от 150 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B5%D1%82%D0%B2%D0%BE%D1%80%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D1%80%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%3A%20%D0%BA%D0%B5%D0%B9%D1%81%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-mini-apps/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p>Организатор крупного офлайн-мероприятия пришёл с формулировкой, которая на первый взгляд звучит просто: «Сделайте так, чтобы люди знакомились». За ней стоит вполне конкретная боль — сотни гостей за один день, деловая программа, стенды, нетворкинг-зоны, но по факту большая часть людей проводит время в своём кругу и уходит с тем же набором контактов, с которым пришла. Бейдж с именем и QR-кодом не решает эту проблему: он идентифицирует человека, но не создаёт повод подойти и заговорить.</p>
 <p><strong>Коротко:</strong> заказчик — организатор крупного офлайн-мероприятия на сотни гостей. Проблема: люди приходят, но не знакомятся, а нетворкинг никак не измеряется. Мы построили платформу из бота, мини-приложения с каталогом участников, конкурсов и экрана проекции на едином бэкенде с общим счётчиком баллов. Результат: гости реально знакомятся, а организатор получает измеримую картину активности.</p>
 <h2 id="problema">Проблема: гости ходят рядом и не знакомятся</h2>
@@ -484,16 +475,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <li><strong>Админка и экран проекции</strong> — управление контентом и рассылками плюс отдельный публичный экран для большого зала с живыми лидербордами и картой активности.</li>
 </ul>
 <p>Стек — FastAPI на бэкенде, бот на aiogram, асинхронная PostgreSQL и два React-приложения (мини-аппа и админка/проекция). Всё завязано на единый API и единую модель данных, поэтому нет риска, что в боте один счётчик баллов, а в приложении — другой.</p>
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Нужно мини-приложение для вашего бизнеса?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B5%D1%82%D0%B2%D0%BE%D1%80%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D1%80%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%3A%20%D0%BA%D0%B5%D0%B9%D1%81%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="katalog">Деловой каталог участников</h2>
 <p>Центр мини-приложения — каталог участников с карточками-свайпами. Механика знакома всем по приложениям знакомств, но смысл здесь принципиально другой: это не дейтинг, а быстрый способ пролистать профили и понять, с кем стоит поговорить по делу — по сфере, по интересующим темам, по роли на мероприятии. Свайп вправо не означает симпатию, он означает «интересно познакомиться».</p>
 <p>Ключевое действие — кнопка «Связаться». Она фиксирует состоявшееся знакомство: оба участника получают доступ к контактам друг друга, и именно это событие, а не сам свайп, начисляет балл. Разница принципиальная: свайпы ничего не стоят и их легко наштамповать бездумно, а состоявшийся контакт — это то, ради чего вообще существует мероприятие.</p>
@@ -514,6 +495,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Для гостей эффект был проще и заметнее: игровая механика дала повод подойти к незнакомому человеку и начать разговор, а бейджи и лидерборды добавили лёгкого азарта в обычный деловой день. Часть контактов, полученных через кнопку «Связаться», участники унесли с собой в виде готовых vCard — без переписывания номеров на бумажке.</p>
 <p>Отдельно стоит объяснить, почему принцип «баллы только за ценные действия» — это не косметическое ограничение, а несущая конструкция всей системы. Как только вы начисляете очки за дешёвые действия (открыл карточку, поставил лайк, полистал ленту), рейтинг мгновенно перестаёт отражать нетворкинг и начинает отражать усидчивость: побеждает не тот, кто больше познакомился, а тот, кто дольше сидел в телефоне. Мы шли от обратного — сначала определили, какое поведение мероприятию действительно нужно (реальные знакомства, приведённые по реферальной программе люди, пройденные активности с бейджами), и только за него дали баллы. Всё остальное в интерфейсе бесплатно: листать каталог, смотреть профили и раскладку лидербордов можно сколько угодно, но на счёт это не влияет. В связке с антинакруткой на уникальной паре людей это даёт рейтинг, которому можно верить: цифра рядом с именем означает ровно то, что человек за день действительно с кем-то познакомился, а не то, что он ловко жал на кнопки.</p>
 <p>Такая же логика разделения стоит за квизом и конкурсами. Квиз мы вынесли в отдельную валюту сознательно: эрудиция и активность знакомств — разные вещи, и если засчитывать правильные ответы в общий рейтинг, то в топе окажутся не самые общительные гости, а те, кто быстрее гуглит. Поэтому квиз идёт со своим зачётом, одной попыткой и рандомизацией вопросов из общего банка — честное соревнование само в себе, не влияющее на нетворкинг-лидерборд. Конкурсы вроде марафонов-спринтов, «охоты за ролями» и «тайного гостя» работают как ритм дня: они дают всплески активности в заранее выбранные моменты, когда внимание зала естественным образом проседает. А экран проекции связывает всё это в живое событие — реал-тайм лидерборды через веб-сокеты превращают абстрактные очки в зрелище на большом экране, где участник видит своё движение в рейтинге в ту же секунду, а организатор перед награждением замораживает таблицу, чтобы объявление победителей совпало с картинкой на сцене. Всё это опирается на аккуратную работу с 152-ФЗ: без согласия на обработку данных вход в каталог закрыт, маркетинговый опт-ин отделён от обязательного, а удаление профиля стирает данные во всех модулях и откатывает начисленные за него баллы — рейтинг остаётся честным даже после того, как кто-то ушёл из системы.</p>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю мини-приложение в мессенджере: от 150 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BB%D0%B0%D1%82%D1%84%D0%BE%D1%80%D0%BC%D0%B0%20%D0%B4%D0%B5%D0%BB%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE%20%D0%BD%D0%B5%D1%82%D0%B2%D0%BE%D1%80%D0%BA%D0%B8%D0%BD%D0%B3%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D1%80%D1%83%D0%BF%D0%BD%D0%BE%D0%B3%D0%BE%20%D0%BC%D0%B5%D1%80%D0%BE%D0%BF%D1%80%D0%B8%D1%8F%D1%82%D0%B8%D1%8F%3A%20%D0%BA%D0%B5%D0%B9%D1%81%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-mini-apps/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Как сделать, чтобы гости на мероприятии реально знакомились, а не расходились по своим кругам?</strong> Нужен повод и лёгкий способ начать разговор. Мы даём деловой каталог участников, где видно, кто рядом и чем занимается, кнопку «Связаться» для мгновенного обмена контактами и игровую механику с баллами за состоявшиеся знакомства — она снимает барьер подойти к незнакомому человеку.</p>
 <p><strong>Чем платформа нетворкинга для мероприятия отличается от приложения знакомств?</strong> Тоном и смыслом действий. Свайп здесь не про симпатию, а про «интересно познакомиться по делу», карточки оформлены деловым языком, а ценность создаёт только состоявшийся контакт с обменом реальными данными, а не лайки и совпадения.</p>
@@ -575,6 +567,30 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/etno-myuzikl-immersiv-taymkod-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-projector-screen"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Этно-мюзикл с цифровым иммерсивом: как мы синхронизировали видеопроекцию с живой сценой</h3>
+  <p>Если проекция отстаёт от оркестра на две секунды, иммерсивное шоу превращается в дешёвое караоке. Рассказываем, как мы построили непрерывный таймкод на 83 минуты и связали графику с живым звуком.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/igra-tolkovatel-etimologiya-web-2027/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-game-controller"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Игра-толкователь: веб-игра про этимологию и общие корни слов</h3>
+  <p>Автор книги о смыслах слов придумала игру, где игрок сам доказывает родство слов из разных языков. Мы сделали технику: движок-трафарет, где логика зашита раз и навсегда, а новые уровни добавляются данными без единой строчки нового кода.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
 </section>
                     
@@ -596,7 +612,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

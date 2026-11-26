@@ -229,6 +229,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -291,14 +293,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -370,13 +364,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -481,14 +468,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <li>Сэкономить без потери качества можно через шаблоны дизайна, open-source CMS, минимальный MVP и Tilda для непрофильного контента.</li>
   </ul>
 </div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%202026%3A%205%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B9%20%D1%81%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8%20%D0%BE%D1%82%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/development/sites/">Получить расчёт сайта <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%202026%3A%205%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B9%20%D1%81%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8%20%D0%BE%D1%82%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <h2 id="realnost">Реальность 2026: почему цены выросли</h2>
 <p>За 16 лет в индустрии я видел разные циклы. То «делаем сайт за 15 тыс.» (2009 год), то «за миллион нормальный лендинг» (2021 год). В 2026 году рынок стабилизировался, но цены реально выросли на 30–50% по сравнению с 2023 годом. Причин несколько.</p>
@@ -514,16 +505,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <p>Отдельно на эту тему: <a href="/blog/pochemu-sayt-ne-prinosit-zayavok-audit-2027/">Почему ваш сайт не приносит заявок</a>.</p>
 
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%202026%3A%205%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B9%20%D1%81%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8%20%D0%BE%D1%82%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="kategoriya-2">Категория 2: Корпоративный сайт (5–15 страниц) — 80–500 тыс. ₽</h2>
 <p>Корпоративный сайт — про компанию, услуги, команду, кейсы, блог. Опционально — личный кабинет клиента, формы заявок по разным услугам, интеграция с CRM.</p>
 <p><strong>Tilda корпоратив — 80–200 тыс. ₽.</strong> 10–15 страниц с индивидуальным дизайном, разделом услуг с фильтрацией, страницами команды и кейсов, блогом, формами под разные задачи, базовой многоязычностью на 2 языка. Срок 4–8 недель.</p>
@@ -589,7 +570,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Юр-документы.</strong> Адекватная политика конфиденциальности, оферта, пользовательское соглашение, согласие на обработку ПД — 20–80 тыс. от грамотного юриста. Готовые шаблоны не подходят, нужна адаптация под бизнес-процессы.</p>
 <p><strong>Поддержка.</strong> Минимум 10 тыс. ₽/мес даже для простого сайта. Реалистично 30–50 тыс. для среднего бизнеса.</p>
 
-<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/saas-pricing-2026/">SaaS-pricing 2026: как назначать цены для подписочного бизнеса</a></li><li><a href="/blog/dengi-v-programme-hranit-v-kopeykah-2026/">Деньги в программе: почему суммы хранят в копейках</a></li></ul></div></div>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/saas-pricing-2026/">SaaS-pricing 2026: как назначать цены для подписочного бизнеса</a></li><li><a href="/blog/deepseek-super-agent-prototip-zadachi-iz-github-v-pr-mozhno-li-puskat-v-repozitorij-2026/">DeepSeek Super Agent: можно ли пускать его в репозиторий</a></li></ul></div></div>
 <h2 id="podderzhka">Сколько стоит поддержка в 2026</h2>
 <p>Минимальная поддержка (5 тыс./мес) — это «когда что-то сломается, мы починим». Не подходит для бизнеса, который зарабатывает через сайт.</p>
 <p>Базовая поддержка (10–20 тыс./мес) — регулярные обновления зависимостей (npm audit), мониторинг доступности, ежедневные бэкапы, исправление мелких багов, минимальные правки текстов.</p>
@@ -612,6 +593,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Ошибка 4: Экономия на дизайне.</strong> Шаблон за 1000 долларов вместо уникального дизайна за 300 тыс. кажется выгодным. Но если дизайн не передаёт ценность бренда, конверсия падает в 2–3 раза. Деньги, сэкономленные на дизайне, теряются в рекламе с низкой конверсией.</p>
 <p><strong>Ошибка 5: Экономия на SEO.</strong> «SEO потом подключим». На самом деле SEO закладывается в архитектуру с самого начала: URL, мета-теги, микроразметка, серверный рендеринг, скорость загрузки. Доделать SEO после разработки в 5 раз дороже, чем заложить с начала.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%202026%3A%205%20%D0%BA%D0%B0%D1%82%D0%B5%D0%B3%D0%BE%D1%80%D0%B8%D0%B9%20%D1%81%20%D1%80%D0%B5%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%BC%D0%B8%20%D1%86%D0%B5%D0%BD%D0%B0%D0%BC%D0%B8%20%D0%BE%D1%82%20%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">FAQ</h2>
 <p><strong>За сколько можно сделать нормальный сайт?</strong> Лендинг — от 50 тыс. за 2 недели. Корпоративный — от 200 тыс. за 6 недель. Магазин — от 300 тыс. за 8 недель.</p>
 <p><strong>Платить разработчику предоплатой?</strong> Стандарт рынка — 30–50% предоплаты, остальное по этапам. Никогда не платите 100% вперёд.</p>
@@ -698,26 +690,26 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/ssl-sertifikat-windows-server-port-80-zanyat-win-acme-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/agent-autoloop-avtonomnyj-ii-agent-zovyot-cheloveka-tolko-po-delu-kuda-uhodyat-kartochki-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-lock-key"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-bell-ringing"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>SSL-сертификат на Windows Server, когда порт 80 занят: win-acme</h3>
-  <p>Порт 80 на Windows Server занят чужим приложением, а сертификат нужен. Разбираю проверку TLS-ALPN на порту 443 по RFC 8737, клиент win-acme, автопродление и скрипт, который раскладывает сертификат по службам, а также три ошибки: две A-записи у домена, чужой сервис на соседнем порту и проверку здоровья с ответом 400.</p>
+  <h3>Agent Autoloop: ИИ-агент зовёт человека только по делу</h3>
+  <p>Agent Autoloop запускает Claude Code и Codex в фоне и шлёт карточку, когда нужно решение человека. Разбираю код: что агент решает сам, куда уходят карточки, какие есть лимиты и чего нет.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/wekan-svoy-kanban-vmesto-trello-i-jira-ustanovka-import-dosok-i-prava-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/backendskills-navyki-dlya-ii-agenta-protiv-oshibok-bekenda-chto-trebovat-ot-studii-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-kanban"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-shield-check"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Свой канбан вместо Trello и Jira: Wekan, перенос досок, права</h3>
-  <p>Wekan это канбан-доска под MIT, которую ставят на свой сервер. Я прочитал репозиторий и документацию импорта: что переезжает из Trello, Jira, Asana и Notion, что теряется, какие в Wekan роли и сколько уведомлений об уязвимостях набралось за 2026 год. Отдельно про места, где он слабее платных сервисов.</p>
+  <h3>Backend Skills: бэкенд от ИИ без сюрпризов в проде, что требовать</h3>
+  <p>Backend Skills: три навыка для ИИ-агентов, которые должны остановить бэкенд, проходящий демо и ломающийся в проде. Я прочитал навыки и тест: как считали 25 против 2, кто судья, что замер сделали сами авторы. В конце наш чек-лист приёмки.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 31 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 18 ноября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -767,7 +759,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

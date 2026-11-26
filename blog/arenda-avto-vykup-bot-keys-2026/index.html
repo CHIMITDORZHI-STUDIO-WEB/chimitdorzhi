@@ -197,6 +197,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -259,14 +261,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -338,13 +332,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -439,14 +426,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Сервис аренды автомобилей с последующим выкупом. Собрал бота: анкета кандидата, расчёт платежа, заявка менеджеру. Привлечение построил не на рекламе, а на наклейках с персональным QR-кодом партнёра — генератор делает наклейку под каждого партнёра, а система считает, кто сколько привёл.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B0%D0%B2%D1%82%D0%BE%20%D1%81%20%D0%B2%D1%8B%D0%BA%D1%83%D0%BF%D0%BE%D0%BC%3A%20%D0%B1%D0%BE%D1%82%20%D0%B8%20%D0%BD%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B8%20%D1%81%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%81%D0%BA%D0%B8%D0%BC%20QR%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D1%8B%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в Telegram под ваш процесс: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/" data-goal="article_offer_case">Бот и мини-приложение CRM для маркетингового агентства</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B0%D0%B2%D1%82%D0%BE%20%D1%81%20%D0%B2%D1%8B%D0%BA%D1%83%D0%BF%D0%BE%D0%BC%3A%20%D0%B1%D0%BE%D1%82%20%D0%B8%20%D0%BD%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B8%20%D1%81%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%81%D0%BA%D0%B8%D0%BC%20QR%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D1%8B%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B2%20Telegram." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-bots/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <p>Аренда автомобиля с последующим выкупом — ниша со специфической аудиторией. Клиент здесь чаще всего тот, кому обычный автокредит недоступен: нет подтверждённого дохода, испорчена история, нужен автомобиль для работы прямо сейчас. Такого человека почти невозможно поймать обычной рекламой: он не ищет «аренду с выкупом», он ищет способ решить проблему и узнаёт о таком формате от знакомых или от тех, кто уже так ездит.</p>
 
@@ -481,6 +472,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Любому бизнесу, где клиент приходит по рекомендации из смежной точки и где эту точку можно физически оснастить наклейкой: автосервисы, мойки, страховые агенты, ремонт техники, локальные услуги. Особенно там, где партнёр и клиент встречаются офлайн и у клиента есть свободная минута — в очереди, в зоне ожидания, в салоне.</p>
 <p>Не подойдёт, если у клиента нет физической точки контакта с партнёром — тогда нужна <a href="/blog/referalnaya-programma-novye-klienty-2026/">обычная ссылочная реферальная схема</a>.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в Telegram под ваш процесс: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/" data-goal="article_offer_case">Бот и мини-приложение CRM для маркетингового агентства</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%90%D1%80%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B0%D0%B2%D1%82%D0%BE%20%D1%81%20%D0%B2%D1%8B%D0%BA%D1%83%D0%BF%D0%BE%D0%BC%3A%20%D0%B1%D0%BE%D1%82%20%D0%B8%20%D0%BD%D0%B0%D0%BA%D0%BB%D0%B5%D0%B9%D0%BA%D0%B8%20%D1%81%20%D0%BF%D0%B0%D1%80%D1%82%D0%BD%D1%91%D1%80%D1%81%D0%BA%D0%B8%D0%BC%20QR%20%D0%B2%D0%BC%D0%B5%D1%81%D1%82%D0%BE%20%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%BC%D1%8B%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B2%20Telegram." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-bots/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Что мешает партнёру передать свою наклейку кому-то ещё?</strong> Ничего — и это не проблема. Если наклейка висит в другом месте и приводит клиентов, партнёр получает вознаграждение заслуженно. Проблемой это становится только при многоуровневых схемах, где нужен контроль структуры.</p>
 <p><strong>Можно ли одному партнёру сделать несколько кодов?</strong> Да, и это полезно: разные коды на разные точки показывают, какая из них реально работает.</p>
@@ -542,26 +544,26 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/bot-i-rassylki-hudozhnicy-perenos-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+<a class="blog-card" href="/blog/rubrikator-keysov-dve-osi-filtra-keys-2026/" data-category="cases" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-palette"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-sliders"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Бот и рассылки для художницы: как забрать проект у прошлого подрядчика</h3>
-  <p>У художницы был бот с рассылками и админкой, которые делал прошлый подрядчик. Он отказался от сопровождения и отдавал архив только на условиях «как есть», а сайт с админкой не открывался. Я проверил, что реально работает, составил список того, что забрать вместе с архивом, и собрал решение в PDF на 12 слайдов. Переноса пока не было.</p>
+  <h3>Рубрикатор страницы кейсов: фильтр по типу работы и отрасли</h3>
+  <p>На странице кейсов было 122 проекта, фильтр стоял ниже 80 развёрнутых карточек, а крупнейшей рубрикой было «Другое». Я сделал фильтр в две оси, что сделано и отрасль, со счётчиками по сочетанию и выбором в адресе. Наверху 6 избранных кейсов, HTML страницы похудел с 773 до 490 КБ.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 14 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/ii-stilist-po-selfi-telegram-max-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+<a class="blog-card" href="/blog/kafe-pwa-gostya-prezentaciya-keys-2026/" data-category="cases" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-t-shirt"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-device-mobile"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>ИИ-стилист по селфи в Telegram и MAX: концепция, макеты и экономика</h3>
-  <p>Знакомая принесла идею: по одному селфи ИИ подбирает цвет волос, стрижку, макияж и одежду, а помощник напоминает про уход. Я собрал презентацию на 22 слайда: мини-приложение в Telegram и MAX, разбор внешности, макеты, сравнение моделей, токены и расчёт экономики. Это концепция, продукт не написан.</p>
+  <h3>Предложение для этно-кафе: три блока и презентация гостевого PWA</h3>
+  <p>Владелец небольшого этно-кафе с двумя точками. Я собрал коммерческое предложение на один лист с тремя блоками и презентацию гостевого PWA из шести слайдов и семи экранов макета. Документы отданы, решение заказчика и запуск ещё не состоялись.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 28 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -586,7 +588,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

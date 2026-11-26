@@ -82,6 +82,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own, { page: location.pathname }); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal, { page: location.pathname }); } catch (err) {}
@@ -142,14 +144,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -221,13 +215,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -328,25 +315,31 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                 </style>
                 <div class="offer-filter" role="group" aria-label="Фильтр по рубрикам">
                     <div class="offer-filter-row offer-filter-all">
-                        <button class="offer-chip active" data-seg="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все решения <span>451</span></button>
+                        <button class="offer-chip active" data-seg="all"><i class="ph ph-squares-four" aria-hidden="true"></i> Все решения <span>471</span></button>
+                    </div>
+                    <div class="offer-filter-group">
+                        <span class="offer-filter-label">Города</span>
+                        <div class="offer-filter-row">
+                            <button class="offer-chip" data-seg="Города"><i class="ph ph-map-pin" aria-hidden="true"></i> Города <span>3</span></button>
+                        </div>
                     </div>
                     <div class="offer-filter-group">
                         <span class="offer-filter-label">Отрасли</span>
                         <div class="offer-filter-row">
                             <button class="offer-chip" data-seg="Этнокультура и наследие"><i class="ph ph-globe-hemisphere-east" aria-hidden="true"></i> Этнокультура и наследие <span>29</span></button>
-                            <button class="offer-chip" data-seg="Бытовые услуги"><i class="ph ph-wrench" aria-hidden="true"></i> Бытовые услуги <span>15</span></button>
+                            <button class="offer-chip" data-seg="Бытовые услуги"><i class="ph ph-wrench" aria-hidden="true"></i> Бытовые услуги <span>16</span></button>
                             <button class="offer-chip" data-seg="Медицина и MedTech"><i class="ph ph-first-aid" aria-hidden="true"></i> Медицина и MedTech <span>15</span></button>
                             <button class="offer-chip" data-seg="Образование и EdTech"><i class="ph ph-graduation-cap" aria-hidden="true"></i> Образование и EdTech <span>14</span></button>
-                            <button class="offer-chip" data-seg="Авто и транспорт"><i class="ph ph-car" aria-hidden="true"></i> Авто и транспорт <span>12</span></button>
+                            <button class="offer-chip" data-seg="Авто и транспорт"><i class="ph ph-car" aria-hidden="true"></i> Авто и транспорт <span>13</span></button>
+                            <button class="offer-chip" data-seg="HoReCa и общепит"><i class="ph ph-fork-knife" aria-hidden="true"></i> HoReCa и общепит <span>12</span></button>
                             <button class="offer-chip" data-seg="Развлечения и досуг"><i class="ph ph-confetti" aria-hidden="true"></i> Развлечения и досуг <span>12</span></button>
+                            <button class="offer-chip" data-seg="Логистика и склад"><i class="ph ph-truck" aria-hidden="true"></i> Логистика и склад <span>12</span></button>
+                            <button class="offer-chip" data-seg="Недвижимость"><i class="ph ph-buildings" aria-hidden="true"></i> Недвижимость <span>11</span></button>
                             <button class="offer-chip" data-seg="Производство и стройка"><i class="ph ph-factory" aria-hidden="true"></i> Производство и стройка <span>11</span></button>
-                            <button class="offer-chip" data-seg="HoReCa и общепит"><i class="ph ph-fork-knife" aria-hidden="true"></i> HoReCa и общепит <span>10</span></button>
-                            <button class="offer-chip" data-seg="Недвижимость"><i class="ph ph-buildings" aria-hidden="true"></i> Недвижимость <span>10</span></button>
-                            <button class="offer-chip" data-seg="Розница и торговля"><i class="ph ph-shopping-cart" aria-hidden="true"></i> Розница и торговля <span>8</span></button>
+                            <button class="offer-chip" data-seg="Розница и торговля"><i class="ph ph-shopping-cart" aria-hidden="true"></i> Розница и торговля <span>9</span></button>
                             <button class="offer-chip" data-seg="Туризм и гостеприимство"><i class="ph ph-airplane-tilt" aria-hidden="true"></i> Туризм и гостеприимство <span>8</span></button>
                             <button class="offer-chip" data-seg="Спорт и фитнес"><i class="ph ph-barbell" aria-hidden="true"></i> Спорт и фитнес <span>8</span></button>
                             <button class="offer-chip" data-seg="Красота и здоровье"><i class="ph ph-scissors" aria-hidden="true"></i> Красота и здоровье <span>7</span></button>
-                            <button class="offer-chip" data-seg="Логистика и склад"><i class="ph ph-truck" aria-hidden="true"></i> Логистика и склад <span>7</span></button>
                             <button class="offer-chip" data-seg="Маркетплейсы и e-commerce"><i class="ph ph-storefront" aria-hidden="true"></i> Маркетплейсы и e-commerce <span>7</span></button>
                             <button class="offer-chip" data-seg="Госсектор"><i class="ph ph-bank" aria-hidden="true"></i> Госсектор <span>6</span></button>
                             <button class="offer-chip" data-seg="АПК и фермерство"><i class="ph ph-plant" aria-hidden="true"></i> АПК и фермерство <span>5</span></button>
@@ -358,7 +351,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <button class="offer-chip" data-seg="Запуск продукта и стартап"><i class="ph ph-rocket-launch" aria-hidden="true"></i> Запуск продукта и стартап <span>32</span></button>
                             <button class="offer-chip" data-seg="AI-ассистенты для работы"><i class="ph ph-sparkle" aria-hidden="true"></i> AI-ассистенты для работы <span>15</span></button>
                             <button class="offer-chip" data-seg="Корпоративный AI"><i class="ph ph-brain" aria-hidden="true"></i> Корпоративный AI <span>12</span></button>
-                            <button class="offer-chip" data-seg="Боты и AI"><i class="ph ph-robot" aria-hidden="true"></i> Боты и AI <span>11</span></button>
+                            <button class="offer-chip" data-seg="Боты и AI"><i class="ph ph-robot" aria-hidden="true"></i> Боты и AI <span>12</span></button>
                             <button class="offer-chip" data-seg="Зрение и роботизация"><i class="ph ph-eye" aria-hidden="true"></i> Зрение и роботизация <span>6</span></button>
                         </div>
                     </div>
@@ -372,8 +365,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <button class="offer-chip" data-seg="Комплексные платформы"><i class="ph ph-stack" aria-hidden="true"></i> Комплексные платформы <span>16</span></button>
                             <button class="offer-chip" data-seg="Медиа, контент и креаторы"><i class="ph ph-microphone" aria-hidden="true"></i> Медиа, контент и креаторы <span>14</span></button>
                             <button class="offer-chip" data-seg="Право и документы"><i class="ph ph-scales" aria-hidden="true"></i> Право и документы <span>11</span></button>
-                            <button class="offer-chip" data-seg="Маркетинг и трафик"><i class="ph ph-megaphone" aria-hidden="true"></i> Маркетинг и трафик <span>8</span></button>
-                            <button class="offer-chip" data-seg="Безопасность и аудит"><i class="ph ph-shield-check" aria-hidden="true"></i> Безопасность и аудит <span>8</span></button>
+                            <button class="offer-chip" data-seg="Безопасность и аудит"><i class="ph ph-shield-check" aria-hidden="true"></i> Безопасность и аудит <span>10</span></button>
+                            <button class="offer-chip" data-seg="Маркетинг и трафик"><i class="ph ph-megaphone" aria-hidden="true"></i> Маркетинг и трафик <span>9</span></button>
                             <button class="offer-chip" data-seg="Финтех и платежи"><i class="ph ph-credit-card" aria-hidden="true"></i> Финтех и платежи <span>7</span></button>
                             <button class="offer-chip" data-seg="Сетевой бизнес (MLM)"><i class="ph ph-share-network" aria-hidden="true"></i> Сетевой бизнес (MLM) <span>7</span></button>
                             <button class="offer-chip" data-seg="HR и команда"><i class="ph ph-users-three" aria-hidden="true"></i> HR и команда <span>6</span></button>
@@ -382,11 +375,171 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="offer-filter-group">
                         <span class="offer-filter-label">Прочее</span>
                         <div class="offer-filter-row">
-                            <button class="offer-chip" data-seg="Автоматизация"><i class="ph ph-tag" aria-hidden="true"></i> Автоматизация <span>2</span></button>
+                            <button class="offer-chip" data-seg="Автоматизация"><i class="ph ph-tag" aria-hidden="true"></i> Автоматизация <span>4</span></button>
                         </div>
                     </div>
                 </div>
                 <div class="offer-grid" id="offerGrid">
+
+            <a href="/predlozheniya/razrabotka-v-chite/" class="offer-card" data-segment="Города">
+                <span class="offer-card-icon"><i class="ph-fill ph-map-pin" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Чита и Забайкалье</span>
+                <span class="offer-card-title">Разработка ботов, сайтов и CRM в Чите и Забайкалье</span>
+                <span class="offer-card-tagline">Делаю удалённо и под местный бизнес: доставка еды, магазины, мастера услуг, ресурсоснабжающие организации.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 30 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/razrabotka-v-ulan-ude/" class="offer-card" data-segment="Города">
+                <span class="offer-card-icon"><i class="ph-fill ph-map-pin" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Улан-Удэ и Бурятия</span>
+                <span class="offer-card-title">Разработка ботов, сайтов и CRM в Улан-Удэ и Бурятии</span>
+                <span class="offer-card-tagline">Помогаю бизнесу и проектам из Бурятии: порталы и процессы компаний, культурные и языковые проекты, боты и сайты.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 30 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/razrabotka-v-dubae/" class="offer-card" data-segment="Города">
+                <span class="offer-card-icon"><i class="ph-fill ph-map-pin" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Дубай и ОАЭ</span>
+                <span class="offer-card-title">Разработка сайтов, ботов и учёта для бизнеса в Дубае и ОАЭ</span>
+                <span class="offer-card-tagline">Для русскоязычного бизнеса в Эмиратах: сайты на нескольких языках, боты, учёт и маркетинг с цифрами.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 100 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/bronirovanie-boksov-sklada-hraneniya/" class="offer-card" data-segment="Недвижимость">
+                <span class="offer-card-icon"><i class="ph-fill ph-warehouse" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Склады хранения</span>
+                <span class="offer-card-title">Бронирование боксов склада хранения: схема, оплата и кабинет арендатора</span>
+                <span class="offer-card-tagline">Клиент видит свободные боксы на схеме, бронирует и получает напоминания, а вы видите, кто не платит и что простаивает.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/zabrat-sayt-i-domen-u-podryadchika/" class="offer-card" data-segment="Безопасность и аудит">
+                <span class="offer-card-icon"><i class="ph-fill ph-key" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Компании без доступов</span>
+                <span class="offer-card-title">Забрать сайт, домен и систему у ушедшего разработчика</span>
+                <span class="offer-card-tagline">Разберу, что на кого записано, что можно вернуть без суда, соберу пакет документов и перенесу сайт под ваш аккаунт.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 30 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/palletnyy-uchet-na-tsd-1c/" class="offer-card" data-segment="Логистика и склад">
+                <span class="offer-card-icon"><i class="ph-fill ph-barcode" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Оптовый склад</span>
+                <span class="offer-card-title">Паллетный учёт на ТСД для 1С: приёмка, сборка и отгрузка паллетами</span>
+                <span class="offer-card-tagline">Приложение для терминалов сбора данных и расширение 1С: какая коробка на какой паллете, откуда пришла и куда уехала. Типовой учёт не трогаю.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/ii-agent-dlya-biznesa-kabinet/" class="offer-card" data-segment="Боты и AI">
+                <span class="offer-card-icon"><i class="ph-fill ph-robot" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Малый бизнес и руководители</span>
+                <span class="offer-card-title">ИИ-агент для бизнеса: следит за входящими, знает ваши дела и предлагает ответ</span>
+                <span class="offer-card-tagline">Агент собирает входящие из мессенджеров и почты, помнит ваши дела и готовит черновик ответа. Без вашего подтверждения ничего не отправляет.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/bot-i-crm-dlya-agentstva/" class="offer-card" data-segment="Маркетинг и трафик">
+                <span class="offer-card-icon"><i class="ph-fill ph-kanban" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Агентства и студии услуг</span>
+                <span class="offer-card-title">Бот и CRM в Telegram для агентства: клиенты, задачи и напоминания</span>
+                <span class="offer-card-tagline">Клиент пишет боту, команда отвечает из рабочей группы, дела ставятся голосом, а утром приходит сводка. Ничего нового осваивать не нужно.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 80 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/sayt-i-crm-dlya-keyteringa/" class="offer-card" data-segment="HoReCa и общепит">
+                <span class="offer-card-icon"><i class="ph-fill ph-champagne" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Кейтеринг и фуршеты</span>
+                <span class="offer-card-title">Сайт с конструктором фуршета и CRM для кейтеринга</span>
+                <span class="offer-card-tagline">Гость собирает меню и сразу видит цену за человека, заявка с составом и суммой попадает в CRM, а вы считаете прибыль по мероприятию.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 100 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/servis-srochnyh-masterov/" class="offer-card" data-segment="Бытовые услуги">
+                <span class="offer-card-icon"><i class="ph-fill ph-wrench" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Срочные услуги</span>
+                <span class="offer-card-title">Сервис срочных мастеров: заказ в мессенджере, мастер берёт один раз</span>
+                <span class="offer-card-tagline">Клиент оставляет заявку, мастера рядом видят её в боте, заказ достаётся одному. Цена зависит от района и срочности, комиссия списывается с баланса.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 80 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/crm-dlya-transportnoy-kompanii/" class="offer-card" data-segment="Логистика и склад">
+                <span class="offer-card-icon"><i class="ph-fill ph-package" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Транспорт и логистика</span>
+                <span class="offer-card-title">CRM для транспортной компании: заявки, источники и рейсы в одном месте</span>
+                <span class="offer-card-tagline">Видно, откуда пришла каждая заявка, на каком она этапе и кто отвечает. Делаю под ваш порядок работы, с расчётом ставки, мессенджерами и связью с 1С.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 300 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/bot-max-dlya-kafe/" class="offer-card" data-segment="HoReCa и общепит">
+                <span class="offer-card-icon"><i class="ph-fill ph-fork-knife" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Кафе и рестораны</span>
+                <span class="offer-card-title">Бот в MAX для кафе и ресторана: меню, заказ и розыгрыши</span>
+                <span class="offer-card-tagline">Гость смотрит меню, заказывает и участвует в розыгрыше прямо в мессенджере. У вас админка с заявками, оплатами и подписчиками.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 30 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/sistema-dlya-taksi-rayona/" class="offer-card" data-segment="Авто и транспорт">
+                <span class="offer-card-icon"><i class="ph-fill ph-car" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Такси</span>
+                <span class="offer-card-title">Своя система такси для таксопарка: заказ, диспетчерская и приложение водителя</span>
+                <span class="offer-card-tagline">Пассажир заказывает в мессенджере или с сайта, диспетчер видит линию, водитель получает заказ в приложении. Данные и адреса остаются у парка.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 80 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/sistema-sovmestnyh-zakupok-i-pvz/" class="offer-card" data-segment="Розница и торговля">
+                <span class="offer-card-icon"><i class="ph-fill ph-storefront" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Совместные закупки</span>
+                <span class="offer-card-title">Система для совместных закупок с пунктами выдачи: один заказ вместо трёх чатов</span>
+                <span class="offer-card-tagline">Покупатель выбирает город и пункт, заказывает из общего остатка, а команда видит сборку, выдачу и расчёты.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/servis-desk-1c-telegram-max/" class="offer-card" data-segment="Автоматизация">
+                <span class="offer-card-icon"><i class="ph-fill ph-headset" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">ИТ-команды и франчайзи 1С</span>
+                <span class="offer-card-title">Сервис-деск на 1С с ботами в Telegram и MAX: задачи, время и клиенты</span>
+                <span class="offer-card-tagline">Задачи клиентов живут в 1С, сотрудник берёт и закрывает их в мессенджере, время и коммерческие часы считаются сами.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 40 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/svoy-gps-server-vmesto-abonentki/" class="offer-card" data-segment="Логистика и склад">
+                <span class="offer-card-icon"><i class="ph-fill ph-map-pin" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Автопарк</span>
+                <span class="offer-card-title">Свой сервер GPS-мониторинга вместо абонентской платы за каждую машину</span>
+                <span class="offer-card-tagline">Ставлю Traccar на сервер, оформленный на вас, и переключаю ваши трекеры. Онлайн-карта, пробег, архив поездок без помесячной платы за машину.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 80 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/putevye-listy-iz-trekera/" class="offer-card" data-segment="Логистика и склад">
+                <span class="offer-card-icon"><i class="ph-fill ph-file-text" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Транспортные компании</span>
+                <span class="offer-card-title">Путевые листы из данных GPS-трекера: заполняются сами, диспетчер проверяет</span>
+                <span class="offer-card-tagline">Модуль берёт пробег и поездки из мониторинга и собирает путевой лист нужной формы. Водителю и диспетчеру остаётся проверить и подписать.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 60 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/prilozhenie-voditelya-k-bitriks24/" class="offer-card" data-segment="Логистика и склад">
+                <span class="offer-card-icon"><i class="ph-fill ph-truck" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Грузоперевозки</span>
+                <span class="offer-card-title">Приложение водителя к Битрикс24: смена, точки маршрута и фото накладной</span>
+                <span class="offer-card-tagline">Водитель открывает смену, отмечается на точках и прикладывает фото документов. Рейс появляется карточкой в вашем портале.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/remont-bitriks24-posle-integratora/" class="offer-card" data-segment="Автоматизация">
+                <span class="offer-card-icon"><i class="ph-fill ph-wrench" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Битрикс24</span>
+                <span class="offer-card-title">Разбор и ремонт Битрикс24 после интегратора: бизнес-процессы, права, доступы</span>
+                <span class="offer-card-tagline">Если смарт-процессы то срабатывают, то нет, а прежний подрядчик пропал или отвечает неделями: разберу портал и скажу, что чинить, что переделать.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 50 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
+
+            <a href="/predlozheniya/monitoring-bitriks24-i-serverov/" class="offer-card" data-segment="Безопасность и аудит">
+                <span class="offer-card-icon"><i class="ph-fill ph-bell-ringing" aria-hidden="true"></i></span>
+                <span class="offer-card-niche">Серверы и порталы</span>
+                <span class="offer-card-title">Мониторинг портала Битрикс24 и серверов с оповещением в Telegram</span>
+                <span class="offer-card-tagline">Настраиваю проверку изнутри и снаружи: вы узнаёте о сбое из сообщения в мессенджере, раньше звонка сотрудника или клиента.</span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 3 000 ₽/час</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+            </a>
 
             <a href="/predlozheniya/programma-ucheta-na-zakaz/" class="offer-card" data-segment="Автоматизация">
                 <span class="offer-card-icon"><i class="ph-fill ph-database" aria-hidden="true"></i></span>
@@ -1167,9 +1320,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/max-rozygrysh-podpiska/" class="offer-card" data-segment="Мессенджер MAX">
                 <span class="offer-card-icon"><i class="ph-fill ph-gift" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Розыгрыш с проверкой подписки</span>
-                <span class="offer-card-title">Розыгрыш в MAX с проверкой подписки</span>
+                <span class="offer-card-title">Розыгрыш и партнёрка в канале MAX: с проверкой подписки и приглашениями</span>
                 <span class="offer-card-tagline">Бот в MAX проверяет подписку на канал и условия, честно выбирает победителя с протоколом и отсекает накрутки. Прозрачный розыгрыш, который растит канал и доверие.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 30 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/max-ugc-konkurs/" class="offer-card" data-segment="Мессенджер MAX">
@@ -1303,9 +1456,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/klub-po-podpiske/" class="offer-card" data-segment="Вовлечение и вирусный рост">
                 <span class="offer-card-icon"><i class="ph-fill ph-crown" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Клуб по подписке</span>
-                <span class="offer-card-title">Закрытый клуб по подписке</span>
+                <span class="offer-card-title">Платный клуб по подписке в Telegram: бот, оплата и доступ в канал</span>
                 <span class="offer-card-tagline">Закрытый контент, привилегии и сообщество для подписчиков — удержание и регулярная выручка вместо разовых продаж. Бот в MAX, Telegram и VK.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 80 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/avto-pozdravleniya/" class="offer-card" data-segment="Вовлечение и вирусный рост">
@@ -1839,9 +1992,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/avto-posting-kontent-plan/" class="offer-card" data-segment="Медиа, контент и креаторы">
                 <span class="offer-card-icon"><i class="ph-fill ph-calendar-dots" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Авто-постинг</span>
-                <span class="offer-card-title">Авто-постинг и контент-план для соцсетей</span>
+                <span class="offer-card-title">Автопостинг в каналы MAX и Telegram по расписанию</span>
                 <span class="offer-card-tagline">Контент-план, отложенный постинг и кросс-постинг в VK, Telegram, MAX, Дзен и OK из одного окна. Публикации выходят по графику сами, не нужно держать всё в голове и сидеть в каждой соцсети.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 40 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/live-commerce-efir/" class="offer-card" data-segment="Медиа, контент и креаторы">
@@ -2495,9 +2648,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/banya-sauna-kompleks/" class="offer-card" data-segment="Развлечения и досуг">
                 <span class="offer-card-icon"><i class="ph-fill ph-bathtub" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Баня и сауна</span>
-                <span class="offer-card-title">Автоматизация бани, сауны и банного комплекса</span>
+                <span class="offer-card-title">Система для банного комплекса и гостиницы: брони, единое окно, задачи</span>
                 <span class="offer-card-tagline">Онлайн-бронь парных и залов с депозитом, статус занятости в реальном времени, абонементы и лояльность. Парные не простаивают, накладок нет, гость бронирует сам в любое время.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/tatu-piersing-salon/" class="offer-card" data-segment="Красота и здоровье">
@@ -2823,9 +2976,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/muzey-teatr-bilety/" class="offer-card" data-segment="Образование и EdTech">
                 <span class="offer-card-icon"><i class="ph-fill ph-ticket" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Музей и театр</span>
-                <span class="offer-card-title">Цифровизация музея, театра и культурной площадки</span>
+                <span class="offer-card-title">Сайт и боты для театра, культуры и НКО: афиша, рассылки, 152-ФЗ</span>
                 <span class="offer-card-tagline">Онлайн-продажа билетов и абонементов, расписание и залы, аудиогид и заявки на экскурсии, учёт для отчётов и грантов. Касса разгружена, посетителю удобно, отчётность готова.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 100 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/sportshkola-sekcii/" class="offer-card" data-segment="Спорт и фитнес">
@@ -3047,9 +3200,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/ai-generator-uchebnyh/" class="offer-card" data-segment="Образование и EdTech">
                 <span class="offer-card-icon"><i class="ph-fill ph-books" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Генератор материалов</span>
-                <span class="offer-card-title">AI-генератор учебных материалов</span>
+                <span class="offer-card-title">Конвейер учебных материалов и презентаций для преподавателя и центра обучения</span>
                 <span class="offer-card-tagline">Курсы, тесты, конспекты и задания из ваших исходников за часы, а не недели. Методист задаёт рамку, AI делает черновую работу.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 100 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/platforma-vebinarov/" class="offer-card" data-segment="Медиа, контент и креаторы">
@@ -3679,9 +3832,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/zapis-salon-krasoty/" class="offer-card" data-segment="Красота и здоровье">
                 <span class="offer-card-icon"><i class="ph-fill ph-scissors" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Салон красоты и барбершоп</span>
-                <span class="offer-card-title">Онлайн-запись для салонов красоты и барбершопов</span>
+                <span class="offer-card-title">Онлайн-запись без абонентки: салон, спа, врач, столик</span>
                 <span class="offer-card-tagline">Бот записи, расписание мастеров, напоминания и лояльность — меньше неявок и звонков, мастера загружены.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/it-stomatologiya/" class="offer-card" data-segment="Медицина и MedTech">
@@ -3711,9 +3864,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/programma-loyalnosti/" class="offer-card" data-segment="Вовлечение и вирусный рост">
                 <span class="offer-card-icon"><i class="ph-fill ph-medal" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Ритейл и услуги</span>
-                <span class="offer-card-title">Программа лояльности для бизнеса (баллы и кэшбэк в боте)</span>
+                <span class="offer-card-title">Программа лояльности и карта гостя в телефоне вместо бумажных штампов</span>
                 <span class="offer-card-tagline">Цифровая карта, баллы и кэшбэк, уровни и реферальная программа в боте — клиенты возвращаются чаще и приводят друзей.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 150 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/bystryy-start-sayt/" class="offer-card" data-segment="Комплексные платформы">
@@ -3823,9 +3976,9 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
             <a href="/predlozheniya/crm-stroitelnaya-kompaniya/" class="offer-card" data-segment="Производство и стройка">
                 <span class="offer-card-icon"><i class="ph-fill ph-hammer" aria-hidden="true"></i></span>
                 <span class="offer-card-niche">Строительство и ремонт</span>
-                <span class="offer-card-title">CRM для строительной и ремонтной компании</span>
+                <span class="offer-card-title">CRM для строительной компании: объект, задачи и отчёты с фото</span>
                 <span class="offer-card-tagline">Заявки, сметы, объекты и этапы в одной системе, статус для клиента — порядок в проектах и прозрачные оплаты.</span>
-                <span class="offer-card-foot"><span class="offer-card-price">Бесплатная консультация</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
+                <span class="offer-card-foot"><span class="offer-card-price">от 300 000 ₽</span><span class="offer-card-more">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></span></span>
             </a>
 
             <a href="/predlozheniya/ai-pomoshchnik-yurist-buhgalter/" class="offer-card" data-segment="Боты и AI">

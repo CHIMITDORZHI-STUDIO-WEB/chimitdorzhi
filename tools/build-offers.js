@@ -183,7 +183,16 @@ function offerLd(o, url) {
     areaServed: { '@type': 'Country', name: 'Россия' },
     url,
   };
-  if (o.priceMin) {
+  // Городские страницы: ProfessionalService с зоной работы, без выдуманного адреса.
+  if (o.city) {
+    obj['@type'] = 'ProfessionalService';
+    obj.areaServed = { '@type': 'City', name: o.city };
+    delete obj.serviceType;
+    delete obj.provider;
+    obj.founder = { '@id': `${SITE}/#organization` };
+    if (o.priceMin) obj.priceRange = o.priceFrom;
+  }
+  if (o.priceMin && !o.city) {
     obj.offers = {
       '@type': 'Offer',
       priceCurrency: 'RUB',
@@ -238,7 +247,7 @@ function offerPage(o) {
 
   // ---- Экспертные блоки (рендерятся только если поля заданы) ----
   const pains = (o.pains || []).map((x) => `<li><i class="ph-fill ph-warning-circle" aria-hidden="true"></i> ${esc(x)}</li>`).join('\n');
-  const painsBlock = pains ? `<div class="offer-block"><h2>Знакомо?</h2><ul class="offer-list offer-list--pain">${pains}</ul></div>` : '';
+  const painsBlock = pains ? `<div class="offer-block"><h2>${esc(o.painsTitle || 'Знакомо?')}</h2><ul class="offer-list offer-list--pain">${pains}</ul></div>` : '';
 
   const baRows = (o.beforeAfter || []).map((r) => `<tr><td>${esc(r.before)}</td><td>${esc(r.after)}</td></tr>`).join('\n');
   const beforeAfterBlock = baRows ? `<div class="offer-block"><h2>Как сейчас и как будет</h2><table class="blog-table"><thead><tr><th>Сейчас, без решения</th><th>С решением</th></tr></thead><tbody>${baRows}</tbody></table></div>` : '';
@@ -265,6 +274,13 @@ function offerPage(o) {
         `<h3>${esc(g.title)}</h3><div class="offer-related">${g.items.map((r) =>
           `<a href="${r.url}" class="offer-related-link">${esc(r.label)} <i class="ph ph-arrow-right" aria-hidden="true"></i></a>`).join('')}</div>`).join('')}</div>`
     : '';
+
+  // Кейсы с настоящими обложками опубликованных статей (посадочные из кейсов).
+  const cases = (o.cases || []).map((c) => {
+    const ext = fs.existsSync(path.join(ROOT, 'blog', c.slug, 'cover.jpg')) ? 'jpg' : 'png';
+    return `<a href="/blog/${c.slug}/" style="display:block;text-decoration:none;color:var(--text);border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--bg-card)"><img src="/blog/${c.slug}/cover.${ext}" alt="${esc(c.title)}" width="1200" height="630" loading="lazy" style="display:block;width:100%;height:auto"><span style="display:block;padding:16px"><strong style="display:block;margin-bottom:6px">${esc(c.title)}</strong><span style="color:var(--text-secondary);line-height:1.6">${esc(c.line)}</span></span></a>`;
+  }).join('');
+  const casesBlock = cases ? `<div class="offer-block"><h2>Кейсы</h2><div style="display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">${cases}</div></div>` : '';
 
   const whyMeBlock = o.whyMe ? `<div class="offer-block"><h2>Почему со мной</h2><div class="blog-body offer-body"><p>${esc(o.whyMe)}</p></div></div>` : '';
 
@@ -311,9 +327,11 @@ ${faqLd(o)}${METRIKA}</head>
 
                 ${beforeAfterBlock}
 
-                ${includes ? `<div class="offer-block"><h2>Что входит в решение</h2><ul class="offer-list">${includes}</ul></div>` : ''}
+                ${includes ? `<div class="offer-block"><h2>${esc(o.includesTitle || 'Что входит в решение')}</h2><ul class="offer-list">${includes}</ul></div>` : ''}
 
                 ${deliverablesBlock}
+
+                ${casesBlock}
 
                 ${result ? `<div class="offer-block"><h2>Результат для бизнеса</h2><ul class="offer-list offer-list--result">${result}</ul></div>` : ''}
 
@@ -323,7 +341,7 @@ ${faqLd(o)}${METRIKA}</head>
 
                 ${objectionsBlock}
 
-                ${packages ? `<div class="offer-block" id="packages"><h2>Пакеты</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}`}
+                ${packages ? `<div class="offer-block" id="packages"><h2>${esc(o.packagesTitle || 'Пакеты')}</h2><div class="offer-pkgs">${packages}</div><p class="offer-note">Итоговая цена зависит от ваших процессов и интеграций. Точную смету назову после короткого разговора.</p></div>` : ''}`}
 
                 ${o.process ? customProcessBlock : processBlock()}
 
@@ -344,6 +362,7 @@ ${faqLd(o)}${METRIKA}</head>
 
 // Группировка рубрик для удобной навигации заказчика
 const SEGMENT_GROUPS = [
+  { label: 'Города', segs: ['Города'] },
   { label: 'Отрасли', segs: ['Розница и торговля', 'Бытовые услуги', 'Красота и здоровье', 'HoReCa и общепит', 'Авто и транспорт', 'Туризм и гостеприимство', 'Недвижимость', 'Развлечения и досуг', 'Спорт и фитнес', 'Медицина и MedTech', 'Образование и EdTech', 'АПК и фермерство', 'Производство и стройка', 'Логистика и склад', 'Маркетплейсы и e-commerce', 'Госсектор', 'Этнокультура и наследие'] },
   { label: 'AI и технологии', segs: ['AI-ассистенты для работы', 'Запуск продукта и стартап', 'Корпоративный AI', 'Боты и AI', 'Зрение и роботизация'] },
   { label: 'Под задачу', segs: ['Мессенджер MAX', 'Маркетинг и трафик', 'Вовлечение и вирусный рост', 'Геймификация бизнеса', 'Геймификация под нишу', 'Медиа, контент и креаторы', 'Финтех и платежи', 'HR и команда', 'Безопасность и аудит', 'Право и документы', 'Комплексные платформы', 'Геймификация', 'Сетевой бизнес (MLM)'] },
@@ -364,6 +383,7 @@ const SEGMENT_ICONS = {
   'Медиа, контент и креаторы': 'ph-microphone', 'Финтех и платежи': 'ph-credit-card', 'HR и команда': 'ph-users-three',
   'Безопасность и аудит': 'ph-shield-check', 'Право и документы': 'ph-scales', 'Комплексные платформы': 'ph-stack',
   'Сетевой бизнес (MLM)': 'ph-share-network',
+  'Города': 'ph-map-pin',
 };
 const segIcon = (s) => SEGMENT_ICONS[s] || 'ph-tag';
 

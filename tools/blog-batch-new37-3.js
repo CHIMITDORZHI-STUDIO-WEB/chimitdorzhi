@@ -43,7 +43,7 @@ module.exports = [
       ['faq', 'Частые вопросы'],
       ['vyvody', 'Коротко о главном'],
     ),
-    relatedSlugs: ['pulty-sobstvennika-sayt-probnyy-kabinet-keys-2026', 'lichnyy-kabinet-dlya-klientov-2026', 'kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026', 'dvuhfaktornaya-autentifikaciya-gid-2026'],
+    relatedSlugs: ['lichnyy-kabinet-dlya-klientov-2026', 'kto-chto-vidit-v-prilozhenii-roli-i-prava-dlya-biznesa-2026', 'dvuhfaktornaya-autentifikaciya-gid-2026'],
     ctaInternal: { url: 'https://chimitdorzhi.tech/development/sites/', label: 'Разработка сайтов и кабинетов' },
     servicesOffer: SVC_TRIAL,
     contentHtml: C('probnyy-dostup-b2b-demo-bez-utechki-2026'),

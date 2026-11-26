@@ -197,6 +197,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -259,14 +261,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -338,13 +332,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -439,14 +426,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Агент по недвижимости вёл объекты в заметках телефона, переписке и голове. Собрал бота с мини-приложением: единая база объектов с фото и параметрами, подбор под запрос клиента за несколько нажатий, карточка на каждое обращение и история показов. Работает внутри мессенджера — ставить и осваивать отдельную программу не нужно.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Нужно мини-приложение для вашего бизнеса?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B8%D0%B5%D0%BB%D1%82%D0%BE%D1%80%D0%BE%D0%B2%3A%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D0%BE%D0%BA%D0%BD%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю мини-приложение в мессенджере: от 150 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B8%D0%B5%D0%BB%D1%82%D0%BE%D1%80%D0%BE%D0%B2%3A%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D0%BE%D0%BA%D0%BD%D0%B5%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-mini-apps/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <p>У риелтора рабочий инструмент один — телефон. Объекты приходят от собственников в переписку, клиенты пишут туда же, показы назначаются голосом, а всё вместе живёт в заметках и в памяти. Пока объектов десяток, это работает. На тридцати начинает подводить: агент помнит, что «где-то была двушка с окнами во двор», но не помнит у кого, за сколько и когда её последний раз показывали.</p>
 
@@ -460,16 +451,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Мини-приложение</strong> <a href="/blog/mini-app-v-max-dlya-biznesa-2026/">открывается прямо в мессенджере</a> и даёт то, чего текстовым диалогом не покажешь: список объектов с фотографиями, фильтры, карточку клиента с историей, календарь показов. Там, где боту нужно было бы задать восемь вопросов подряд, интерфейс показывает всё сразу.</p>
 <p>Разделение здесь не косметическое. Бот отвечает за скорость ввода, мини-приложение — за наглядность вывода. Попытка сделать всё одним ботом превращает работу в допрос, а всё одним интерфейсом — заставляет открывать приложение ради одной отметки.</p>
 
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Нужно мини-приложение для вашего бизнеса?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B8%D0%B5%D0%BB%D1%82%D0%BE%D1%80%D0%BE%D0%B2%3A%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D0%BE%D0%BA%D0%BD%D0%B5%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="podbor">Подбор объекта под запрос</h2>
 <p>Ключевая механика. Агент вводит параметры запроса клиента, система показывает подходящие объекты из базы. Не «умный подбор с ИИ», а честная фильтрация по тем полям, которые заполнены — потому что в этой работе важна не изобретательность алгоритма, а полнота базы и скорость доступа.</p>
 <p>Отдельно устроена история: у каждого клиента видно, что ему уже показывали и какая была реакция. Это закрывает самую дорогую потерю — повторное предложение того, от чего человек уже отказался, и упущенный шанс вернуться к тому, что почти подошло.</p>
@@ -491,6 +472,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><a href="/blog/max-bot-rieltor-2026/">Частному риелтору</a> и небольшому агентству, где два-три агента и общая база объектов. Специалистам смежных ниш с той же структурой работы: подбор техники, оборудования, коммерческих помещений — везде, где есть каталог позиций, запрос клиента и история контактов.</p>
 <p>Кому не подойдёт: агентству с отделами, планами и разграничением прав. Там нужна полноценная система, и подменять её ботом — экономия, которая обернётся переделкой через полгода.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю мини-приложение в мессенджере: от 150 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%91%D0%BE%D1%82%20%D0%B8%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%B4%D0%BB%D1%8F%20%D1%80%D0%B8%D0%B5%D0%BB%D1%82%D0%BE%D1%80%D0%BE%D0%B2%3A%20%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D1%8B%2C%20%D0%BF%D0%BE%D0%BA%D0%B0%D0%B7%D1%8B%20%D0%B8%20%D0%B7%D0%B0%D1%8F%D0%B2%D0%BA%D0%B8%20%D0%B2%20%D0%BE%D0%B4%D0%BD%D0%BE%D0%BC%20%D0%BE%D0%BA%D0%BD%D0%B5%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BC%D0%B8%D0%BD%D0%B8-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-mini-apps/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Данные объектов и клиентов где хранятся?</strong> На отдельном сервере, доступ только у владельца базы. Это принципиально: контакты собственников и покупателей — актив агента, и он не должен лежать в чужом сервисе, из которого его нельзя забрать.</p>
 <p><strong>Можно ли перенести объекты из таблицы?</strong> Да, если они в таблице. Если в заметках и переписке — переносим руками по мере работы, и это оказывается быстрее, чем кажется: неактуальное просто не переносится.</p>
@@ -531,31 +523,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/sayt-eksperta-nedvizhimosti-lending-keys-2026/" data-category="cases" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-buildings"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Лендинг для эксперта по недвижимости: упаковал оффер «0 ₽ для покупателя» и приём заявок без сервера</h3>
-  <p>Эксперт по недвижимости с 15-летним опытом работал на сарафане и в мессенджерах, но не имел солидной точки входа и не мог внятно донести свой оффер. Я собрал премиальный лендинг: упаковал позиционирование, услуги и оффер «0 ₽ для покупателя», настроил приём заявок на почту с фолбэком в Telegram — без своего сервера.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июля 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 7 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/vitrina-nedvizhimosti-crm-keys-2026/" data-category="cases" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-buildings"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
-  <h3>Витрина зарубежной недвижимости: три уровня доступа и своя CRM</h3>
-  <p>Одна витрина объектов должна показывать три разные картины: покупателю — объекты, партнёру — свои сделки и вознаграждение, менеджеру — всю кухню. Разбираю, как это устроено и почему вход сделан по коду, а не через пароль и почту.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 сентября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 5 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/ii-agent-zayavki-s-sayta-crm-2027/" data-category="ai-dev" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/ii-agent-zayavki-s-sayta-crm-2027/" data-category="ai-dev" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-robot"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>AI для разработчиков</span>
@@ -563,6 +531,42 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   <p>Заявка приходит ночью — и остывает до утра, пока менеджер спит. ИИ-агент отвечает клиенту сразу, уточняет детали и заносит контакт в CRM без участия человека. Разбираю, как это устроено и сколько стоит.</p>
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 июля 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/avtoshkola-pwa-uchet-vozhdeniya-predlozhenie-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-steering-wheel"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Приложение для автошколы: учёт часов вождения и контроль инструкторов</h3>
+  <p>Владелец небольшой автошколы хотел одно приложение на пять ролей и учёт часов практического вождения. Я подготовил коммерческое предложение на двух страницах: роли, подтверждение часов учеником, контроль инструкторов. Предложение отдано, решения и запуска пока нет.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/multserial-po-libretto-ii-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-film-strip"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Мультсериал по либретто спектакля, собранный ИИ</h3>
+  <p>По либретто национального спектакля собрал пробный ролик, трейлер на 54 секунды и первую вертикальную серию на 52 секунды. Весь сюжет разбит на 10 серий с крючками. Серия обошлась примерно в 7,8 доллара, пока нигде не опубликовано.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/bot-sportivnoy-analitiki-backtest-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-chart-line-up"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Бот спортивной аналитики: как я проверил модель и признал, что рынок точнее</h3>
+  <p>Бэктест на 4150 матчах дал 51,3% попаданий против 47,3% у правила «всегда хозяева», но линия контор угадывает 53,8% против 51,5% у модели. Я признал, что рынок точнее, и перестроил продукт на поиск лучшей цены.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 22 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -587,7 +591,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

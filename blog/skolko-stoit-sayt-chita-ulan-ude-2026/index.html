@@ -213,6 +213,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -275,14 +277,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -354,13 +348,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -465,14 +452,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <li>Главные ошибки экономии: брать самый дешёвый ценник без договора, экономить на текстах и фото, отказываться от поддержки. На этом теряют больше, чем на самой разработке.</li>
   </ul>
 </div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%20%D0%A7%D0%B8%D1%82%D0%B5%20%D0%B8%20%D0%A3%D0%BB%D0%B0%D0%BD-%D0%A3%D0%B4%D1%8D%20%D0%B2%202026%20%D0%B8%20%D0%B3%D0%B4%D0%B5%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/services/web-development/">Заказать сайт в Чите/Улан-Удэ <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%20%D0%A7%D0%B8%D1%82%D0%B5%20%D0%B8%20%D0%A3%D0%BB%D0%B0%D0%BD-%D0%A3%D0%B4%D1%8D%20%D0%B2%202026%20%D0%B8%20%D0%B3%D0%B4%D0%B5%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <h2 id="skolko-stoit-v-regione">Сколько реально стоит сайт в Чите и Улан-Удэ</h2>
 <p>Я работаю с бизнесом из Читы и Улан-Удэ не первый год и почти каждую неделю слышу один и тот же вопрос: «А сколько вообще стоит нормальный сайт?» За ним обычно прячется второй вопрос, который не задают вслух: «Меня не разводят?» Поэтому начну с честных цифр, без округлений в свою пользу и без столичного пафоса.</p>
@@ -499,16 +490,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <div class="blog-callout blog-callout-warning"><i class="ph-fill ph-warning" aria-hidden="true"></i><p>Если подрядчик называет точную цену сразу, не задав ни одного вопроса о вашей задаче, интеграциях и контенте — это красный флаг. Либо он назовёт цену с потолка, а потом будет добивать сметами на «непредвиденное», либо сделает шаблон и выдаст за индивидуальную работу. Нормальный процесс: вопросы → бриф → смета.</p></div>
 
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%20%D0%A7%D0%B8%D1%82%D0%B5%20%D0%B8%20%D0%A3%D0%BB%D0%B0%D0%BD-%D0%A3%D0%B4%D1%8D%20%D0%B2%202026%20%D0%B8%20%D0%B3%D0%B4%D0%B5%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="tipy-saytov-i-ceny">Типы сайтов и диапазоны цен</h2>
 <p>Теперь конкретика по типам. Цены — реальные для местного специалиста или небольшой студии из Читы, Улан-Удэ, Иркутска. Если вы возьмёте московскую студию, умножайте на 1,5–2,5.</p>
 <p><strong>Лендинг (одностраничный сайт).</strong> Самый ходовой формат для запуска услуги, продукта или рекламной кампании. На конструкторе из шаблона — 25–60 тыс. ₽, собирается за 3–7 дней. Кастомный лендинг с индивидуальным дизайном, текстами под продажу, интеграцией с CRM и аналитикой — 70–150 тыс. ₽, делается 2–3 недели. Лендинг нужен, когда у вас одно понятное предложение и вы льёте на него рекламу из Яндекс.Директа или соцсетей. Хороший лендинг с конверсией 4–6% окупает себя за пару недель рекламы.</p>
@@ -541,7 +522,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <div class="blog-callout blog-callout-info"><i class="ph-fill ph-info" aria-hidden="true"></i><p>Независимо от того, кого вы выбрали, требуйте три вещи: договор с прописанным составом работ и сроками, поэтапную оплату (а не 100% вперёд), передачу всех исходников и доступов вам после сдачи. Если это есть — вы защищены даже от незнакомого исполнителя. Если этого нет — вы рискуете деньгами при любом, даже самом раскрученном подрядчике.</p></div>
 
-<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/5post-i-magnit-post-na-sayte-tilda-proksi-vidzhet-pvz-2026/">5Post и Магнит Пост на сайте Tilda: нативного виджета нет</a></li><li><a href="/blog/parser-perestal-rabotat-prichiny-i-podderzhka-2026/">Парсер перестал работать: почему ломается и как не чинить</a></li></ul></div></div>
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/sylius-headless-magazin-na-php-symfony-2026/">Sylius: магазин на PHP, где витрина, учёт и 1С живут отдельно</a></li><li><a href="/blog/pdfding-svoy-server-dlya-pdf-i-ssylok-klientam-2026/">PdfDing: договоры клиентам по ссылке с паролем и сроком</a></li></ul></div></div>
 <h2 id="na-chem-ekonomit">На чём можно сэкономить, а на чём нельзя</h2>
 <p>Экономить можно и нужно — вопрос только в том, на чём. Есть статьи, где экономия разумна и не бьёт по результату, и есть те, где сэкономленная тысяча оборачивается потерей десятков тысяч. Разделю их чётко.</p>
 <p><strong>На чём можно экономить без вреда.</strong> Первое — дизайн на старте. Если вы микробизнес или только проверяете идею, начните с качественного шаблона на Tilda или WordPress. Это нормально, потом, когда пойдут деньги, переделаете под индивидуальный дизайн. Второе — объём на запуске. Не надо сразу делать сайт со всеми мыслимыми функциями. Запустите минимальную рабочую версию (MVP), соберите обратную связь от реальных клиентов и достраивайте по факту спроса. Это и дешевле, и умнее: вы не платите за функции, которыми никто не пользуется. Третье — хостинг. Не нужен дорогой выделенный сервер для лендинга или небольшого сайта, обычного хостинга за 200–600 ₽/мес хватит за глаза. Четвёртое — отказ от лишних страниц. Многие хотят раздел «новости» или «блог», а потом его никто не ведёт, и он висит мёртвым грузом. Делайте только то, что будете реально использовать.</p>
@@ -561,6 +542,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Этап 6. Запуск и обучение (2–5 дней).</strong> Сайт переносится на боевой хостинг, привязывается домен, настраивается аналитика. Вам передают доступы, исходники и показывают, как самостоятельно править тексты и добавлять контент. После этого начинается поддержка, если вы её заказали.</p>
 <p>Итого по срокам: лендинг — 1–3 недели, корпоративный сайт — 1–2,5 месяца, интернет-магазин — 1,5–4 месяца, веб-сервис — от 2 месяцев. Если кто-то обещает сложный магазин за неделю — либо это шаблон без вашей специфики, либо вас обманывают. Качественная работа требует времени, и спешка почти всегда оборачивается переделками. О том, как цифровизация в целом меняет работу местного бизнеса, я писал отдельно — <a href="/blog/cifrovizaciya-biznesa-buryatiya-zabaykalye-2026/">цифровизация бизнеса в регионе</a>.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%81%D1%82%D0%BE%D0%B8%D1%82%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%B2%20%D0%A7%D0%B8%D1%82%D0%B5%20%D0%B8%20%D0%A3%D0%BB%D0%B0%D0%BD-%D0%A3%D0%B4%D1%8D%20%D0%B2%202026%20%D0%B8%20%D0%B3%D0%B4%D0%B5%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Можно ли заказать сайт у местного специалиста, если я в другом городе края или в районе?</strong> Да, и это абсолютно нормально. Я веду проекты для заказчиков из Читы, Улан-Удэ, районов Забайкальского края и Бурятии полностью удалённо — через мессенджеры, созвоны и демонстрацию промежуточных результатов. Личная встреча приятна, но не обязательна. География исполнителя на качество кода не влияет, важны навыки и готовность работать по договору.</p>
 <p><strong>Почему московская студия берёт за то же в два раза больше?</strong> Потому что вы оплачиваете их накладные расходы: аренду офиса в столице, зарплаты менеджеров и аккаунтов, бренд агентства. Сама работа — дизайн и код — может быть такой же или даже хуже, чем у сильного местного специалиста. Для бизнеса из Читы и Улан-Удэ платить столичный ценник имеет смысл только если вам нужен громкий бренд в портфолио по имиджевым причинам. В остальных случаях это переплата.</p>
@@ -633,14 +625,14 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/evotor-i-sayt-ostatki-cheki-korrekcii-karta-loyalnosti-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/kill-bill-billing-podpisok-i-platezhey-na-svoem-servere-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-cash-register"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-receipt"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Эвотор и сайт: остатки, чеки коррекции и карта лояльности</h3>
-  <p>Касса Эвотор, сайт и учёт живут отдельно, остатки расходятся, а подрядчик обещает загрузить чеки коррекции через API. Разбираю по документации Эвотора, что можно синхронизировать, где границы и что спросить у исполнителя.</p>
+  <h3>Kill Bill: свой биллинг подписок и когда лучше Lago</h3>
+  <p>Kill Bill это открытая платформа подписок и платежей с лицензией Apache 2.0, которая работает с 2010 года. Разбираем, что она умеет, как ставится через Docker, когда выбирать её, а когда Lago, и почему платежи под российские шлюзы придётся делать отдельно.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 4 октября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 8 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -665,7 +657,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

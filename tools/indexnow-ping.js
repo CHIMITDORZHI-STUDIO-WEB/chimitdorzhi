@@ -21,7 +21,7 @@ try { const od = require('./offers-data'); offers = Array.isArray(od) ? od : (od
 const offersPub = offers.filter(o => o && o.published !== false && o.slug);
 
 // Category keys that have a pillar page (mirror build-blog.js CATEGORY_META).
-const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','mwrlife','opensource','biznes-krugozor','igry-dlya-biznesa'];
+const CAT_KEYS = ['legal','ai-dev','ai-life','marketing','sales','media','industries','esports','development','security','finance','mlm','opensource','biznes-krugozor','igry-dlya-biznesa'];
 const catKeys = CAT_KEYS.filter(k => published.some(p => p.category === k));
 
 const staticPages = [
@@ -31,7 +31,6 @@ const staticPages = [
   `https://${HOST}/blog/`,
   `https://${HOST}/cases/`,
   `https://${HOST}/slovar/`,
-  `https://${HOST}/mwrlife/`,
   `https://${HOST}/accessibility/`,
   `https://${HOST}/en/`,
   `https://${HOST}/cn/`,

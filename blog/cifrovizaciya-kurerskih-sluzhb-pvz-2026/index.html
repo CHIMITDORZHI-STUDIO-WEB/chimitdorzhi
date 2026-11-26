@@ -244,6 +244,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -306,14 +308,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -385,13 +379,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -496,14 +483,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <li>Бюджет: соло-ПВЗ 8-15 тыс./мес IT, сеть 5-30 точек 80-300 тыс./мес, регионалка с курьерами от 500 тыс./мес + 1-3 млн разово.</li>
   </ul>
 </div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D1%85%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%20%D0%B8%20%D0%9F%D0%92%D0%97%202026%3A%20%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%2C%20OZON%2FWB%2F%D0%A1%D0%94%D0%AD%D0%9A%2C%20%D1%8E%D0%BD%D0%B8%D1%82-%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/services/business-automation/">Автоматизировать ПВЗ или курьерку <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю систему заказов и выдачи для закупок и пунктов выдачи: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/" data-goal="article_offer_case">Совместные закупки в одном PWA: заказ, выдача и блогеры по городам</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D1%85%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%20%D0%B8%20%D0%9F%D0%92%D0%97%202026%3A%20%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%2C%20OZON%2FWB%2F%D0%A1%D0%94%D0%AD%D0%9A%2C%20%D1%8E%D0%BD%D0%B8%D1%82-%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%B0%20%D0%B2%D1%8B%D0%B4%D0%B0%D1%87%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/sistema-sovmestnyh-zakupok-i-pvz/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <h2 id="rynok">Рынок последней мили РФ 2026</h2>
 <p>Последняя миля — это не «доставка». Это самостоятельная индустрия с собственным IT-стеком, операционкой и юр.моделью. По данным Data Insight и АКИТ, объём российского рынка eCommerce-доставки в 2025 году превысил 1,2 трлн рублей, и больше 70% этого объёма проходит через сеть пунктов выдачи заказов (ПВЗ). К 2026 году в стране работает порядка 95-110 тысяч ПВЗ под брендами WB, OZON, СДЭК, Boxberry, 5Post, Я.Маркета, IML и десятка региональных игроков.</p>
@@ -799,6 +790,17 @@ export async function ozonWebhookHandler(req, res) {
 <p><strong>Ошибка 4: фиктивная самозанятость операторов и курьеров.</strong> «Все так делают». ФНС с 2023 года имеет автоматические проверки, и при выявлении массовой самозанятости (один заказчик, фиксированные смены, рабочее место от работодателя) — доначисления страховых и НДФЛ за 3 года.</p>
 <p><strong>Ошибка 5: игнорируют отзывы на Я.Картах.</strong> Рейтинг падает с 4,7 до 4,2 за полгода, поток клиентов снижается на 20-35%. Активная работа с отзывами (ответы в течение 24 часов, решение проблем в личке) держит рейтинг 4,7-4,9.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю систему заказов и выдачи для закупок и пунктов выдачи: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/sovmestnye-zakupki-pwa-pvz-keys-2026/" data-goal="article_offer_case">Совместные закупки в одном PWA: заказ, выдача и блогеры по городам</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A6%D0%B8%D1%84%D1%80%D0%BE%D0%B2%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%20%D0%BA%D1%83%D1%80%D1%8C%D0%B5%D1%80%D1%81%D0%BA%D0%B8%D1%85%20%D1%81%D0%BB%D1%83%D0%B6%D0%B1%20%D0%B8%20%D0%9F%D0%92%D0%97%202026%3A%20%D0%BC%D0%B0%D1%80%D1%88%D1%80%D1%83%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F%2C%20OZON%2FWB%2F%D0%A1%D0%94%D0%AD%D0%9A%2C%20%D1%8E%D0%BD%D0%B8%D1%82-%D1%8D%D0%BA%D0%BE%D0%BD%D0%BE%D0%BC%D0%B8%D0%BA%D0%B0%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B4%D0%BB%D1%8F%20%D0%BF%D1%83%D0%BD%D0%BA%D1%82%D0%B0%20%D0%B2%D1%8B%D0%B4%D0%B0%D1%87%D0%B8." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/sistema-sovmestnyh-zakupok-i-pvz/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">FAQ</h2>
 <p><strong>Можно ли работать только с WB и не подключать другие маркетплейсы?</strong> Можно, но точка окупается медленнее. Мульти-операторный ПВЗ (WB+OZON+СДЭК) приносит на 40-70% больше выручки за счёт перекрывающегося трафика.</p>
 <p><strong>Сколько посылок в день нужно для окупаемости ПВЗ?</strong> Минимум 60-80 выдач/день в среднем регионе при средней комиссии 28-35 ₽ с посылки. Точки с меньшим потоком убыточны.</p>
@@ -872,24 +874,24 @@ export async function ozonWebhookHandler(req, res) {
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/egais-magazin-piva-i-sigaret-roznitsa-utm-oshibki-2026/" data-category="industries" data-clicks="0">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-beer-bottle"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
-  <h3>Обмен с ЕГАИС встал: диагностика для магазина пива и сигарет</h3>
-  <p>Касса не пробивает марку, обмен с УТМ завис, накладные не приходят. Разбираем чек-лист на 15 минут: УТМ, ключ, время, обновления, связка с 1С. Отдельно про пиво и табак и что делать в смену.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 3 октября 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
 <a class="blog-card" href="/blog/zayavka-na-servis-po-qr-na-oborudovanii-2026/" data-category="industries" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-qr-code"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
   <h3>Клиент не помнит модель машины: заявка на сервис по QR</h3>
   <p>Клиент звонит и диктует «такая серая, с экраном». QR-шильдик на корпусе открывает форму, где уже стоят модель, серийник, адрес и гарантия. Разбираю, как это работает, что видит клиент и сотрудник, сколько времени экономит диспетчеру (оценка) и где это не сработает.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/listok-ozhidaniya-osvobodivsheesya-okno-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-hourglass-medium"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Пустое окно в 15:00, которое можно было продать</h3>
+  <p>Клиент отменил запись за час, окно простаивает, а три человека хотели прийти в этот день. Бот держит лист ожидания, при отмене пишет следующему с кнопкой «Беру», а мастер видит изменение в расписании. Разбираем, как это устроено, сколько может давать (оценка) и где нужно согласие клиента.</p>
   <div class="blog-card-meta">
     <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
@@ -916,7 +918,7 @@ export async function ozonWebhookHandler(req, res) {
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

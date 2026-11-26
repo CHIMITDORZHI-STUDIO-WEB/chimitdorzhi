@@ -220,6 +220,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -282,14 +284,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -361,13 +355,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -462,14 +449,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
                     <div class="blog-body">
                         <div class="blog-tldr"><strong>TL;DR:</strong> Для кафе национальной кухни с доставкой я собрал сайт-<a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">лендинг</a> под ключ. Сделал аппетитную витрину меню и сетов с фото и ценами, настроил заказ в один клик через мессенджеры без тяжёлого бэкенда, оформил фирменный логотип и заменил дешёвые эмодзи на аккуратные иконки, подключил карточки в 2ГИС и соцсетях, поднял свой домен с HTTPS на сервере и привёл сайт в соответствие с 152-ФЗ — реквизиты, публичная оферта и <a href="https://audit.chimitdorzhi.tech/" class="blog-inline-link">политика обработки персональных данных</a>. Быстрый статический сайт, который открывается мгновенно и почти ничего не стоит в обслуживании.</div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%85%D0%BD%D0%B8%20%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%BE%D0%B9%3A%20%D0%BC%D0%B5%D0%BD%D1%8E%2C%20%D1%81%D0%B5%D1%82%D1%8B%2C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%BC%D0%B5%D1%81%D1%81%D0%B5%D0%BD%D0%B4%D0%B6%D0%B5%D1%80%D1%8B%20%D0%B8%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/market/#checklist">Собрать похожий проект <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в MAX для кафе: меню, заказ, розыгрыши: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/" data-goal="article_offer_case">Кафе, сайт и розыгрыши в мессенджере: как это работает вместе</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%85%D0%BD%D0%B8%20%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%BE%D0%B9%3A%20%D0%BC%D0%B5%D0%BD%D1%8E%2C%20%D1%81%D0%B5%D1%82%D1%8B%2C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%BC%D0%B5%D1%81%D1%81%D0%B5%D0%BD%D0%B4%D0%B6%D0%B5%D1%80%D1%8B%20%D0%B8%E2%80%A6%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/bot-max-dlya-kafe/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p>У хорошего кафе с доставкой часто есть всё, кроме витрины: вкусная кухня, поток заказов из мессенджеров, живая страница в соцсети — но нет единого места, куда можно привести гостя и где он за минуту увидит меню, цены и способ заказать. Ко мне обратилось именно такое заведение — кафе национальной кухни с доставкой по городу. В этом кейсе я разберу, как из разрозненных переписок и фотографий блюд мы собрали аппетитный сайт, который показывает меню, принимает заказы через мессенджеры и при этом полностью закрывает требования закона.</p>
 <p><strong>Коротко:</strong> У кафе национальной кухни с доставкой не было своего сайта — заказы шли из разных мессенджеров, а меню жило в переписке. Я собрал статический лендинг: аппетитную витрину меню и сетов с ценами, заказ в один клик через мессенджеры без сервера, фирменный логотип и иконки вместо эмодзи, карточки в 2ГИС и соцсетях, домен с HTTPS и полное соответствие 152-ФЗ.</p>
 <h2 id="problema">Проблема: вкусно, но негде показать</h2>
@@ -480,16 +471,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p>Для кафе с доставкой оптимальный формат — не громоздкий сайт с корзиной и личным кабинетом, а один хорошо выстроенный лендинг. Гость проходит его сверху вниз как короткое меню-презентацию: что за кухня, какие блюда и сеты, сколько стоит, как заказать. Тяжёлая система оформления заказа здесь была бы лишней: заведение и так принимает заказы в мессенджерах, где ему удобно вести диалог и уточнять детали.</p>
 <p>Технически я сделал сайт статическим — это осознанное решение под задачу. Витрине меню не нужны база данных и серверная логика, зато критична скорость: голодный человек не ждёт загрузку. Статическая страница открывается мгновенно даже с телефона на слабой сети, её нечему ломаться, она дёшево хостится и стабильно работает без обслуживания. Для кафе это значит, что сайт всегда доступен, всегда быстрый и не требует ежемесячной платы за тяжёлый движок.</p>
 <p>Отдельно я поработал над атмосферой. Национальная кухня — это про колорит и тепло, и сайт должен передавать характер заведения, а не выглядеть как безликий шаблон из конструктора. Я собрал тёплую палитру, подобрал шрифты с характером для заголовков и чистый читаемый текст, дал много пространства фотографиям блюд. Такой визуальный язык вызывает аппетит и доверие ещё до первого заказа.</p>
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%85%D0%BD%D0%B8%20%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%BE%D0%B9%3A%20%D0%BC%D0%B5%D0%BD%D1%8E%2C%20%D1%81%D0%B5%D1%82%D1%8B%2C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%BC%D0%B5%D1%81%D1%81%D0%B5%D0%BD%D0%B4%D0%B6%D0%B5%D1%80%D1%8B%20%D0%B8%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="menyu">Витрина меню и сетов</h2>
 <p>Сердце сайта — витрина меню, и основная работа была в том, чтобы подать блюда аппетитно и понятно. Я оформил позиции карточками с фотографиями, названиями, составом и ценой, чтобы гость сразу видел, что он получит и за сколько. Никакой игры в угадайку: цена на месте, состав описан, фото настоящее.</p>
 <p>Особое внимание — сетам и комбо. У кафе были готовые наборы: семейный сет, мини-сет и другие комбинации блюд по фиксированной цене. Такие предложения выгодны и заведению, и гостю, поэтому я вынес их в отдельные заметные блоки с полным перечнем того, что входит в набор, и итоговой ценой. Гость видит ценность целиком — сколько всего блюд, из чего состоит набор, сколько это стоит — и ему проще решиться на большой заказ, чем собирать корзину по одной позиции.</p>
@@ -513,6 +494,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <h2 id="dlya-kogo">Кому подойдёт такое же решение</h2>
 <p>Такой формат — аппетитный статический лендинг с витриной меню и заказом через мессенджеры — идеально ложится на любой небольшой общепит с доставкой: кафе и столовые, пекарни и кондитерские, точки национальной и авторской кухни, доставку суши, пиццы, бууз, шаурмы, домашних обедов. Всем им нужна не тяжёлая система с корзиной, а быстрая красивая витрина и простой путь к заказу.</p>
 <p>Подойдёт и тем, кто уже принимает заказы в мессенджерах и соцсетях, но не имеет единой точки, куда привести гостя и где показать меню целиком. И тем, кто не хочет платить ежемесячно за громоздкий движок доставки ради простой задачи — показать блюда и дать написать. Статический лендинг решает это надёжнее и дешевле, а при росте к нему всегда можно добавить онлайн-оплату или полноценную корзину.</p>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в MAX для кафе: меню, заказ, розыгрыши: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/kafe-nacionalnoy-kuhni-bot-max-rozygryshi-keys-2026/" data-goal="article_offer_case">Кафе, сайт и розыгрыши в мессенджере: как это работает вместе</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%D0%BA%D0%B0%D1%84%D0%B5%20%D0%BD%D0%B0%D1%86%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D0%B9%20%D0%BA%D1%83%D1%85%D0%BD%D0%B8%20%D1%81%20%D0%B4%D0%BE%D1%81%D1%82%D0%B0%D0%B2%D0%BA%D0%BE%D0%B9%3A%20%D0%BC%D0%B5%D0%BD%D1%8E%2C%20%D1%81%D0%B5%D1%82%D1%8B%2C%20%D0%B7%D0%B0%D0%BA%D0%B0%D0%B7%20%D1%87%D0%B5%D1%80%D0%B5%D0%B7%20%D0%BC%D0%B5%D1%81%D1%81%D0%B5%D0%BD%D0%B4%D0%B6%D0%B5%D1%80%D1%8B%20%D0%B8%E2%80%A6%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D0%BA%D0%B0%D1%84%D0%B5." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/bot-max-dlya-kafe/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Почему заказ через мессенджеры, а не корзина с оплатой?</strong> Для небольшого кафе корзина, эквайринг и серверная система приёма заказов избыточны и дороги, а главное — ломают привычный процесс, где заказ уточняют в диалоге. Заказ через мессенджер убирает барьер: гостю не нужно регистрироваться и вводить карту, он сразу пишет живому человеку. При росте корзину и оплату всегда можно добавить.</p>
 <p><strong>Почему статический сайт?</strong> Витрине меню не нужны база данных и админка, зато критична скорость — голодный гость не ждёт загрузку. Статическая страница открывается мгновенно даже на слабой мобильной сети, её нечему ломаться, она дёшево хостится и работает годами без обслуживания.</p>
@@ -615,7 +607,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

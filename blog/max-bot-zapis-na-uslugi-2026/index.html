@@ -213,6 +213,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -275,14 +277,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -354,13 +348,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -465,14 +452,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <li>Подходит салонам красоты, барбершопам, клиникам и стоматологиям, автосервисам, СПА, репетиторам и фотографам — везде, где время мастера продаётся по слотам.</li>
   </ul>
 </div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%90%D0%9A%D0%A1-%D0%B1%D0%BE%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8%20%D0%BD%D0%B0%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%3A%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%2C%20%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B8%2C%20%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/development/telegram-bots/">Заказать бота записи в МАКС <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю свою онлайн-запись без абонентки: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026/" data-goal="article_offer_case">Простая онлайн-запись для спа, врача и столика: собственный сервис</a>.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%90%D0%9A%D0%A1-%D0%B1%D0%BE%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8%20%D0%BD%D0%B0%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%3A%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%2C%20%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B8%2C%20%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/zapis-salon-krasoty/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 
 <h2 id="zachem-bot-zapisi">Зачем бизнесу бот записи в МАКС</h2>
 <p>Я делаю ботов записи и интеграции с расписанием с тех пор, как онлайн-запись перестала быть роскошью и стала гигиеническим минимумом. И каждый раз, когда ко мне приходит салон, клиника или автосервис, разговор начинается с одной и той же боли: администратор тонет в звонках и переписках. Клиент пишет в три разных канала, спрашивает «а на субботу есть окно?», администратор отвечает через сорок минут, окно за это время уже заняли по телефону, клиент уходит к конкуренту. Это не редкий сбой — это ежедневная норма ручной записи.</p>
@@ -515,16 +506,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <p>Смежная тема, которую я разбирал отдельно: <a href="/blog/ai-agent-onlayn-zapis-na-uslugi-2026/">ИИ-агент для онлайн-записи на услуги</a>.</p>
 
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%90%D0%9A%D0%A1-%D0%B1%D0%BE%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8%20%D0%BD%D0%B0%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%3A%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%2C%20%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B8%2C%20%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="napominaniya-i-otmeny">Напоминания и отмены</h2>
 <p>Запись — это половина дела. Вторая половина — чтобы клиент пришёл. Неявки (в индустрии их называют no-show) — главная скрытая статья потерь любого бизнеса по записи. Клиент записался, забыл, не пришёл, слот простоял пустым, мастер потерял деньги, которые уже нельзя вернуть, — время невозвратно. По моему опыту, без системы напоминаний доля неявок легко достигает 15–25%, а в некоторых нишах и выше.</p>
 <p>Бот закрывает эту дыру автоматически, без участия администратора.</p>
@@ -558,6 +539,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 
 <p><strong>Что синхронизировать в реальном времени, а что можно с задержкой.</strong> Свободные слоты и факт записи — строго в реальном времени, иначе теряется весь смысл. А вот аналитику, выгрузки, начисление бонусов можно обрабатывать пакетно, раз в какой-то интервал, — на надёжность записи это не влияет. Это важно для нагрузки: каждый клиент, выбирающий время, дёргает API расписания, и архитектуру стоит проектировать с учётом пиков (вечер, начало недели, период акций) — с кэшированием справочников услуг и мастеров и аккуратной работой с лимитами API внешней системы.</p>
 
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/avtomatizaciya-salonov-krasoty-yclients/">Автоматизация салонов красоты: настройка Yclients и интеграция с картами (2ГИС/Яндекс) для роста записей</a></li><li><a href="/blog/mebel-na-zakaz-zamer-smeta-izgotovlenie-2026/">Мебель на заказ: смета не сходится с расходом, клиент звонит</a></li></ul></div></div>
 <h2 id="oplata-i-predoplata">Оплата и предоплата</h2>
 <p>Запись можно сделать бесплатной, а можно — с оплатой или предоплатой прямо в боте. Выбор зависит от ниши и от того, насколько для вас болезненны неявки.</p>
 <p><strong>Полная оплата онлайн.</strong> Подходит услугам с фиксированной ценой и коротким визитом: разовая консультация, фотосессия в студии, занятие с репетитором. Клиент оплачивает при записи, слот гарантированно занят, бизнес получает деньги заранее. Оплата идёт через привычные российские способы — СБП и банковские карты.</p>
@@ -627,6 +609,17 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
 <p><strong>Кому бот записи не нужен.</strong> Честно: если у вас один мастер, пять клиентов в день и все они «свои» из соседнего дома — бот будет дорогой игрушкой. Он раскрывается на потоке: несколько мастеров, плотный график, постоянный приток новых клиентов, заметная доля неявок. Чем больше всего этого, тем нужнее автоматизация.</p>
 <p>Отдельно про закон. Любая запись — это сбор персональных данных: имя, телефон, иногда сведения о здоровье (для клиник). По 152-ФЗ это требует согласия клиента на обработку персональных данных. На практике в боте это решается экраном с коротким текстом и кнопкой согласия перед первой записью, со ссылкой на политику обработки. Для медицинских данных требования строже. Это не формальность, которую можно пропустить, — это и защита бизнеса от штрафов, и доверие клиента. Базовые понятия по теме я собираю в <a href="/slovar/">словаре</a>, а согласие лучше один раз сделать правильно на старте проекта, чем переделывать после проверки.</p>
 
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю свою онлайн-запись без абонентки: от 150 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/prostaya-onlayn-zapis-spa-vrach-stolik-keys-2026/" data-goal="article_offer_case">Простая онлайн-запись для спа, врача и столика: собственный сервис</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9C%D0%90%D0%9A%D0%A1-%D0%B1%D0%BE%D1%82%20%D0%B4%D0%BB%D1%8F%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8%20%D0%BD%D0%B0%20%D1%83%D1%81%D0%BB%D1%83%D0%B3%D0%B8%3A%20%D1%81%D0%B0%D0%BB%D0%BE%D0%BD%D1%8B%2C%20%D0%BA%D0%BB%D0%B8%D0%BD%D0%B8%D0%BA%D0%B8%2C%20%D0%B0%D0%B2%D1%82%D0%BE%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D1%8C." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/zapis-salon-krasoty/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Частые вопросы</h2>
 <p><strong>Чем бот записи в МАКС лучше формы на сайте или звонка администратору?</strong> Форма на сайте требует, чтобы клиент зашёл на сайт, и обычно не показывает реальные свободные слоты — заявка всё равно падает администратору на ручную обработку. Звонок работает только в часы работы и упирается в одного человека на линии. Бот в мессенджере доступен 24/7, отвечает мгновенно, показывает только свободное время и фиксирует запись без участия человека. Клиент уже в мессенджере — ему не нужно никуда переходить.</p>
 <p><strong>Как бот не допускает двойной записи на одно время?</strong> Бот не хранит своё расписание — он читает свободные слоты из единой системы (онлайн-расписание или 1С) в момент, когда клиент выбирает время, и сразу создаёт там запись при подтверждении. Занятый слот мгновенно исчезает из доступных у всех каналов: и у бота, и у администратора, и у формы на сайте. Двойная запись становится технически невозможной, если все пишут в один общий журнал.</p>
@@ -671,19 +664,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     
                     <section class="blog-related">
   <h2>Читайте также</h2>
-  <div class="blog-grid"><a class="blog-card" href="/blog/avtomatizaciya-salonov-krasoty-yclients/" data-category="marketing" data-clicks="6">
-  
-  <div class="blog-card-icon"><i class="ph-fill ph-scissors"></i></div>
-  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
-  <h3>Автоматизация салонов красоты: настройка Yclients и интеграция с картами (2ГИС/Яндекс) для роста записей</h3>
-  <p>Детальное руководство по автоматизации салонного бизнеса. Настройка Yclients (услуги, графики, лояльность, уведомления), интеграция виджета онлайн-записи и связка с картами Яндекс и 2ГИС в Иркутске, Улан-Удэ и Чите.</p>
-  <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 9 июня 2026</span>
-    <span><i class="ph ph-clock" aria-hidden="true"></i> 15 мин</span>
-  </div>
-  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
-</a>
-<a class="blog-card" href="/blog/max-bot-restoran-kafe-2026/" data-category="development" data-clicks="0">
+  <div class="blog-grid"><a class="blog-card" href="/blog/max-bot-restoran-kafe-2026/" data-category="development" data-clicks="0">
   
   <div class="blog-card-icon"><i class="ph-fill ph-fork-knife"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
@@ -718,6 +699,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     <span><i class="ph ph-clock" aria-hidden="true"></i> 26 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/svadebnye-agentstva-zayavki-podryadchiki-2026/" data-category="industries" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-heart"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Отрасли</span>
+  <h3>Свадьба завтра, а пара правит программу в 22:00: как убрать хаос</h3>
+  <p>Заявки на дату в личке, подрядчики в разных чатах, аванс потерялся в переписке, а пара правит программу накануне вечером. Разбираем, какую рутину организатора и ведущего можно отдать боту, а что остаётся за живым человеком и договором.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 1 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a></div>
 </section>
                     
@@ -747,7 +740,7 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

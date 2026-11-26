@@ -213,6 +213,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -275,14 +277,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -354,13 +348,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -456,14 +443,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="blog-body">
                         <p>Современный рынок труда накладывает огромную нагрузку на отделы подбора персонала. В условиях высокой конкуренции за кадры и огромного потока откликов на популярные вакансии (особенно в сферах ритейла, клиентской поддержки и IT-разработки начального уровня) рекрутеры тратят до 70% своего рабочего времени на рутинный просмотр однотипных резюме и базовую переписку. Внедрение систем искусственного интеллекта на базе больших языковых моделей (LLM) позволяет полностью перестроить этот процесс: отсеять до 90% нерелевантных кандидатов еще на этапе подачи заявки, провести автоматический скоринг по десяткам критериев и мгновенно вовлечь подходящих специалистов в диалог через привычные мессенджеры. В этой статье мы детально разберем техническую архитектуру такого решения, примеры кода для <a href="https://chimitdorzhi.tech/services/business-automation/" class="blog-inline-link">парсинга</a> и скоринга, а также способы бесшовной интеграции с популярными ATS и чат-платформами.</p>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>* <strong>Суть проблемы:</strong> Ручной разбор сотен резюме замедляет наем (Time-to-Hire) и увеличивает стоимость привлечения кандидата (Cost-per-Hire). * <strong>ИИ-решение:</strong> Создание автоматического конвейера: извлечение текста из PDF/DOCX-резюме → семантический скоринг с помощью LLM (сравнение с профилем вакансии без жестких ключевых слов) → обновление статуса в ATS-системе (Huntflow / Talantix) → мгновенный запуск квалификационного <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">чат-боты</a> в Telegram или Telegram. * <strong>Технологический стек:</strong> Python (pdfplumber, python-docx, Pydantic), OpenAI API / Claude / локальные модели (<a href="/ii-modeli/llama/" class="blog-inline-link">Llama 3</a> via vLLM), REST API интеграции с ATS, платформы коммуникации (WABA, Telegram Bot API). * <strong>Результат:</strong> Сокращение времени первичного скрининга в 10 раз, снижение стоимости найма на 35-40% и повышение конверсии вовлечения кандидатов за счет мгновенного отклика.</p></div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%98%20%D0%B4%D0%BB%D1%8F%20HR%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83%20%D1%81%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/predlozheniya/ai-pomoshchnik-rekrutera/">Автоматизировать подбор <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автоматизацию под ваш процесс: от 60 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%98%20%D0%B4%D0%BB%D1%8F%20HR%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83%20%D1%81%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BF%D0%BE%D0%B4%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/services/business-automation/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <p><strong>Коротко:</strong> <a href="https://chimitdorzhi.tech/services/ai-agents/" class="blog-inline-link">ИИ-конвейер</a> на базе LLM автоматически парсит резюме из PDF/DOCX, проводит семантический скоринг без привязки к жестким ключевым словам, обновляет статус кандидата в Huntflow или Talantix и запускает квалификационный чат-бот в мессенджере. Это сокращает время скрининга одного резюме с 6 минут до 0.5 минуты, снижает стоимость найма на 35-40% и поднимает конверсию отклика кандидатов с 45% до 78%.</p>
 <h2 id="architecture">Архитектура ИИ-конвейера найма</h2>
 <p>Для построения отказоустойчивой системы <a href="https://chimitdorzhi.tech/services/hr-team-management/" class="blog-inline-link">автоматизации найма</a> недостаточно просто отправлять файлы резюме в LLM. Требуется создать распределенный конвейер обработки данных с четким разделением зон ответственности. Архитектура такой системы состоит из нескольких ключевых слоев, взаимодействующих через очередь сообщений для минимизации задержек и исключения потери данных при пиковых нагрузках.</p>
@@ -568,16 +559,6 @@ if __name__ == "__main__":
     except Exception as err:
         print(f"Произошла ошибка при парсинге: {err}")</code></pre>
 <p>В реальных сценариях также встречаются отсканированные документы (изображения внутри PDF). В таких случаях в конвейер добавляется блок оптического распознавания символов (OCR). Рекомендуется использовать библиотеку <code>pytesseract</code> или облачные решения (Yandex Vision OCR, Google Cloud Vision) для предобработки нечитаемых PDF-файлов.</p>
-<aside class="blog-inline-tg" aria-label="Обсудить задачу">
-  <div class="blog-inline-tg-body">
-    <p class="blog-inline-tg-title">Хотите внедрить это у себя?</p>
-    <p>Опишите задачу в двух словах — отвечу в Telegram, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
-  </div>
-  <div class="blog-inline-tg-actions">
-    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%98%20%D0%B4%D0%BB%D1%8F%20HR%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83%20%D1%81%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0." target="_blank" rel="noopener" class="btn btn-accent"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram</a>
-    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
-  </div>
-</aside>
 <h2 id="scoring">Скоринг кандидатов с использованием LLM и промпт-инжиниринга</h2>
 <p><a href="/blog/ii-kadrovik-otsev-otklikov-2026/">Традиционные ATS-системы отсеивают кандидатов по ключевым словам</a>. Если в вакансии указано «Python», а в резюме написано «Разработчик на Django», старый софт может отбраковать специалиста. Большие языковые модели решают эту проблему, так как они обладают глубоким пониманием семантики, синонимов и контекста профессионального опыта.</p>
 <p>Для интеграции скоринга в автоматический пайплайн мы используем библиотеку Pydantic для строгого контроля типов и структуры ответа от LLM. Пакет <code>instructor</code> или стандартный функционал OpenAI API <code>response_format</code> гарантируют, что модель вернет JSON, строго соответствующий нашей схеме.</p>
@@ -805,6 +786,17 @@ async def process_salary(message: types.Message, state: FSMContext):
 <ul><li>[ ] <strong>Проектирование и разработка индивидуальных парсеров резюме:</strong> Создание отказоустойчивых систем извлечения и нормализации текстовых данных из любых форматов файлов (PDF, DOCX, RTF, TXT), включая оцифровку сканов (OCR).</li><li>[ ] <strong>Создание и калибровка LLM-промптов под вакансии:</strong> Написание системных инструкций и промптов для точного семантического скоринга соискателей в соответствии со сложными техническими требованиями.</li><li>[ ] <strong>Интеграция ИИ-модулей с корпоративными ATS:</strong> Настройка двусторонней синхронизации данных, автоматическое обновление этапов подбора и загрузка детализированных отчетов в Huntflow, Talantix или самописные CRM-системы.</li><li>[ ] <strong>Разработка сценариев умных чат-ботов:</strong> Создание интерактивных квалификационных ботов в Telegram и Telegram для сбора первичной информации (зарплата, стек, готовность к тестовым заданиям).</li><li>[ ] <strong>Оптимизация стоимости ИИ-инфраструктуры:</strong> Настройка гибридных конвейеров (использование <a href="/blog/svoy-ai-server-dlya-biznesa-2027/">локальных опенсорсных LLM</a>, таких как Llama 3 или <a href="/ii-modeli/mistral/" class="blog-inline-link">Mistral</a> на собственных серверах, для конфиденциальности данных кандидата по ФЗ-152).</li></ul>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Вы можете заказать внедрение готового ИИ-модуля автоматического скоринга резюме и интеграции с мессенджерами. Ознакомьтесь с подробными условиями и кейсами в предложении: <strong><a href="/predlozheniya/ai-pomoshchnik-rekrutera/">ИИ-автоматизация подбора персонала</a></strong>. Стоимость внедрения базового решения — <strong>от 80 000 рублей</strong>.</p></div>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p><strong>Готовы обсудить вашу задачу?</strong></p><p>Свяжитесь со мной напрямую, чтобы получить бесплатную консультацию и аудит вашего процесса найма: * Напишите мне в Telegram: <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%98%20%D0%B4%D0%BB%D1%8F%20HR%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83%20%D1%81%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B2%D0%BE%D0%B5%D0%B3%D0%BE%20%D0%B1%D0%B8%D0%B7%D0%BD%D0%B5%D1%81%D0%B0.">@chimitdorzhi</a> * Свяжитесь в VK: <a href="https://vk.com/chimitdorzhi">chimitdorzhi_tech</a> * Посмотрите все услуги в <a href="/predlozheniya/">Каталоге предложений</a></p></div>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автоматизацию под ваш процесс: от 60 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%98%D0%98%20%D0%B4%D0%BB%D1%8F%20HR%3A%20%D0%BA%D0%B0%D0%BA%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BF%D0%B5%D1%80%D0%B2%D0%B8%D1%87%D0%BD%D1%8B%D0%B9%20%D0%BE%D1%82%D0%B1%D0%BE%D1%80%20%D1%80%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5%20%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%BA%D1%83%20%D1%81%20%D0%BA%D0%B0%D0%BD%D0%B4%D0%B8%D0%B4%D0%B0%D1%82%D0%B0%D0%BC%D0%B8%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%80%D0%B0%D0%B7%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%BA%D1%83%20%D0%BF%D0%BE%D0%B4%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/services/business-automation/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">FAQ: Часто задаваемые вопросы</h2>
 <h3>Заменяет ли ИИ рекрутера полностью?</h3>
 <p>Нет. ИИ выступает в роли умного ассистента (Co-pilot). Он автоматизирует рутинную ручную работу: отсеивает заведомо неподходящих кандидатов (например, соискателей без коммерческого опыта на вакансию Senior), проводит первичное анкетирование и организует расписание. Окончательное решение о найме, оценку софт-скиллов на личном интервью и оффер всегда делает человек. Такой подход называется "Human-in-the-loop" и является золотым стандартом автоматизации.</p>
@@ -922,7 +914,7 @@ async def process_salary(message: types.Message, state: FSMContext):
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>

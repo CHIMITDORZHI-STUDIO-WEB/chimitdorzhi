@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перенос бота на другой сервер без потери пользователей</title>
+    <meta name="description" content="Как перенести бота Telegram или MAX на новый сервер: токен, база, вебхук и long polling, порядок переключения, проверки после запуска и частые ошибки.">
+    <meta name="keywords" content="перенести бота на другой сервер, переезд телеграм бота, сменить сервер бота, перенос бота MAX, webhook long polling перенос, перенос базы бота, setWebhook новый сервер, не потерять подписчиков бота">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/">
+    <meta property="og:title" content="Перенос бота на другой сервер без потери пользователей">
+    <meta property="og:description" content="Как перенести бота Telegram или MAX на новый сервер: токен, база, вебхук и long polling, порядок переключения, проверки после запуска и частые ошибки.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Перенос бота на другой сервер без потери пользователей">
+    <meta name="twitter:description" content="Как перенести бота Telegram или MAX на новый сервер: токен, база, вебхук и long polling, порядок переключения, проверки после запуска и частые ошибки.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Как перенести бота на другой сервер и не потерять пользователей",
+  "description": "Как перенести бота Telegram или MAX на новый сервер: токен, база, вебхук и long polling, порядок переключения, проверки после запуска и частые ошибки.",
+  "image": "https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/"
+  },
+  "datePublished": "2026-11-26",
+  "dateModified": "2026-11-26",
+  "keywords": "перенос бота, Telegram Bot API, MAX, вебхук, сервер, база данных",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Как перенести бота на другой сервер и не потерять пользователей",
+      "item": "https://chimitdorzhi.tech/blog/perenesti-bota-na-drugoy-server-ne-poteryav-polzovateley-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Придётся ли людям заново запускать бота после переезда?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нет, если токен тот же. Чат с ботом, кнопки и идентификаторы пользователей остаются прежними."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Сколько бот будет недоступен?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Столько, сколько занимает финальная копия базы, перенос и запуск. Замерьте это на репетиции. Telegram хранит неполученные события до 24 часов, поэтому после запуска бот их заберёт."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли держать два сервера одновременно?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Рабочим должен быть один. При long polling два процесса с одним токеном мешают друг другу, а расписания в двух копиях отправят людям всё по два раза."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли новый домен?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Необязательно. Если домен ваш, проще направить его на новый сервер и выпустить сертификат там."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Как перенести бота с конструктора на свой сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Токен остаётся у владельца бота. Сценарий обычно приходится собирать заново, а выгрузка базы зависит от конструктора: проверьте это до отключения тарифа."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Как перенести бота на другой сервер и не потерять пользователей</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-11-26"><i class="ph ph-calendar" aria-hidden="true"></i> 26 ноября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Как перенести бота на другой сервер и не потерять пользователей</h1>
+
+                    <p class="blog-lead">Пошаговый переезд бота Telegram или MAX: что перенести, как отрепетировать на тестовом боте, в каком порядке выключать старый и включать новый, чем вебхук отличается от long polling при переключении и что проверить до отключения старого сервера.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>перенос бота</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>Telegram Bot API</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>вебхук</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>сервер</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>база данных</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Пользователи не потеряются, если бот остаётся тем же: тот же токен и та же база. Сервер для подписчика невидим, он пишет боту, и его идентификатор от переезда не меняется.</li>
+<li>Переносить нужно код, базу данных, настройки с секретами, файлы пользователей, задания по расписанию и всё, что связывает бота с внешними сервисами.</li>
+<li>Переключаются в таком порядке: остановили старый бот, сняли последнюю копию базы, подняли новый, перевели вебхук или домен, проверили.</li>
+<li>Два работающих экземпляра с одним токеном дают потерянные сообщения, двойные ответы и повторные рассылки, поэтому старый сначала выключают.</li>
+</ul></div>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в Telegram под ваш процесс: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/" data-goal="article_offer_case">Бот и мини-приложение CRM для маркетингового агентства</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BD%D0%B5%D1%81%D1%82%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B8%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%82%D1%8C%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B2%20Telegram." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-bots/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
+
+<p>Чтобы перенести бота на другой сервер без потери людей, сохраните токен и перенесите базу целиком. Подписчики привязаны к самому боту, адрес сервера они не знают. Дальше всё решает порядок действий: репетиция на тестовом боте, короткое окно с остановкой, переключение приёма событий и проверка по списку.</p>
+
+<h2 id="chto-perenosim">Что переносить, чтобы бот остался тем же</h2>
+<p>Переносите всё, что бот помнит и чем пользуется, а токен оставляйте прежним. Новый бот с новым токеном это другой адресат: людям придётся заново нажимать «Начать», и первым написать им вы не сможете.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Что</th><th>Где обычно лежит</th><th>Что будет, если забыть</th></tr></thead>
+<tbody>
+<tr><td>Токен бота</td><td>Файл с переменными окружения, настройки службы</td><td>Бот не запустится</td></tr>
+<tr><td>База данных</td><td>PostgreSQL, MySQL или файл SQLite</td><td>Пропадут пользователи, заказы, подписки</td></tr>
+<tr><td>Код и версии библиотек</td><td>Репозиторий и файл зависимостей</td><td>На новой машине встанет другая версия и поведёт себя иначе</td></tr>
+<tr><td>Загруженные файлы</td><td>Папки рядом с кодом или хранилище</td><td>Вместо чеков и фото пустые ссылки</td></tr>
+<tr><td>Расписания</td><td>cron, таймеры systemd, планировщик внутри кода</td><td>Напоминания и списания тихо перестанут выходить</td></tr>
+<tr><td>Ключи внешних сервисов</td><td>Те же настройки</td><td>Не пройдут оплаты, не уйдут заявки в CRM</td></tr>
+<tr><td>Домен и сертификат</td><td>Веб-сервер</td><td>Платформа не сможет доставить вебхук</td></tr>
+</tbody></table></div>
+<p>Расписания легче всего забыть, потому что в репозитории их часто нет. До переезда зайдите на старый сервер и выпишите вывод <code>crontab -l</code>, список таймеров и все службы, где упоминается бот. Туда же запишите, какие внешние системы стучатся на этот сервер: платёжный сервис, CRM, формы сайта. И проверьте, не ограничен ли где-то доступ по IP-адресу: некоторые банки, учётные системы и базы пускают только знакомые адреса, и новый придётся добавить заранее.</p>
+
+<h2 id="sposob">Вебхук или long polling: от этого зависит переключение</h2>
+<p>Если бот сам спрашивает новости у платформы (long polling), переезд проще: остановили старый процесс, запустили новый. Если платформа присылает события на ваш адрес (вебхук), нужно ещё перевести этот адрес.</p>
+<p>В Telegram два способа взаимно исключают друг друга: пока установлен вебхук, метод getUpdates не работает. Неполученные события Telegram хранит не дольше 24 часов. Короткая пауза ничего не стоит, а бот, забытый выключенным на двое суток, часть сообщений уже не получит. Вебхук принимается на портах 443, 80, 88 и 8443, текущее состояние показывает getWebhookInfo.</p>
+<p>У MAX условия жёстче. По документации вебхук работает только по HTTPS на порту 443, самоподписанные сертификаты не принимаются, ответ нужен за 30 секунд. Недоставленное событие платформа повторяет с растущими паузами, а после 8 часов без успешного ответа отписывает бота сама. Long polling там отмечен как способ для разработки и тестов. Одновременно с подпиской на вебхук он не работает.</p>
+<p>И отдельная деталь MAX для нового сервера: запросы к API идут на домен platform-api2.max.ru, и документация просит добавить в доверенные сертификат Минцифры. На старой машине это могли сделать когда-то руками и забыть. Тогда код тот же, токен тот же, а соединение не устанавливается.</p>
+
+<h2 id="repeticiya">Репетиция на тестовом боте</h2>
+<p>Сначала поднимите на новом сервере копию с отдельным тестовым ботом и копией базы. Рабочий токен на этом этапе туда не кладут: стоит копии начать опрашивать Telegram с боевым токеном, и она начнёт забирать сообщения у настоящего бота.</p>
+<ol>
+<li>Разверните код и зафиксированные версии библиотек.</li>
+<li>Восстановите вчерашнюю копию базы. Это заодно проверка, что копии вообще восстанавливаются.</li>
+<li>Отключите в тестовой копии рассылки, напоминания и списания. В базе лежат настоящие люди, и тестовый запуск не должен им писать и брать с них деньги.</li>
+<li>Подставьте тестовые ключи платежей и тестовый канал.</li>
+<li>Пройдите основные сценарии: старт, меню, заявка, оплата в тестовом режиме, сообщение администратору.</li>
+<li>Замерьте, сколько занимает выгрузка и восстановление базы. Это основа для длины вашего окна.</li>
+</ol>
+<p>Пункт про рассылки кажется лишним до того утра, когда тестовый сервер разошлёт клиентам напоминания о вчерашней записи.</p>
+
+<h2 id="baza">Как скопировать базу без потерь</h2>
+<p>Финальную копию снимают после остановки бота, чтобы в неё попали последние записи. Снятое на ходу годится для репетиции.</p>
+<p>Файл SQLite нельзя копировать обычным способом, пока в него пишут: рядом могут лежать журналы с ещё не перенесёнными данными. Используйте встроенную команду <code>sqlite3 bot.db ".backup copy.db"</code>. Для PostgreSQL подойдёт связка pg_dump и pg_restore, причём версию на новом сервере берите не ниже старой. После восстановления сравните число строк в главных таблицах: пользователи, заказы, подписки. Записали цифры до, сверили после, это две минуты.</p>
+<p>Идентификаторы файлов Telegram (file_id) привязаны к конкретному боту. Бот у вас остаётся тот же, поэтому сохранённые в базе file_id продолжат работать. Если же вы заодно решили завести нового бота, все такие картинки и документы придётся загружать заново.</p>
+<p>Про регулярные копии после переезда у меня есть разбор <a href="/blog/gobackup-rezervnye-kopii-baz-dannyh-po-raspisaniyu-2026/">копий базы по расписанию</a>.</p>
+
+<h2 id="poryadok">Порядок переключения по шагам</h2>
+<p>Старый бот выключается раньше, чем включается новый. Выберите час, когда пишут меньше всего, и идите по списку.</p>
+<ol>
+<li>За сутки уменьшите TTL у DNS-записи, если домен будет переезжать на новый адрес.</li>
+<li>Предупредите администраторов бота: в это окно ничего не меняем и рассылки не запускаем.</li>
+<li>Остановите службу бота и все его задания по расписанию на старом сервере. Отключите автозапуск, иначе перезагрузка поднимет его снова.</li>
+<li>Снимите финальную копию базы и файлов.</li>
+<li>Перенесите, восстановите, сверьте число строк.</li>
+<li>Запустите службу на новом сервере с боевым токеном.</li>
+<li>Переключите приём событий. Если домен прежний, поменяйте DNS-запись. Если новый, зарегистрируйте вебхук на новый адрес: в Telegram через setWebhook, в MAX через POST /subscriptions, а старый адрес уберите через DELETE /subscriptions.</li>
+<li>Поменяйте адрес уведомлений в платёжном сервисе и остальных внешних системах.</li>
+</ol>
+<p>При вызовах deleteWebhook и setWebhook не включайте drop_pending_updates без причины: этот параметр выбрасывает очередь накопившихся сообщений, то есть ровно то, что люди написали во время вашего переезда.</p>
+<p>Секрет вебхука задайте заново и проверяйте на своей стороне. Telegram присылает его в заголовке X-Telegram-Bot-Api-Secret-Token, MAX в заголовке X-Max-Bot-Api-Secret.</p>
+
+<h2 id="proverki">Что проверить после запуска</h2>
+<p>Бот переехал, когда отвечает человеку, пишет в базу и выполняет то, что делает без участия человека. Одного ответа на команду старта мало.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Проверка</th><th>Как убедиться</th></tr></thead>
+<tbody>
+<tr><td>События доходят</td><td>В Telegram посмотреть getWebhookInfo: адрес новый, очередь убывает, свежих ошибок нет</td></tr>
+<tr><td>Старый пользователь узнаётся</td><td>Написать с аккаунта, который был в базе: история и статус на месте</td></tr>
+<tr><td>Кнопки из прошлых сообщений</td><td>Нажать кнопку под сообщением, отправленным до переезда</td></tr>
+<tr><td>Оплата</td><td>Тестовый платёж или малая сумма, уведомление пришло на новый сервер</td></tr>
+<tr><td>Расписания</td><td>Дождаться первого срабатывания и увидеть его в журнале</td></tr>
+<tr><td>Часовой пояс</td><td>Сравнить время на сервере с тем, что видит клиент в напоминании</td></tr>
+<tr><td>Перезагрузка</td><td>Перезагрузить машину и убедиться, что бот поднялся сам</td></tr>
+</tbody></table></div>
+<p>Часовой пояс портит переезды тихо: всё работает, только напоминание о записи приходит на несколько часов раньше или позже. Если бот молчит, пригодится <a href="/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/">разбор диагностики за 15 минут</a>.</p>
+<p>Старый сервер я советую не удалять сразу: пусть неделю постоит с выключенным ботом. Если что-то всплывёт, будет куда посмотреть. Возвращаться на него вслепую нельзя: после запуска в новой базе уже появились записи, и при откате их надо переносить обратно.</p>
+
+<h2 id="monitoring">Как узнать о сбое раньше клиентов</h2>
+<p>Поставьте проверку с другой машины и сообщение в мессенджер в тот же день, что и переезд. В первые дни на новом сервере всплывают забытые мелочи: не включён автозапуск, не настроено продление сертификата, заканчивается место.</p>
+<p>У себя я держу внешний сторож: он проверяет серверы снаружи и присылает по сообщению при падении и при возврате. Как он устроен, описано в кейсе <a href="/blog/vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026/">про внешний сторож серверов</a>. Настроить такой же под ваш бот или сайт можно отдельно, это <a href="/predlozheniya/monitoring-bitriks24-i-serverov/">мониторинг серверов с оповещением в Telegram</a>.</p>
+
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/gde-zhit-rabochey-sisteme-svoy-server-oblako-ili-podryadchik-2026/">Где должна работать ваша система: у вас, в облаке или у подрядчика</a></li><li><a href="/blog/chuzhoy-bot-ili-sayt-ne-rabotaet-audit-za-dva-chasa-2026/">Чужой бот или сайт: аудит за два часа до вложений в доработку</a></li></ul></div></div>
+<h2 id="dostupy">Если сервер или токен у прежнего подрядчика</h2>
+<p>Сначала верните себе управление ботом, потом планируйте переезд. Проверьте, на чьём аккаунте бот создан: владелец в BotFather для Telegram и кабинет организации для MAX. Если бот записан на чужой аккаунт, нужна передача прав.</p>
+<p>После переезда токен в Telegram стоит перевыпустить в BotFather: бот и подписчики остаются, а старая копия у бывшего исполнителя перестаёт работать. Новый токен сразу пропишите на новом сервере. Для MAX проверьте в кабинете, как перевыпускается токен. Заодно смените ключи платежей, пароли базы и доступы по SSH. Что ещё забрать у исполнителя, я собрал в статье <a href="/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/">про доступы, репозиторий и документацию</a>.</p>
+<p>Когда кода нет совсем, переносить нечего: бота придётся писать заново с тем же токеном, а людей и историю доставать из той базы, к которой есть доступ. Нет доступа и к базе: список подписчиков из мессенджера целиком не выгрузить, и это стоит выяснить до расставания с исполнителем.</p>
+
+<h2 id="ceny">Сколько это стоит у меня</h2>
+<p>Переезд я делаю по часам: от 3 000 ₽ за час, срок от 1 дня. Если после переезда нужен присмотр, копии и мелкие доработки, это поддержка от 20 000 ₽ в месяц. Точную стоимость называю после разговора: на объём влияют база, число внешних интеграций и то, есть ли доступ к старому серверу. Если бота нужно заодно доработать, посмотрите <a href="/development/telegram-bots/">разработку Telegram-ботов</a>.</p>
+
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю бота в Telegram под ваш процесс: от 30 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/bot-i-crm-dlya-marketingovogo-agentstva-telegram-keys-2026/" data-goal="article_offer_case">Бот и мини-приложение CRM для маркетингового агентства</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BD%D0%B5%D1%81%D1%82%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B8%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%82%D1%8C%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%B2%20Telegram." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/telegram-bots/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+<h2 id="faq">Частые вопросы</h2>
+<h3>Придётся ли людям заново запускать бота после переезда?</h3>
+<p>Нет, если токен тот же. Чат с ботом, кнопки и идентификаторы пользователей остаются прежними.</p>
+<h3>Сколько бот будет недоступен?</h3>
+<p>Столько, сколько занимает финальная копия базы, перенос и запуск. Замерьте это на репетиции. Telegram хранит неполученные события до 24 часов, поэтому после запуска бот их заберёт.</p>
+<h3>Можно ли держать два сервера одновременно?</h3>
+<p>Рабочим должен быть один. При long polling два процесса с одним токеном мешают друг другу, а расписания в двух копиях отправят людям всё по два раза.</p>
+<h3>Нужен ли новый домен?</h3>
+<p>Необязательно. Если домен ваш, проще направить его на новый сервер и выпустить сертификат там.</p>
+<h3>Как перенести бота с конструктора на свой сервер?</h3>
+<p>Токен остаётся у владельца бота. Сценарий обычно приходится собирать заново, а выгрузка базы зависит от конструктора: проверьте это до отключения тарифа.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Держитесь за токен и базу, репетируйте на тестовом боте, выключайте старый раньше, чем включаете новый, и проверяйте расписания и оплату. Для MAX отдельно загляните в требования к вебхуку и сертификаты, потому что на свежем сервере их никто за вас не настроил.</p>
+<p>Если переезд на носу, напишите мне в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BD%D0%B5%D1%81%D1%82%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B8%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%82%D1%8C%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." rel="noopener" target="_blank">Telegram</a> слово «ПЕРЕЕЗД» и перечислите, где бот сейчас, на чём написан и есть ли доступ к серверу.</p>
+
+                    </div>
+                    
+                    
+
+                    
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Всё о мессенджере MAX в одном месте</h3>
+                            <p>Эта статья — часть кластера материалов о MAX: разработка ботов и мини-аппов, продвижение канала, воронки, отраслевые сценарии и кейсы с реальными результатами.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/max-messendzher-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> Опорная страница по MAX</a>
+                        </div>
+                    </div>
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Переезд бота на новый сервер</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-clipboard-text"></i> <span>Опись: код, база, расписания, ключи и внешние интеграции</span></li><li><i class="ph-fill ph-flask"></i> <span>Репетиция на тестовом боте с копией базы</span></li><li><i class="ph-fill ph-arrows-left-right"></i> <span>Переключение вебхука или домена и проверка по списку</span></li><li><i class="ph-fill ph-bell-ringing"></i> <span>Копии базы и сообщение в Telegram о сбое</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9A%D0%B0%D0%BA%20%D0%BF%D0%B5%D1%80%D0%B5%D0%BD%D0%B5%D1%81%D1%82%D0%B8%20%D0%B1%D0%BE%D1%82%D0%B0%20%D0%BD%D0%B0%20%D0%B4%D1%80%D1%83%D0%B3%D0%BE%D0%B9%20%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%20%D0%B8%20%D0%BD%D0%B5%20%D0%BF%D0%BE%D1%82%D0%B5%D1%80%D1%8F%D1%82%D1%8C%20%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Разработка и сопровождение Telegram-ботов</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/bot-perestal-otvechat-diagnostika-15-minut-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-heartbeat"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Бот перестал отвечать: диагностика за 15 минут</h3>
+  <p>Клиенты пишут, а бот молчит. Разбираем, как за 15 минут найти причину: процесс, токен (getMe), вебхук (getWebhookInfo), лимиты и блокировки, права в чате, база и внешние сервисы. И как настроить проверку, чтобы узнавать о поломке раньше клиентов.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/vneshniy-storozh-serverov-opovesheniya-v-telegram-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-heartbeat"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Внешний сторож серверов: оповещение в Telegram за 10 минут</h3>
+  <p>Сервер завис на несколько часов, а о проблеме мне первым сообщил клиент. После этого я собрал внешнего сторожа: он каждые пять минут проверяет сайты с другой машины и пишет в Telegram один раз при падении и один раз при возврате. Это мой собственный инструмент студии, он работает.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 17 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kak-ne-stat-zalozhnikom-podryadchika-dostupy-repozitoriy-dokumentaciya-2026/" data-category="biznes-krugozor" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-key"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Бизнес-кругозор</span>
+  <h3>Как не стать заложником подрядчика: доступы и документация</h3>
+  <p>Разбираю чек-лист «кому принадлежит»: домен, сервер, репозиторий, секреты, бот, копии и мониторинг. Даю девять шагов, контрольный тест «развернуть с нуля по README» и список на день ухода подрядчика. Пишу как подрядчик, который сам советует заказчику требовать этого.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 5 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/gobackup-rezervnye-kopii-baz-dannyh-po-raspisaniyu-2026/" data-category="development" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-database"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
+  <h3>Копия базы каждую ночь: дампы по расписанию в GoBackup</h3>
+  <p>GoBackup снимает дамп базы по расписанию, шифрует и отправляет в удалённое хранилище. Разбираем настройку, лицензию MIT, правило 3-2-1 и то, чего инструмент не делает: восстановление и репликацию.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 7 октября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#chto-perenosim"><span class="blog-toc-num">01</span> Что переносить</a></li>
+<li><a href="#sposob"><span class="blog-toc-num">02</span> Вебхук или long polling</a></li>
+<li><a href="#repeticiya"><span class="blog-toc-num">03</span> Репетиция на тестовом боте</a></li>
+<li><a href="#baza"><span class="blog-toc-num">04</span> Копия базы без потерь</a></li>
+<li><a href="#poryadok"><span class="blog-toc-num">05</span> Порядок переключения</a></li>
+<li><a href="#proverki"><span class="blog-toc-num">06</span> Проверки после запуска</a></li>
+<li><a href="#monitoring"><span class="blog-toc-num">07</span> Как узнать о сбое</a></li>
+<li><a href="#dostupy"><span class="blog-toc-num">08</span> Если доступы у подрядчика</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">09</span> Сколько это стоит у меня</a></li>
+<li><a href="#faq"><span class="blog-toc-num">10</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">11</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

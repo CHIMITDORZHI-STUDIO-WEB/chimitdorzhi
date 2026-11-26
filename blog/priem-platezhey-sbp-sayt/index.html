@@ -213,6 +213,8 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
     for (var i = 0; i < GOALS.length; i++) {
       if (GOALS[i].re.test(href)) {
         try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
@@ -275,14 +277,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                             <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
                         </span>
                         <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
-                    </a>
-                    <a href="/mwrlife/" class="nav-dropdown-item">
-                        <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                        <span class="nav-dropdown-text">
-                            <span class="nav-dropdown-title">MWR Life</span>
-                            <span class="nav-dropdown-desc">Travel-клуб и партнёрка</span>
-                        </span>
-                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
                     </a>
                 </div>
             </li>
@@ -354,13 +348,6 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                         </a>
                     </li>
                     <li>
-                        <a href="/mwrlife/" class="mobile-sub-item">
-                            <span class="nav-dropdown-icon nav-dropdown-icon--mwr"><img src="/assets/mwrlife/mwr-life.png" alt="MWR Life" loading="lazy"></span>
-                            <span class="mobile-sub-text">
-                                <span class="mobile-sub-title">MWR Life</span>
-                                <span class="mobile-sub-desc">Travel-клуб и партнёрка</span>
-                            </span>
-                        </a>
                     </li>
                 </ul>
             </details>
@@ -456,14 +443,18 @@ ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:tr
                     <div class="blog-body">
                         <p>Современный e-commerce бизнес сталкивается с постоянным ростом расходов на инфраструктуру. Одной из самых весомых статей расходов для <a href="https://chimitdorzhi.tech/services/web-development/" class="blog-inline-link">интернет-магазинов</a> и онлайн-сервисов остается плата за интернет-эквайринг. Классический прием оплаты банковскими картами обходится предпринимателям в среднем от 1,5% до 3,5% от оборота. В условиях жесткой конкуренции и невысокой маржинальности бизнеса эти проценты существенно снижают чистую прибыль. Однако современные платежные технологии позволяют оптимизировать эти расходы. В 2026–2027 годах стандартом для рынка стали альтернативные способы расчета: Система быстрых платежей (СБП), сервисы BNPL (оплата частями) и онлайн-рассрочки от ведущих банков. В этом руководстве мы детально разберем, как устроены эти инструменты, сравним их финансовую эффективность, разберем технические особенности интеграции через API и покажем, как спроектировать идеальный платежный сценарий для повышения конверсии.</p>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Внедрение СБП (Системы быстрых платежей) позволяет снизить комиссию за прием платежей с классических 1.5–3.5% до 0.4–0.7%, а средства поступают на расчетный счет продавца мгновенно, а не на следующий рабочий день. Подключение сервисов BNPL (Долями, Яндекс Сплит, Подели) увеличивает средний чек на 30–50% и повышает конверсию в покупку без переплат для клиентов. Онлайн-рассрочки от Т-Банка, Сбербанка и других крупных игроков помогают продавать дорогие товары и услуги (от 3 000 до 200 000+ рублей) в кредит с бесшовным одобрением за 2 минуты. Комплексная интеграция этих методов через API с оптимизированным UX-интерфейсом чекаута окупается за 30 дней и сокращает затраты на транзакции до 40%.</p></div>
-<div class="blog-cta-internal">
-  <i class="ph-fill ph-rocket-launch" aria-hidden="true"></i>
-  <div>
-    <strong>Хотите внедрить это у себя?</strong>
-    <p>Сделаю под ключ: разберу задачу, назову срок и цену. Чтобы начать, <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D1%80%D0%B8%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%20%D0%A1%D0%91%D0%9F%20(%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D1%85%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9)%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%81%D1%80%D0%BE%D1%87%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener">напишите в Telegram</a> одной фразой.</p>
-    <a href="https://chimitdorzhi.tech/predlozheniya/priem-platezhey-sbp/">Подключить приём по СБП <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
   </div>
-</div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D1%80%D0%B8%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%20%D0%A1%D0%91%D0%9F%20(%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D1%85%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9)%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%81%D1%80%D0%BE%D1%87%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%E2%80%A6%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
 <h2 id="card-acquiring-pain">Проблема высокой комиссии: Почему классический интернет-эквайринг съедает вашу прибыль</h2>
 <p>Традиционный интернет-эквайринг представляет собой сложную цепочку посредников. Когда клиент вводит данные карты на сайте, в транзакции участвуют:</p>
 <ol><li><strong>Банк-эмитент:</strong> банк, выпустивший карту покупателя.</li><li><strong>Платежная система:</strong> МИР, Visa, Mastercard, UnionPay, обеспечивающая процессинг.</li><li><strong>Банк-эквайер:</strong> банк, обслуживающий расчетный счет интернет-магазина.</li></ol>
@@ -708,6 +699,17 @@ async def payment_webhook(request: Request):
 <h2 id="ready-solution">Готовое решение по теме</h2>
 <div class="blog-tldr"><h3>Коротко (TL;DR)</h3><p>Внедрите прием платежей через СБП и рассрочки на вашем сайте под ключ. Настроим интеграцию с банками и платежными агрегаторами, оптимизируем UI платежной страницы и снизим расходы на эквайринг с первых дней запуска. Подробные условия и описание предложения доступны по ссылке: <strong><a href="/predlozheniya/priem-platezhey-sbp/">Подключение СБП и рассрочек на сайте</a></strong> — стоимость решения от <strong>25 000 рублей</strong>.</p></div>
 <ul><li><strong><a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D1%80%D0%B8%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%20%D0%A1%D0%91%D0%9F%20(%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D1%85%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9)%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%81%D1%80%D0%BE%D1%87%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%E2%80%A6%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83.">Связаться со мной в Telegram</a></strong> — оперативная консультация и ответы на вопросы в чате.</li><li><strong><a href="https://vk.com/chimitdorzhi">Группа ВКонтакте</a></strong> — разборы полезных кейсов, рекомендации и отзывы клиентов.</li><li><strong><a href="https://chimitdorzhi.tech/services/">Каталог услуг</a></strong> — прайс-лист, шаблоны договоров и детальный перечень выполняемых работ.</li></ul>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю сайт или лендинг под заявки: от 40 000 ₽, точную стоимость называю после разговора.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D1%80%D0%B8%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9%20%D0%BD%D0%B0%20%D1%81%D0%B0%D0%B9%D1%82%D0%B5%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D1%82%D1%8C%20%D0%A1%D0%91%D0%9F%20(%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%83%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D1%8B%D1%85%20%D0%BF%D0%BB%D0%B0%D1%82%D0%B5%D0%B6%D0%B5%D0%B9)%20%D0%B8%20%D1%80%D0%B0%D1%81%D1%81%D1%80%D0%BE%D1%87%D0%BA%D0%B8%20%D0%B4%D0%BB%D1%8F%E2%80%A6%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D1%81%D0%B0%D0%B9%D1%82." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/development/sites/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
 <h2 id="faq">Часто задаваемые вопросы (FAQ)</h2>
 <h3>Какова реальная экономия от внедрения СБП по сравнению с классическим эквайрингом?</h3>
 <p>Реальная экономия составляет от 1.1% до 2.8% с каждого платежа. Например, если оборот вашего интернет-магазина составляет 2 000 000 рублей в месяц, и при классическом эквайринге с комиссией 2.2% вы платите банку 44 000 рублей, то переведя хотя бы 60% клиентов на СБП с тарифом 0.7%, вы снизите расходы до 26 000 рублей. В годовом исчислении это сбережет более 216 000 рублей чистой прибыли, которые можно направить на развитие бизнеса.</p>
@@ -732,7 +734,7 @@ async def payment_webhook(request: Request):
 <h3>Неделя 4: Frontend-верстка, UX-оптимизация чекаута и запуск</h3>
 <ul><li><strong>День 16-18:</strong> Верстка обновленного платежного экрана (Checkout UI). Настройка адаптивного отображения (кнопки СБП для мобайла, QR-коды для десктопа).</li><li><strong>День 19-21:</strong> Сортировка методов оплаты в зависимости от суммы заказа. Добавление информационных блоков об оплате частями (калькуляторы ежемесячных платежей).</li><li><strong>День 22-25:</strong> Проведение сквозного тестирования всех платежных сценариев в тестовом и «боевом» режимах на минимальных суммах.</li><li><strong>День 26-30:</strong> Полноценный запуск системы в продакшн. Запуск A/B тестирования платежных методов и мониторинг конверсии.</li><li><strong>Результат:</strong> На сайте работает комплексная платежная система СБП + BNPL + Рассрочки, снижающая общую комиссию эквайринга и увеличивающая продажи.</li></ul>
                     </div>
-                    <aside class="blog-legal-note" role="note"><p>* WhatsApp принадлежит компании Meta Platforms Inc., которая признана в России экстремистской организацией, её деятельность на территории Российской Федерации запрещена (решение Тверского районного суда Москвы от 21.03.2022). Доступ к WhatsApp в России ограничен Роскомнадзором.</p></aside>
+                    
                     
 
                     
@@ -771,38 +773,38 @@ async def payment_webhook(request: Request):
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/golive-skill-zapusk-ii-prilozheniya-v-prod-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/liquid-ai-d1-modeli-resheniy-dlya-zayavok-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-rocket-launch"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-git-fork"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>GoLive: агент написал код, а вывести в прод помогает скилл</h3>
-  <p>На GitHub выложили GoLive: открытый Agent Skill и Node-CLI, который помогает вывести в прод приложение, собранное ИИ-агентом. Он определяет, что нужно приложению, планирует, спрашивает подтверждение, применяет на ваших аккаунтах и проверяет. Разбираю цикл, набор провайдеров, честные ограничения альфы и что делать с этим на российском стеке.</p>
+  <h3>Модель решений d1 вместо LLM: разбор заявок за один вызов</h3>
+  <p>Liquid AI выпустила d1, модель решений: на вход текст или JSON, на выходе вероятности по заранее заданным вариантам и уверенность, без генерации текста. Весов нет, работает только через облачный API. Разбираем, как этот подход применить к скорингу и маршрутизации заявок и где его границы.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 2 октября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/kalkulyator-metalloizdeliy-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/peredacha-smeny-zhurnal-v-bote-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-ruler"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-notebook"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Перила, козырёк, каркас: клиент видит цену за минуту</h3>
-  <p>Сварочный цех считает каждую заявку из вотсапа* руками, и половина клиентов уходит, не дождавшись цены. Калькулятор металлоизделий на сайте даёт клиенту ориентировочную цену за минуту, а в цех отправляет заявку с готовой спецификацией. Художественную ковку по-прежнему считает мастер.</p>
+  <h3>Передача смены в боте: журнал, чтобы утро не начиналось с хаоса</h3>
+  <p>Предыдущая смена ушла молча, и следующая начинает с разбора хаоса. Рассказываю, как устроен журнал передачи в боте из четырёх вопросов и отметки «принял», и почему он работает, только пока его заполняют за пять минут.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
 </a>
-<a class="blog-card" href="/blog/konfigurator-lestnicy-2026/" data-category="development" data-clicks="0">
+<a class="blog-card" href="/blog/elektronnyy-propusk-gostyu-2026/" data-category="development" data-clicks="0">
   
-  <div class="blog-card-icon"><i class="ph-fill ph-stairs"></i></div>
+  <div class="blog-card-icon"><i class="ph-fill ph-identification-badge"></i></div>
   <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Разработка</span>
-  <h3>Конфигуратор лестниц: клиент видит цену до выезда замерщика</h3>
-  <p>Расчёт лестницы сложный, и менеджер считает его от получаса до дня, теряя часть клиентов. Конфигуратор на сайте даёт клиенту собрать лестницу по типу, материалу, высоте и ограждению, увидеть ориентировочную цену и оставить заявку с готовой конфигурацией. Замер и проект остаются за конструктором.</p>
+  <h3>Гостя не заказывали? Электронный пропуск с QR на вход</h3>
+  <p>Гость приехал на склад или в офис, а пропуск заказывали по телефону. Разбираем электронный пропуск: заявка сотрудника, QR на входе, срок действия, журнал. Честно про паспортные данные по 152-ФЗ и про то, чего QR не заменяет.</p>
   <div class="blog-card-meta">
-    <span><i class="ph ph-calendar" aria-hidden="true"></i> 27 сентября 2026</span>
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 30 сентября 2026</span>
     <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
   </div>
   <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
@@ -835,7 +837,7 @@ async def payment_webhook(request: Request):
                     <a class="blog-offer-cta" href="/predlozheniya/">
                         <span class="blog-offer-cta-body">
                             <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
-                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">451 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">451 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">451 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">451 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 451 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
                             <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
                         </span>
                         <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
