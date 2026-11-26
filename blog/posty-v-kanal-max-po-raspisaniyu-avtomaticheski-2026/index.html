@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark" data-lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посты в канал MAX по расписанию автоматически: как настроить</title>
+    <meta name="description" content="Как публиковать посты в канал MAX по расписанию: отложенная публикация или бот-администратор, очередь, случайное время, картинки и видео, что ломается.">
+    <meta name="keywords" content="посты в MAX по расписанию, автопостинг MAX, отложенная публикация MAX, бот для публикации в канал MAX, API MAX отправить пост в канал, очередь постов, attachment.not.ready, автоматическая публикация в канал">
+    <meta name="author" content="Дарижапов Чимитдоржи">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="theme-color" content="#f4f1ea">
+    <link rel="canonical" href="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/">
+    <link rel="alternate" hreflang="ru" href="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/">
+    <link rel="alternate" hreflang="x-default" href="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/">
+    <link rel="alternate" type="application/rss+xml" title="Блог Чимитдоржи Дарижапова" href="https://chimitdorzhi.tech/blog/feed.xml">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/">
+    <meta property="og:title" content="Посты в канал MAX по расписанию автоматически: как настроить">
+    <meta property="og:description" content="Как публиковать посты в канал MAX по расписанию: отложенная публикация или бот-администратор, очередь, случайное время, картинки и видео, что ломается.">
+    <meta property="og:image" content="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/cover.jpg">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="CHIMITDORZHI.TECH">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Посты в канал MAX по расписанию автоматически: как настроить">
+    <meta name="twitter:description" content="Как публиковать посты в канал MAX по расписанию: отложенная публикация или бот-администратор, очередь, случайное время, картинки и видео, что ломается.">
+    <meta name="twitter:image" content="https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/cover.jpg">
+
+    <link rel="icon" href="/favicon.svg?v=5" type="image/svg+xml">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=5">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120.png?v=5">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5">
+    <link rel="preload" href="/assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/phosphor/regular.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/assets/phosphor/fill.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/phosphor/regular.css">
+        <link rel="stylesheet" href="/assets/phosphor/fill.css">
+    </noscript>
+    <link rel="stylesheet" href="/style.css?v=79">
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Посты в канал MAX по расписанию: как настроить автоматическую публикацию",
+  "description": "Как публиковать посты в канал MAX по расписанию: отложенная публикация или бот-администратор, очередь, случайное время, картинки и видео, что ломается.",
+  "image": "https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/cover.jpg",
+  "author": {
+    "@type": "Person",
+    "@id": "https://chimitdorzhi.tech/#person",
+    "name": "Чимитдоржи Дарижапов",
+    "url": "https://chimitdorzhi.tech/about/",
+    "jobTitle": "IT-предприниматель, AI/ML-эксперт, специалист по 152-ФЗ",
+    "sameAs": [
+      "https://t.me/chimitdorzhi",
+      "https://t.me/chimitdorzhi_studio",
+      "https://max.ru/channel_chimitdorzhi",
+      "https://vk.com/chimitdorzhi",
+      "https://www.youtube.com/@chimitdorzhi_studio",
+      "https://github.com/chimitdorzhi",
+      "https://chimitdorzhi.tech/about/"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "Vanderbilt University"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "certificate",
+        "recognizedBy": {
+          "@type": "Organization",
+          "name": "MongoDB Inc."
+        }
+      }
+    ]
+  },
+  "publisher": {
+    "@id": "https://chimitdorzhi.tech/#organization"
+  },
+  "isPartOf": {
+    "@id": "https://chimitdorzhi.tech/#website"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/"
+  },
+  "datePublished": "2026-11-26",
+  "dateModified": "2026-11-26",
+  "keywords": "MAX, автопостинг, расписание постов, канал MAX, MAX Bot API, контент",
+  "articleSection": "Экспертный блог",
+  "inLanguage": "ru",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      ".blog-lead",
+      ".blog-tldr"
+    ]
+  }
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Главная",
+      "item": "https://chimitdorzhi.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Блог",
+      "item": "https://chimitdorzhi.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Посты в канал MAX по расписанию: как настроить автоматическую публикацию",
+      "item": "https://chimitdorzhi.tech/blog/posty-v-kanal-max-po-raspisaniyu-avtomaticheski-2026/"
+    }
+  ]
+}
+    </script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Можно ли публиковать в канал MAX через API?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да. Бота назначают администратором канала и отправляют сообщения методом POST /messages с chat_id канала."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Нужен ли свой сервер?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Нужна машина, которая работает круглосуточно и запускает задачи по таймеру. Подойдёт небольшой арендованный сервер. Домашний компьютер выключат или перезагрузят в самый неудобный момент."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Можно ли выложить альбом из нескольких картинок?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Да, в сообщении может быть несколько вложений, всего до 12. Каждый файл загружается отдельно."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Что будет с очередью, если сервер выключится?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Очередь сохранится на диске, а после запуска программа увидит просроченные посты. Как она с ними поступит, задаётся заранее."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Может ли бот сам писать тексты?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Черновики готовить может. Цены, даты и обещания перед постановкой в очередь проверяет человек."
+      }
+    }
+  ]
+}
+    </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+var inject=function(){for (var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)};
+var go=function(){('requestIdleCallback' in window)?requestIdleCallback(inject,{timeout:5000}):setTimeout(inject,3000)};var run=function(){var c=null;try{c=JSON.parse(localStorage.getItem('cookieConsent'))}catch(_){}if(c&&c.analytics){go()}else{m.addEventListener('cookieConsent',function(ev){if(ev.detail&&ev.detail.analytics)go()})}};
+(e.readyState==='complete')?run():m.addEventListener('load',run);})
+(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109281884','ym');
+ym(109281884,'init',{ssr:true,webvisor:true,clickmap:true,accurateTrackBounce:true,trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->
+<!-- Цели Метрики: клики по контактам и услугам -->
+<script type="text/javascript">
+(function(){
+  var GOALS = [
+    { re: /t\.me\//i,                     goal: 'tg_click' },
+    { re: /max\.ru\//i,                    goal: 'max_click' },
+    { re: /audit\.chimitdorzhi\.tech/i,    goal: 'audit_click' },
+    { re: /chimitdorzhi\.tech\/services\//i, goal: 'service_click' },
+    { re: /chimitdorzhi\.tech\/predlozheniya\//i, goal: 'offer_click' }
+  ];
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var own = a.getAttribute('data-goal');
+    if (own) { try { if (window.ym) ym(109281884, 'reachGoal', own); } catch (err) {} }
+    for (var i = 0; i < GOALS.length; i++) {
+      if (GOALS[i].re.test(href)) {
+        try { if (window.ym) ym(109281884, 'reachGoal', GOALS[i].goal); } catch (err) {}
+        break;
+      }
+    }
+  }, true);
+})();
+</script>
+</head>
+<body class="wx-read">
+    <a href="#main" class="skip-link">Перейти к содержимому</a>
+    <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+    <div class="noise-overlay"></div>
+    <div class="gradient-blob blob-1"></div>
+    <div class="gradient-blob blob-2"></div>
+
+    <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+        <a href="/" class="logo">CHIMITDORZHI<span class="logo-dot">.</span></a>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/" data-i18n="nav.home">Главная</a></li>
+            <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+            <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+            <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+            <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+            <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+            <li class="nav-dropdown">
+                <a href="/cases/" class="nav-dropdown-toggle"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down nav-caret" aria-hidden="true"></i></a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dropdown-label" data-i18n="nav.proj.label">Наши продукты</div>
+                    <a href="https://gerel.space" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title">Gerel.space</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/universe_buryat/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="/arey/" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.arey">AREY</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                        </span>
+                        <i class="ph ph-arrow-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="nav-dropdown-item">
+                        <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                        <span class="nav-dropdown-text">
+                            <span class="nav-dropdown-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                            <span class="nav-dropdown-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right nav-dropdown-arrow" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </li>
+            <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+        </ul>
+        <div class="nav-controls">
+            <button class="nav-search-btn js-search-open" type="button" aria-label="Поиск по сайту"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></button>
+            <div class="lang-switcher" id="langSwitcher" role="group" aria-label="Выбор языка">
+                <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+                <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему" aria-pressed="false">
+                <i class="ph ph-moon" aria-hidden="true"></i>
+            </button>
+            <a href="https://t.me/chimitdorzhi" target="_blank" class="btn btn-accent nav-cta" data-i18n="nav.cta">СВЯЗАТЬСЯ</a>
+        </div>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+    <ul>
+        <li><a href="/" data-i18n="nav.home">Главная</a></li>
+        <li><a href="/services/" data-i18n="nav.services">Услуги</a></li>
+        <li><a href="/cases/" data-i18n="nav.cases">Кейсы</a></li>
+        <li><a href="/blog/" data-i18n="nav.blog">Блог</a></li>
+        <li><a href="/predlozheniya/" data-i18n="nav.offers">Предложения</a></li>
+        <li><a href="/about/" data-i18n="nav.about">Обо мне</a></li>
+        <li class="mobile-has-submenu">
+            <details>
+                <summary aria-label="Проекты — развернуть"><span data-i18n="nav.projects">Проекты</span> <i class="ph ph-caret-down" aria-hidden="true"></i></summary>
+                <ul class="mobile-submenu">
+                    <li>
+                        <a href="https://gerel.space" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--gerel"><i class="ph-fill ph-users-three" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title">Gerel.space</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.gerel_desc">Семейная соцсеть</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/universe_buryat/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/universe_buryat/logo.png" alt="Вселенная Бурят" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.universe">Вселенная Бурят</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.universe_desc">Культурный портал</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/arey/" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--logo"><img src="/assets/arey/logo.jpg" alt="AREY" loading="lazy"></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.arey">AREY</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.arey_desc">Музыкальный лейбл</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://audit.chimitdorzhi.tech/" target="_blank" rel="noopener" class="mobile-sub-item">
+                            <span class="nav-dropdown-icon nav-dropdown-icon--audit"><i class="ph-fill ph-seal-check" aria-hidden="true"></i></span>
+                            <span class="mobile-sub-text">
+                                <span class="mobile-sub-title" data-i18n="nav.audit">Аудит 152-ФЗ</span>
+                                <span class="mobile-sub-desc" data-i18n="nav.proj.audit_desc">Защита от штрафов до 500 млн</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </details>
+        </li>
+        <li><a href="/#contact" data-i18n="nav.contact">Контакт</a></li>
+    </ul>
+    <div class="mobile-controls">
+        <div class="mobile-lang-switcher" role="group" aria-label="Выбор языка">
+            <button class="lang-btn active" data-lang="ru" aria-pressed="true" aria-label="Русский">RU</button>
+            <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English">EN</button>
+            <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="中文">CN</button>
+            <button class="lang-btn" data-lang="mn" aria-pressed="false" aria-label="Монгол">MN</button>
+                <button class="lang-btn" data-lang="es" aria-pressed="false" aria-label="Español">ES</button>
+        </div>
+        <button class="theme-toggle mobile-theme-toggle" id="mobileThemeToggle" aria-label="Переключить тему" aria-pressed="false">
+            <i class="ph ph-moon" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
+
+<div class="search-modal" id="searchModal" hidden>
+  <div class="search-modal-backdrop js-search-close"></div>
+  <div class="search-modal-box">
+    <div class="search-modal-bar">
+      <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
+      <input id="navSearchInput" type="search" placeholder="Поиск по статьям и предложениям…" autocomplete="off" aria-label="Поиск по сайту">
+      <button class="search-modal-close js-search-close" type="button" aria-label="Закрыть поиск"><i class="ph ph-x" aria-hidden="true"></i></button>
+    </div>
+    <div class="search-modal-results" id="navSearchResults"></div>
+  </div>
+</div>
+<style>
+.nav-search-btn{background:none;border:none;cursor:pointer;color:var(--text);font-size:1.2rem;padding:8px;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;transition:color .2s;}
+.nav-search-btn:hover{color:var(--accent);}
+.search-modal{position:fixed;inset:0;z-index:10010;}
+.search-modal[hidden]{display:none;}
+.search-modal-backdrop{position:absolute;inset:0;background:rgba(10,12,16,.55);}
+.search-modal-box{position:relative;max-width:680px;margin:8vh auto 0;background:var(--bg-card);border:1.5px solid var(--border);border-radius:16px;box-shadow:0 30px 80px rgba(0,0,0,.3);overflow:hidden;}
+.search-modal-bar{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--border);}
+.search-modal-bar i{color:var(--text-secondary);font-size:1.3rem;}
+.search-modal-bar input{flex:1;border:none;background:none;color:var(--text);font-family:inherit;font-size:1.05rem;outline:none;}
+.search-modal-close{background:none;border:none;color:var(--text-secondary);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;}
+.search-modal-results{max-height:60vh;overflow:auto;}
+.search-modal-results .search-item{display:block;padding:12px 16px;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text);}
+.search-modal-results .search-item:last-child{border-bottom:none;}
+.search-modal-results .search-item:hover{background:var(--bg-card-hover);}
+.search-modal-results .search-kind{display:block;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);}
+.search-modal-results .search-t{display:block;font-weight:700;font-size:.98rem;line-height:1.3;margin-top:1px;}
+.search-modal-results .search-d{display:block;color:var(--text-secondary);font-size:.85rem;line-height:1.4;margin-top:2px;}
+.search-modal-results .search-empty{padding:16px;color:var(--text-secondary);}
+@media(max-width:600px){.search-modal-box{margin:0;border-radius:0;height:100%;max-width:none;}.search-modal-results{max-height:calc(100vh - 62px);}}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('searchModal');if(!modal)return;
+  var inp=document.getElementById('navSearchInput'),box=document.getElementById('navSearchResults');
+  var idx=null,loading=false,pending=null;
+  function esc(s){return String(s).replace(/[&<>]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c];});}
+  function load(cb){if(idx)return cb();if(loading){pending=cb;return;}loading=true;fetch('/search-index.json').then(function(r){return r.json();}).then(function(d){idx=d;cb();if(pending){var p=pending;pending=null;p();}}).catch(function(){});}
+  function render(q){var t=q.trim().toLowerCase();if(t.length<2){box.innerHTML='<div class="search-empty">Введите минимум 2 символа</div>';return;}var w=t.split(/\s+/);var res=idx.filter(function(it){var hay=(it.t+' '+it.d+' '+(it.g||'')+' '+(it.c||'')).toLowerCase();return w.every(function(x){return hay.indexOf(x)>=0;});});var n=res.length;res=res.slice(0,20);if(!n){box.innerHTML='<div class="search-empty">Ничего не найдено</div>';return;}box.innerHTML=res.map(function(it){return '<a class="search-item" href="'+it.u+'"><span class="search-kind">'+esc(it.k)+(it.c?' · '+esc(it.c):'')+'</span><span class="search-t">'+esc(it.t)+'</span><span class="search-d">'+esc(it.d).slice(0,110)+'</span></a>';}).join('')+(n>20?'<div class="search-empty">+ ещё '+(n-20)+' — уточните запрос</div>':'');}
+  function open(){modal.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){inp.focus();},30);load(function(){render(inp.value);});}
+  function close(){modal.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){if(e.target.closest('.js-search-open')){e.preventDefault();open();}else if(e.target.closest('.js-search-close')){close();}});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)close();});
+  var deb;inp.addEventListener('input',function(){clearTimeout(deb);var q=inp.value;deb=setTimeout(function(){load(function(){render(q);});},110);});
+})();
+</script>
+
+    <main id="main" class="blog-article-wrap">
+        <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <a href="/">Главная</a>
+                <span class="breadcrumbs-sep">›</span>
+                <a href="/blog/">Блог</a>
+                <span class="breadcrumbs-sep">›</span>
+                <span aria-current="page">Посты в канал MAX по расписанию: как настроить автоматическую публикацию</span>
+            </nav>
+
+            <div class="blog-article-layout">
+                <article class="blog-article">
+                    <div class="blog-meta">
+                        <a class="blog-meta-cat" href="/blog/category/expert/"><i class="ph ph-bookmark" aria-hidden="true"></i> Экспертный блог</a>
+                        <span><i class="ph ph-clock" aria-hidden="true"></i> 8 мин чтения</span>
+                        <time datetime="2026-11-26"><i class="ph ph-calendar" aria-hidden="true"></i> 26 ноября 2026</time>
+                    </div>
+
+                    <h1 class="blog-h1">Посты в канал MAX по расписанию: как настроить автоматическую публикацию</h1>
+
+                    <p class="blog-lead">Два способа выпускать посты в канал MAX по расписанию и пошаговая схема своего бота: права в канале, очередь с состояниями, случайное время в окне дня, загрузка медиа, лимиты и частые сбои.</p>
+
+                    <div class="blog-tags"><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>автопостинг</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>расписание постов</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>канал MAX</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>MAX Bot API</span><span class="blog-tag"><i class="ph ph-hash" aria-hidden="true"></i>контент</span></div>
+
+                    <div class="blog-body">
+                        
+<div class="blog-tldr"><h3>Коротко (TL;DR)</h3><ul>
+<li>Посты в канал MAX по расписанию можно ставить отложенной публикацией в самом приложении, а потоком из таблицы или базы через бота, назначенного администратором канала.</li>
+<li>Боту нужны очередь постов, таймер, загрузка медиа и отметка «опубликовано», чтобы ничего не ушло дважды.</li>
+<li>Случайное время в заданном окне с минимальным разрывом считают заранее, при сборке очереди.</li>
+<li>Ломается чаще на мелочах: вложение ещё не обработано, у бота забрали права, один застрявший пост держит остальные.</li>
+</ul></div>
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автопостинг в каналы MAX и Telegram: от 40 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026/" data-goal="article_offer_case">Автопостинг туров в закрытый канал MAX с ценой по курсу ЦБ</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D1%82%D1%8B%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20MAX%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8E%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BF%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B3." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/avto-posting-kontent-plan/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+
+
+<p>Чтобы посты в канале MAX выходили сами, добавьте бота администратором канала, сложите посты в очередь с временем выхода и запускайте на сервере небольшую программу по таймеру. Она берёт самый ранний подошедший пост, загружает картинку, отправляет и записывает результат. Для нескольких постов в неделю хватает отложенной публикации внутри приложения.</p>
+
+<h2 id="kogda-bot">Когда хватает приложения, а когда нужен бот</h2>
+<p>Если постов немного и они готовятся руками, бот вам пока ни к чему. В 2026 году в MAX появилась отложенная публикация: набираете пост, удерживаете кнопку отправки и выбираете «Запланировать пост». Проверьте, как это выглядит в вашей версии приложения.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Ситуация</th><th>Что выбрать</th></tr></thead>
+<tbody>
+<tr><td>От 3 до 5 постов в неделю, тексты пишет человек</td><td>Отложенная публикация в приложении</td></tr>
+<tr><td>Несколько постов в день на недели вперёд из таблицы</td><td>Бот с очередью</td></tr>
+<tr><td>В тексте цена, курс или остаток, которые меняются к дню выхода</td><td>Бот, который подставляет данные в момент отправки</td></tr>
+<tr><td>Один материал в MAX, Telegram и VK</td><td>Общая очередь или готовый сервис автопостинга</td></tr>
+</tbody></table></div>
+<p>Про несколько площадок сразу есть статья <a href="/blog/avtoposting-v-telegram-max-vk-2026/">об автопостинге по контент-плану</a>, а как составить сам план, описано в статье <a href="/blog/kontent-plan-max-kanala-2027/">про контент-план канала в MAX</a>. Здесь только техника отправки.</p>
+
+<h2 id="podklyuchenie">Как подключить бота к каналу</h2>
+<p>Нужны бот, его токен, права администратора в канале и номер канала (chat_id). Бот заводится на платформе MAX для партнёров после проверки, кому это доступно и на каких условиях, смотрите на dev.max.ru.</p>
+<ol>
+<li>Создайте бота и сохраните токен в отдельном файле на сервере с ограниченными правами, в репозиторий его не кладут.</li>
+<li>Добавьте бота в канал и назначьте администратором с правом публиковать.</li>
+<li>Узнайте chat_id. Когда бота добавляют, приходит событие bot_added с признаком is_channel. Проверить канал можно запросом GET /chats/{chatId}: тип должен быть channel.</li>
+<li>Отправьте первый пост в отдельный тестовый канал.</li>
+</ol>
+<p>Запросы идут на домен platform-api2.max.ru, токен передаётся в заголовке Authorization. Передавать его в адресе запроса больше нельзя. Документация также просит добавить в доверенные сертификат Минцифры. Старые примеры из поиска с прежним доменом и токеном в адресе лучше не копировать.</p>
+
+<h2 id="ochered">Как устроить очередь</h2>
+<p>Очередь это список, где у каждого поста есть время, содержимое и состояние. Для небольшого канала хватит файла или SQLite, для редакции из нескольких человек удобнее таблица с панелью.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Поле</th><th>Зачем</th></tr></thead>
+<tbody>
+<tr><td>Номер поста</td><td>Чтобы не отправить дважды</td></tr>
+<tr><td>Время выхода с часовым поясом</td><td>Сервер в другой зоне ничего не сдвинет</td></tr>
+<tr><td>Текст</td><td>Не длиннее 4000 знаков, это лимит по документации</td></tr>
+<tr><td>Путь к картинке или видео</td><td>Что загружать перед отправкой</td></tr>
+<tr><td>Состояние</td><td>Черновик, готов, отправлен, ошибка</td></tr>
+<tr><td>Попытки и текст ошибки</td><td>Видно, что и почему застряло</td></tr>
+<tr><td>Срок годности</td><td>Закончившаяся акция не должна выйти</td></tr>
+</tbody></table></div>
+<p>Проверки делайте при сборке очереди: текст влезает в лимит, файл существует, ссылка открывается, цена в тексте совпадает с ценой на картинке. Тогда список проблемных постов вы увидите заранее за столом, а подписчики не увидят ничего.</p>
+<p>Нужен и стоп-кран. Одна команда или галочка, после которой ничего не выходит. Бывают дни, когда бодрый пост про скидки совсем некстати.</p>
+
+<p>Заранее решите, кто может менять очередь. Обычно один человек пишет, второй подтверждает, и в состоянии «готов» пост оказывается только после подтверждения. Правка уже вышедшего поста это отдельное действие, в API для него есть метод PUT /messages, поэтому сохраняйте идентификатор отправленного сообщения рядом с постом. Тогда опечатку или старую цену можно исправить из той же панели.</p>
+
+<h2 id="vremya">Как задать случайное время в окне</h2>
+<p>Время лучше разыграть заранее и записать в очередь. Тогда вы видите весь план и можете подвинуть пост руками.</p>
+<ol>
+<li>Задайте окно дня по времени ваших читателей, например с 9:00 до 21:30.</li>
+<li>Выберите нужное число случайных моментов внутри окна и отсортируйте их.</li>
+<li>Проверьте разрыв между соседними. Меньше заданного: отбросьте набор и разыграйте снова.</li>
+<li>Убедитесь, что всё вообще помещается: семь постов с разрывом в два часа занимают двенадцать часов только на паузы.</li>
+</ol>
+<p>Таймер при этом срабатывает часто, раз в несколько минут, и отправляет не больше одного поста за запуск. После простоя сервера канал не получит пачку из десяти сообщений подряд. Что делать с просроченными постами, решите заранее: догонять по одному или переносить на следующие дни.</p>
+
+<p>Пример дня для небольшого магазина: окно с 10:00 до 20:00, три поста, разрыв не меньше трёх часов. Вечером накануне программа показывает расписание вроде 10:40, 14:15 и 18:55, и у человека остаётся время заметить, что распродажный пост попал на день инвентаризации. Выходные и праздники задайте отдельным правилом: другое окно, меньше постов или пауза. Срочную новость при этом публикуют руками, а очередь стоит проверить, чтобы следом не вышло то же самое вторым разом.</p>
+
+<h2 id="media">Как отправить картинку и видео</h2>
+<p>Медиа отправляется в два шага: сначала файл загружается и вы получаете токен, потом этот токен прикладывается к сообщению. Адрес для загрузки даёт POST /uploads с типом файла, каждый адрес принимает один файл.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Тип</th><th>Форматы по документации</th><th>Предел</th></tr></thead>
+<tbody>
+<tr><td>image</td><td>JPG, PNG, GIF, TIFF, BMP, HEIC</td><td>50 МБ и не больше 7680 на 7680 точек</td></tr>
+<tr><td>video</td><td>MP4, MOV, MKV, WEBM</td><td>250 МБ</td></tr>
+<tr><td>audio</td><td>MP3, M4A и другие</td><td>256 МБ и не дольше 60 минут</td></tr>
+<tr><td>file</td><td>Распространённые форматы документов</td><td>4 ГБ</td></tr>
+</tbody></table></div>
+<p>Сразу после загрузки файл может быть ещё не обработан, тогда отправка вернёт ошибку attachment.not.ready. Это штатная ситуация: подождите и повторите, увеличивая паузу. В одном сообщении до 12 вложений, у файлов и стикеров есть свои ограничения на сочетания. В один канал отправляйте не больше двух сообщений в секунду. Уведомления о постах в канале отключить со стороны бота нельзя, учтите это, когда планируете ранние часы.</p>
+
+<h2 id="lomaetsya">Что может сломаться</h2>
+<p>Считайте, что отправка однажды не получится, и заранее решите, как вы об этом узнаете.</p>
+<div class="blog-table"><table>
+<thead><tr><th>Что случилось</th><th>Признак</th><th>Защита</th></tr></thead>
+<tbody>
+<tr><td>У бота забрали права или удалили из канала</td><td>Отказ доступа в ответе</td><td>Сообщение владельцу сразу</td></tr>
+<tr><td>Токен перевыпущен или отозван</td><td>Ошибка 401</td><td>Остановить очередь, поменять токен</td></tr>
+<tr><td>Слишком частые запросы</td><td>Ошибка 429</td><td>Пауза и повтор позже</td></tr>
+<tr><td>Вложение не готово</td><td>attachment.not.ready</td><td>Несколько повторов с паузой</td></tr>
+<tr><td>Обрыв связи после отправки</td><td>Ответа нет, а пост мог выйти</td><td>Не повторять вслепую, сначала проверить канал</td></tr>
+<tr><td>Один пост не уходит никогда</td><td>Следующие ждут за ним</td><td>После нескольких попыток помечать ошибкой и идти дальше</td></tr>
+<tr><td>Кончилось место или сервер не поднялся</td><td>Тишина в канале</td><td>Проверка снаружи: давно не было постов</td></tr>
+</tbody></table></div>
+<p>Ответ с кодом 200 тоже читайте: некоторые методы MAX возвращают его и при неудаче, с объяснением внутри. Отметку «отправлен» ставьте только после ответа, где есть само созданное сообщение.</p>
+
+<h3>Проверка перед запуском на боевом канале</h3>
+<p>Прогоните очередь в тестовом канале хотя бы сутки, с настоящими картинками и настоящим расписанием.</p>
+<ol>
+<li>Пост с картинкой, с видео и без вложений выглядит так, как задумано, на телефоне и на компьютере.</li>
+<li>Ссылки и переносы строк на месте, текст не обрезан.</li>
+<li>Перезапуск программы посреди дня не приводит к повторной отправке.</li>
+<li>Пост с несуществующим файлом помечается ошибкой, следующий выходит вовремя.</li>
+<li>Отзыв прав у бота вызывает сообщение владельцу.</li>
+<li>Стоп-кран действительно останавливает отправку.</li>
+</ol>
+<p>Раз в неделю смотрите на остаток очереди. Пусть программа сама пишет, когда постов осталось на два или три дня: пустая очередь не выдаёт никаких ошибок, канал просто замолкает.</p>
+
+<div class="blog-callout blog-callout-info blog-read-next"><i class="ph-fill ph-book-open" aria-hidden="true"></i><div><strong>Читайте дальше по теме</strong><ul><li><a href="/blog/analitika-max-kanala-2027/">Аналитика MAX-канала: какие метрики считать и как принимать решения по цифрам</a></li><li><a href="/blog/limity-telegram-i-max-rassylka-vstala-2026/">Рассылка в боте встала на половине: лимиты Telegram и MAX</a></li></ul></div></div>
+<h2 id="keys">Как это сделано в моём кейсе</h2>
+<p>Для клуба путешествий я собрал <a href="/blog/avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026/">автопостинг туров в закрытый канал MAX</a>. Скрипт на Python запускается таймером каждые две минуты и отправляет не больше одного поста. Рублёвая цена считается по курсу ЦБ в момент публикации, плашка с суммой дорисовывается на обложке, а при сбое сервиса курса берётся последний удачный с его датой. Вложение отправляется с повторами, до шести раз с паузой в три секунды. Автопубликация работает с 18 ноября 2026 года. Охват и заявки с постов я не измерял.</p>
+<p>Слабое место там тоже есть и названо в кейсе: застрявший пост задерживает следующие, а об ошибке я узнаю из журнала. Если заказываете такое у меня или у кого угодно, спросите про оповещение и про пропуск проблемного поста.</p>
+
+<h2 id="ceny">Сколько это стоит у меня</h2>
+<p>ИИ-ассистент для соцсетей, который помогает готовить тексты и публиковать их, стоит от 40 000 ₽, срок от 3 дней. <a href="https://chimitdorzhi.tech/development/telegram-bots/" class="blog-inline-link">Бот для бизнеса</a> со своей очередью, панелью, подстановкой данных из учёта и оповещениями от 80 000 ₽, срок от 2 недель. Точную стоимость называю после разговора. Что входит в запуск, смотрите на странице <a href="/predlozheniya/avto-posting-kontent-plan/">автопостинга по контент-плану</a>.</p>
+
+<aside class="blog-inline-tg blog-similar" style="grid-template-columns:minmax(0,1fr)" aria-label="Похожая задача">
+  <div class="blog-inline-tg-body">
+    <p class="blog-inline-tg-title">Похожая задача?</p>
+    <p>Делаю автопостинг в каналы MAX и Telegram: от 40 000 ₽, точную стоимость называю после разговора. Кейс: <a href="/blog/avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026/" data-goal="article_offer_case">Автопостинг туров в закрытый канал MAX с ценой по курсу ЦБ</a>.</p>
+  </div>
+  <div class="blog-inline-tg-actions">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D1%82%D1%8B%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20MAX%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8E%C2%BB.%20%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B5%D1%81%D1%83%D0%B5%D1%82%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BF%D0%BE%D1%81%D1%82%D0%B8%D0%BD%D0%B3." target="_blank" rel="noopener" class="btn btn-accent" data-goal="article_offer_tg"><i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-ghost" data-goal="article_offer_max"><i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+    <a href="/predlozheniya/avto-posting-kontent-plan/" class="btn btn-ghost" data-goal="article_offer_page">Подробнее <i class="ph ph-arrow-right" aria-hidden="true"></i></a>
+  </div>
+</aside>
+<h2 id="faq">Частые вопросы</h2>
+<h3>Можно ли публиковать в канал MAX через API?</h3>
+<p>Да. Бота назначают администратором канала и отправляют сообщения методом POST /messages с chat_id канала.</p>
+<h3>Нужен ли свой сервер?</h3>
+<p>Нужна машина, которая работает круглосуточно и запускает задачи по таймеру. Подойдёт небольшой арендованный сервер. Домашний компьютер выключат или перезагрузят в самый неудобный момент.</p>
+<h3>Можно ли выложить альбом из нескольких картинок?</h3>
+<p>Да, в сообщении может быть несколько вложений, всего до 12. Каждый файл загружается отдельно.</p>
+<h3>Что будет с очередью, если сервер выключится?</h3>
+<p>Очередь сохранится на диске, а после запуска программа увидит просроченные посты. Как она с ними поступит, задаётся заранее.</p>
+<h3>Может ли бот сам писать тексты?</h3>
+<p>Черновики готовить может. Цены, даты и обещания перед постановкой в очередь проверяет человек.</p>
+
+<h2 id="vyvody">Коротко о главном</h2>
+<p>Редкие посты ставьте отложенной публикацией. Поток из таблицы отдавайте боту: очередь с состояниями, время с часовым поясом, один пост за запуск, повтор для вложений, пропуск застрявших и сообщение о сбое.</p>
+<p>Напишите мне в <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D1%82%D1%8B%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20MAX%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8E%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." rel="noopener" target="_blank">Telegram</a> слово «ОЧЕРЕДЬ»: сколько постов в день, где они сейчас лежат и что в них меняется ближе к дате. Скажу, нужен ли вам бот вообще.</p>
+
+                    </div>
+                    
+                    
+
+                    
+                    
+                    
+                    <div class="blog-cta-card">
+                        <div class="blog-cta-card-body">
+                            <h3>Всё о мессенджере MAX в одном месте</h3>
+                            <p>Эта статья — часть кластера материалов о MAX: разработка ботов и мини-аппов, продвижение канала, воронки, отраслевые сценарии и кейсы с реальными результатами.</p>
+                        </div>
+                        <div class="blog-cta-card-actions">
+                            <a href="/blog/max-messendzher-dlya-biznesa-2026/" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> Опорная страница по MAX</a>
+                        </div>
+                    </div>
+                    
+                    
+<div class="blog-services-offer">
+  <div class="blog-services-offer-eyebrow">Обсудим вашу задачу</div>
+  <h3 class="blog-services-offer-title">Автопубликация в канал MAX</h3>
+  <p class="blog-services-offer-lead">Напишите одной фразой, что нужно. Отвечу, что подойдёт, сколько займёт и сколько стоит. Сообщение уже подготовлено.</p>
+  <ul class="blog-services-offer-list"><li><i class="ph-fill ph-calendar-check"></i> <span>Очередь постов со случайным временем в окне дня</span></li><li><i class="ph-fill ph-image"></i> <span>Загрузка картинок и видео с повторами</span></li><li><i class="ph-fill ph-database"></i> <span>Подстановка цен и остатков в момент отправки</span></li><li><i class="ph-fill ph-bell-ringing"></i> <span>Сообщение о сбое и остановка очереди одной командой</span></li></ul>
+  <div class="blog-services-offer-ctas">
+    <a href="https://t.me/chimitdorzhi?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9F%D0%B8%D1%88%D1%83%20%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%20%D1%81%D1%82%D0%B0%D1%82%D1%8C%D0%B8%20%C2%AB%D0%9F%D0%BE%D1%81%D1%82%D1%8B%20%D0%B2%20%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB%20MAX%20%D0%BF%D0%BE%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D1%8E%3A%20%D0%BA%D0%B0%D0%BA%20%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D1%83%D1%8E%20%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8E%C2%BB.%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D1%83." target="_blank" rel="noopener" class="blog-services-offer-cta">
+      <i class="ph-fill ph-telegram-logo" aria-hidden="true"></i> Написать в Telegram
+    </a>
+    <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="blog-services-offer-cta blog-services-offer-cta-max">
+      <i class="ph-fill ph-chat-circle-dots" aria-hidden="true"></i> Написать в MAX
+    </a>
+    <a href="https://chimitdorzhi.tech/predlozheniya/avto-posting-kontent-plan/" class="blog-services-offer-cta blog-services-offer-cta-max"><i class="ph ph-arrow-right" aria-hidden="true"></i> Автопостинг по контент-плану</a>
+  </div>
+</div>
+                    
+                    <section class="blog-related">
+  <h2>Читайте также</h2>
+  <div class="blog-grid"><a class="blog-card" href="/blog/avtoposting-turov-v-zakrytyy-kanal-max-kurs-cb-keys-2026/" data-category="cases" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-paper-plane-tilt"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Кейсы</span>
+  <h3>Автопостинг туров в закрытый канал MAX с ценой по курсу ЦБ</h3>
+  <p>Для клуба путешествий я настроил публикацию туров в закрытый канал MAX без ручной работы. Посты выходят в случайное время с разрывом, цена в рублях считается по курсу ЦБ в момент отправки, а плашку с суммой скрипт дорисовывает на обложке. Работает с 18 ноября, охват пока не измерял.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 21 ноября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 6 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/avtoposting-v-telegram-max-vk-2026/" data-category="marketing" data-clicks="0">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calendar-plus"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Автопостинг в Telegram, MAX и VK по контент-плану</h3>
+  <p>Вести три канала вручную — это ежедневная рутина. Показываю, как публиковать по контент-плану во все площадки сразу и что при этом нужно проверять.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 19 сентября 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 4 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a>
+<a class="blog-card" href="/blog/kontent-plan-max-kanala-2027/" data-category="marketing" data-clicks="3">
+  
+  <div class="blog-card-icon"><i class="ph-fill ph-calendar-check"></i></div>
+  <span class="blog-card-cat"><i class="ph ph-tag" aria-hidden="true"></i>Маркетинг и контент</span>
+  <h3>Контент-план для MAX-канала: 30 идей постов</h3>
+  <p>Канал без плана умирает на третьей неделе. Даю каркас рубрик, 30 конкретных идей постов для MAX-канала, разбираю ритм публикаций и оформление, которое удерживает новых подписчиков.</p>
+  <div class="blog-card-meta">
+    <span><i class="ph ph-calendar" aria-hidden="true"></i> 12 июня 2026</span>
+    <span><i class="ph ph-clock" aria-hidden="true"></i> 9 мин</span>
+  </div>
+  <span class="blog-card-link">Читать <i class="ph ph-arrow-right" aria-hidden="true"></i></span>
+</a></div>
+</section>
+                    
+                    <section class="blog-subscribe">
+  <div class="blog-subscribe-body">
+    <strong>Пишу о разработке, ИИ и законах для бизнеса</strong>
+    <p>Разборы, кейсы и практика — без воды. Выходит регулярно, читать 3–5 минут.</p>
+  </div>
+  <div class="blog-subscribe-actions">
+    <a href="https://t.me/chimitdorzhi_studio" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+    <a href="https://max.ru/channel_chimitdorzhi" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-broadcast" aria-hidden="true"></i> MAX</a>
+  </div>
+</section>
+                    
+                    
+                    
+                    
+                    
+                    <a class="blog-offer-cta" href="/predlozheniya/">
+                        <span class="blog-offer-cta-body">
+                            <span class="blog-offer-cta-eyebrow"><span class="b-l b-l-ru">Готовые решения под ключ</span><span class="b-l b-l-en" lang="en">Turnkey solutions</span><span class="b-l b-l-es" lang="es">Soluciones llave en mano</span><span class="b-l b-l-cn" lang="zh">交钥匙解决方案</span><span class="b-l b-l-mn" lang="mn">Түлхүүр гардуулах шийдэл</span></span>
+                            <span class="blog-offer-cta-title"><span class="b-l b-l-ru">468 готовых IT-решений для бизнеса</span><span class="b-l b-l-en" lang="en">468 ready-made IT solutions for business</span><span class="b-l b-l-es" lang="es">468 soluciones IT listas para empresas</span><span class="b-l b-l-cn" lang="zh">468 个面向企业的现成 IT 解决方案</span><span class="b-l b-l-mn" lang="mn">Бизнест зориулсан 468 бэлэн IT шийдэл</span></span>
+                            <span class="blog-offer-cta-price"><span class="b-l b-l-ru">Автоматизация, боты, AI, 152-ФЗ и платформы · бесплатная консультация</span><span class="b-l b-l-en" lang="en">Automation, bots, AI, data privacy and platforms · free consultation</span><span class="b-l b-l-es" lang="es">Automatización, bots, IA, privacidad de datos y plataformas · consulta gratis</span><span class="b-l b-l-cn" lang="zh">自动化、机器人、AI、数据合规与平台 · 免费咨询</span><span class="b-l b-l-mn" lang="mn">Автоматжуулалт, бот, AI, өгөгдлийн хамгаалалт ба платформ · үнэгүй зөвлөгөө</span></span>
+                        </span>
+                        <span class="btn btn-accent"><i class="ph ph-squares-four" aria-hidden="true"></i> <span class="b-l b-l-ru">Смотреть каталог</span><span class="b-l b-l-en" lang="en">View catalog</span><span class="b-l b-l-es" lang="es">Ver catálogo</span><span class="b-l b-l-cn" lang="zh">查看目录</span><span class="b-l b-l-mn" lang="mn">Каталог үзэх</span></span>
+                    </a>
+                </article>
+
+                <aside class="blog-toc" aria-label="Оглавление">
+  <h2><i class="ph ph-list-bullets" aria-hidden="true"></i> Содержание</h2>
+  <ol><li><a href="#kogda-bot"><span class="blog-toc-num">01</span> Приложение или бот</a></li>
+<li><a href="#podklyuchenie"><span class="blog-toc-num">02</span> Подключение бота к каналу</a></li>
+<li><a href="#ochered"><span class="blog-toc-num">03</span> Как устроить очередь</a></li>
+<li><a href="#vremya"><span class="blog-toc-num">04</span> Случайное время в окне</a></li>
+<li><a href="#media"><span class="blog-toc-num">05</span> Картинки и видео</a></li>
+<li><a href="#lomaetsya"><span class="blog-toc-num">06</span> Что может сломаться</a></li>
+<li><a href="#keys"><span class="blog-toc-num">07</span> Мой кейс</a></li>
+<li><a href="#ceny"><span class="blog-toc-num">08</span> Сколько это стоит у меня</a></li>
+<li><a href="#faq"><span class="blog-toc-num">09</span> Частые вопросы</a></li>
+<li><a href="#vyvody"><span class="blog-toc-num">10</span> Коротко о главном</a></li></ol>
+</aside>
+            </div>
+        </div>
+    </main>
+
+    <footer id="contact" class="footer">
+    <div class="container footer-inner">
+        <div class="footer-cta">
+            <span class="section-label" data-i18n="footer.label">КОНТАКТ</span>
+            <h2 data-i18n="footer.h1">ЕСТЬ ЗАДАЧА?</h2>
+            <h2 class="text-gradient" data-i18n="footer.h2">ДАВАЙТЕ РЕШИМ.</h2>
+            <div class="footer-actions">
+                <a href="https://t.me/chimitdorzhi" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-telegram-logo" aria-hidden="true"></i> Telegram</a>
+                <a href="https://max.ru/u/f9LHodD0cOLXD_tKv7-yIJbrYDdCF0EqSZdx-aDG8oYlDHviSiPvwfhTdvs" target="_blank" rel="noopener" class="btn btn-accent"><i class="ph ph-chat-circle-dots" aria-hidden="true"></i> MAX</a>
+                <a href="mailto:chimitdorzhi26@gmail.com" class="btn btn-ghost">chimitdorzhi26@gmail.com</a>
+                <a href="tel:+971563369591" class="btn btn-ghost"><i class="ph ph-phone" aria-hidden="true"></i> +971 56 336 9591</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 <span data-i18n="footer.copy">Дарижапов Чимитдоржи. Все права защищены.</span></p>
+            <div class="footer-legal">
+                <p class="footer-legal-name" data-i18n="footer.legal_name">RA Standard - F.Z.E</p>
+                <p class="footer-legal-details">
+                    <span data-i18n="footer.legal_licence">Лицензия 57033</span><span> · </span><span data-i18n="footer.legal_authority">Free Zones Authority of Ajman</span>
+                </p>
+                <p class="footer-legal-details" data-i18n="footer.legal_address">Эмират Аджман, ОАЭ</p>
+            </div>
+            <div class="footer-links">
+                <a href="/about/" class="footer-policy-link">Об авторе</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/cases/" class="footer-policy-link">Кейсы</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/slovar/" class="footer-policy-link">Словарь терминов</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/privacy_policy.html" class="footer-policy-link" data-i18n="footer.privacy">Политика конфиденциальности</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/oferta.html" class="footer-policy-link" data-i18n="footer.oferta">Публичная оферта</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/terms.html" class="footer-policy-link" data-i18n="footer.terms">Пользовательское соглашение</a>
+                <span class="footer-legal-sep"> · </span>
+                <a href="/accessibility/" class="footer-policy-link" data-i18n="footer.a11y">Доступность</a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/i18n.js?v=44" defer></script>
+<script src="/services-i18n.js?v=44" defer></script>
+<script src="/script.js?v=41" defer></script>
+<script src="/search-widget.js?v=1" defer></script>
+    <script>
+    (function(){
+      var bar=document.getElementById('readingProgress');
+      var art=document.querySelector('.blog-article');
+      if(!bar||!art)return;
+      if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){bar.style.display='none';return;}
+      function upd(){
+        var r=art.getBoundingClientRect();
+        var total=art.offsetHeight-window.innerHeight;
+        var passed=Math.min(Math.max(-r.top,0),total);
+        bar.style.width=(total>0?(passed/total*100):0)+'%';
+      }
+      window.addEventListener('scroll',upd,{passive:true});
+      window.addEventListener('resize',upd,{passive:true});
+      upd();
+    })();
+    </script>
+    <script>
+    (function(){
+      var toc=document.querySelector('.blog-toc');
+      if(!toc)return;
+      var links=[].slice.call(toc.querySelectorAll('a[href^="#"]'));
+      if(!links.length)return;
+      var map={};
+      var targets=links.map(function(l){
+        var id=l.getAttribute('href').slice(1);
+        var el=document.getElementById(id);
+        if(el)map[id]=l;
+        return el;
+      }).filter(Boolean);
+      if(!targets.length)return;
+      var current=null;
+      function setActive(id){
+        if(current===id)return;
+        current=id;
+        links.forEach(function(l){l.classList.remove('active');});
+        if(map[id])map[id].classList.add('active');
+      }
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if(e.isIntersecting)setActive(e.target.id);
+        });
+      },{rootMargin:'-20% 0px -70% 0px',threshold:0});
+      targets.forEach(function(t){obs.observe(t);});
+    })();
+    </script>
+</body>
+</html>

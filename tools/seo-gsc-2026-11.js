@@ -137,6 +137,55 @@ const PAGES = {
       [row('it-infrastruktura', 'Настройка серверов, копий и доступа'), row('podderzhka', 'Поддержка'), row('razrabotka-po-chasam', 'Разовая задача')],
       `Услуга: ${a('/services/devops/', 'DevOps')}.`),
   },
+  // --- Этап D: готовые статьи по темам «боль, потом решение» -------------
+  'wb-fbs-s-1-oktyabrya-sposob-otgruzki-nakladnaya-oshibka-409-2026': {
+    leadHtml: () => block(
+      'Если поставка FBS не уходит в доставку с ошибкой 409, первым делом проверьте, переданы ли способ, дата и точка отгрузки, а для транспортной компании ещё идентификатор электронной накладной.',
+      [row('razrabotka-po-chasam', 'Поправить ваш скрипт или обработку'), row('1s-i-marketpleysy', 'Связка 1С с маркетплейсами')],
+      `Пришлите текст ответа API без ключей: ${a('https://t.me/chimitdorzhi', 'Telegram')}.`),
+  },
+  'bot-perestal-otvechat-diagnostika-15-minut-2026': {
+    leadHtml: () => block(
+      'Если проверки не помогли или бот падает снова, найду причину по журналам и поставлю наблюдение, чтобы о молчании узнавать раньше клиентов.',
+      [row('razrabotka-po-chasam', 'Найти и починить'), row('podderzhka', 'Поддержка с наблюдением')],
+      `Подробнее: ${a('/predlozheniya/monitoring-bitriks24-i-serverov/', 'мониторинг с сообщениями в Telegram')}.`),
+  },
+  'chaevye-po-qr-v-kafe-i-restorane-2026': {
+    leadHtml: () => block(
+      'Свою страницу чаевых с личными кодами сотрудников и правилом дележа на кухню делаю под ваше заведение.',
+      [row('chaevye-po-qr')],
+      `Что входит: ${a('/services/qr-tips/', 'чаевые по QR под ключ')}.`),
+  },
+  'skolko-stoyat-tokeny-ii-agenta-2026': {
+    leadHtml: () => block(
+      'Расход на модель я ставлю в смету отдельной строкой и ограничиваю лимитом, чтобы сумма за месяц не стала сюрпризом.',
+      [row('ii-agent'), row('ii-konsultant')],
+      `Подробнее: ${a('/predlozheniya/ii-agent-dlya-biznesa-kabinet/', 'ИИ-агент с кабинетом и лимитами')}.`),
+  },
+  'razrabotchik-propal-zabrat-sayt-2026': {
+    leadHtml: () => block(
+      'Если разбираться некогда, проверю, что на кого записано, составлю порядок возврата и перенесу сайт под ваши аккаунты.',
+      [row('tehnicheskiy-audit', 'Разбор доступов и план'), row('perenos-sayta-s-konstruktora', 'Перенос сайта')],
+      `Подробнее: ${a('/predlozheniya/zabrat-sayt-i-domen-u-podryadchika/', 'вернуть сайт и домен')}.`),
+  },
+  'kak-otkryt-punkt-vydachi-zakazov-marketpleysa-s-nulya-2026': {
+    leadHtml: () => block(
+      'Если помимо пункта маркетплейса вы принимаете свои заказы или совместные закупки, учёт и выдачу можно собрать в одно приложение.',
+      [row('pwa-prilozhenie', 'Приложение заказов и выдачи'), row('moysklad-evotor-i-drugie-uchetnye-sistemy', 'Связка с МойСклад или кассой')],
+      `Подробнее: ${a('/predlozheniya/sistema-sovmestnyh-zakupok-i-pvz/', 'система для закупок и пунктов выдачи')}.`),
+  },
+  'onlayn-zapis-na-sayte-vidzhet-yclients-ili-svoya-forma-2026': {
+    leadHtml: () => block(
+      'Если нужна своя запись без помесячной подписки, делаю её под ваш порядок: услуги, мастера, предоплата, напоминания.',
+      [row('onlayn-zapis-i-bronirovanie')],
+      `Подробнее: ${a('/predlozheniya/zapis-salon-krasoty/', 'своя онлайн-запись без абонентки')}.`),
+  },
+  'push-uvedomleniya-sayta-kak-rabotayut-ogranicheniya-2026': {
+    leadHtml: () => block(
+      'Чтобы сделать push на своём сайте, нужны HTTPS, service worker, ключи VAPID и согласие посетителя. Настраиваю это вместе с приложением или добавляю к готовому сайту.',
+      [row('razrabotka-po-chasam', 'Добавить push на готовый сайт'), row('pwa-prilozhenie', 'Приложение с push')],
+      `Услуга: ${a('/development/pwa/', 'PWA-приложения')}.`),
+  },
 };
 
 module.exports = {
