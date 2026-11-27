@@ -1,5 +1,11 @@
 // Подписи раздела /ii-modeli/ на двух языках. Данные моделей — в models-data.js,
 // английские тексты моделей — в поле `en` каждой записи.
+// Заголовок страницы модели не длиннее 70 знаков: берём самый полный хвост, который помещается.
+const fitTitle = (n, tails) => {
+  const t = tails.find((x) => `${n}: ${x}`.length <= 70);
+  return t ? `${n}: ${t}` : n;
+};
+
 const MOD = {
   text:       { icon: 'chat-text',        ru: 'Текст',                      en: 'Text' },
   code:       { icon: 'code',             ru: 'Код',                        en: 'Code' },
@@ -174,7 +180,7 @@ const T = {
     sideTitle: (n) => `Внедрение ${n} под ключ`, sideList: ['Данные остаются у вас', 'Без оплаты за каждый запрос', 'Дообучение на ваших документах', 'Интеграция с вашими системами'],
     sideBtn: 'Обсудить задачу', allModels: 'Все модели',
     source: 'Источник', checked: (d) => `Данные сверены с карточкой модели ${d}. Лицензию перед коммерческим запуском проверьте с юристом.`,
-    detailTitle: (n) => `${n}: задачи, требования к железу и лицензия — открытая ИИ-модель`,
+    detailTitle: (n) => fitTitle(n, ['задачи, требования к железу и лицензия, открытая ИИ-модель', 'задачи, требования к железу и лицензия', 'требования к железу и лицензия', 'железо и лицензия']),
     detailDesc: (n, dev, s) => `${n} от ${dev}: ${s}`,
     catTitle: 'Открытые ИИ-модели 2022–2026: энциклопедия — задачи, железо, лицензии',
     catDesc: 'Каталог открытых ИИ-моделей: текст, код, картинки, видео, речь, 3D. По каждой — задачи, где применяется, требования к железу и лицензия. Установка на ваш сервер.',
@@ -288,9 +294,9 @@ const T = {
     sideTitle: (n) => `Turnkey ${n} deployment`, sideList: ['Your data stays with you', 'No per-request fees', 'Fine-tuning on your documents', 'Integration with your systems'],
     sideBtn: 'Discuss your task', allModels: 'All models',
     source: 'Source', checked: (d) => `Data checked against the model card on ${d}. Have a lawyer review the license before commercial launch.`,
-    detailTitle: (n) => `${n}: tasks, hardware requirements and license — open AI model`,
+    detailTitle: (n) => fitTitle(n, ['tasks, hardware requirements and license, open AI model', 'tasks, hardware requirements, license', 'hardware requirements and license', 'specs and license']),
     detailDesc: (n, dev, s) => `${n} by ${dev}: ${s}`,
-    catTitle: 'Open-weight AI models 2022–2026: encyclopedia — tasks, hardware, licenses',
+    catTitle: 'Open-weight AI models 2022-2026: tasks, hardware, licenses',
     catDesc: 'Catalog of open-weight AI models: text, code, images, video, speech, 3D. For each — tasks, use cases, hardware requirements and license. Deployment on your server.',
     catLd: 'Encyclopedia of open-weight AI models',
     altGroupH: 'Open alternatives to popular services', altPicksH: 'What to use instead', otherAlt: 'Other alternatives', altLabel: 'ALTERNATIVE',
